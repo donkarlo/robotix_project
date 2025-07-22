@@ -1,3 +1,3 @@
-class Command:
+class TimedFullPose(Goal):
     def __init__(self):
         pass

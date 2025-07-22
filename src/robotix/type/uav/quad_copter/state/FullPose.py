@@ -1,12 +1,13 @@
 from mathx.linalg.matrix.vec.col_vec import ColVec
 from mathx.linalg.matrix.vec.position.three_d_col_vec import ThreeDColVec
-from src.robotix.State import State
+from robotix.state_est.state import State
 
 
-class PosRollPitchYaw(State):
-    def __init__(self, pos:ThreeDColVec, roll:float, pitch:float, yaw:float):
+class FullPose(State):
+    def __init__(self, pos:ThreeDColVec, height:height, roll:float, pitch:float, yaw:float):
         '''
-
+        Fill in with best estimation which is done out of here.
+        it is not a place for estimation. it is just to hold separated data.
         Args:
             pos:
             roll: radian
