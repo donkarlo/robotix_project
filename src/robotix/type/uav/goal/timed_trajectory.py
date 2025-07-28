@@ -1,5 +1,4 @@
-from robotix.state_est.state import State
-from robotix.type.uav.timed_full_pose import TimedFullPose
+from robotix.type.uav.goal.timed_full_pose import TimedFullPose
 
 
 class TimedTrajectory(Goal):
