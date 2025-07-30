@@ -1,6 +1,6 @@
 from mathx.unit.united_scalar_val import UnitedScalar
 from robotix.goal.goal import Goal
-from robotix.state_est.state import State
+from robotix.estimation.state import State
 
 
 class TimedGoal(Goal):
