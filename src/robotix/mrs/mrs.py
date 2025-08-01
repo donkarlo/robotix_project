@@ -1,7 +1,9 @@
+from abc import abstractmethod
+
 from src.robotix.robot import Robot
 
 
-class Mrs:
+class Mrs(ABC):
     '''A set of robots whose states are inter related through commands'''
     def __init__(self, robot_members:set[Robot]):
         self._robots_members = robot_members
@@ -12,3 +14,11 @@ class Mrs:
 
     def get_robots_members(self)->list[Robot,...]:
         return self._robots_members
+
+    @abstractmethod
+    def achieve_goal(self):
+        pass
+
+    @abstractmethod
+    def on_sensor_obs(self, robot:Robot, sensor)->None:
+        pass

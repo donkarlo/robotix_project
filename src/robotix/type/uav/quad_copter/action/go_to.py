@@ -1,6 +1,7 @@
-from mathx.linalg.matrix.vec.col_vec import ColVec
-from robotix.type.uav.quad_copter.action import Cmd
+from robotix.type.uav.quad_copter.action.action import Action
+from robotix.type.uav.quad_copter.state.full_pose import FullPose
 
-class GoTo(Cmd):
-    def __init__(self, pos:ColVec):
+
+class GoTo(Action):
+    def __init__(self, full_pose:FullPose) -> None:
         self._pos = pos

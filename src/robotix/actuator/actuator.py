@@ -1,6 +1,6 @@
 class Actuator:
-    def __init__(self, valid_cmds:tuple[Cmd,...]):
+    def __init__(self, valid_commands:tuple[Command,...]):
         pass
 
-    def run_cmd(self, cmd:Cmd):
+    def run_command(self, command:Command):
         pass

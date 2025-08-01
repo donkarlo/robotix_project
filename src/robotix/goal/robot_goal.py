@@ -4,4 +4,5 @@ from robotix.robot import Robot
 
 class RobotGoal:
     def __init__(self, robot:Robot, goal:Goal):
-        pass
+        self.__robot = robot
+        self.__goal = goal

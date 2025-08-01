@@ -6,30 +6,63 @@ from abc import ABC, abstractmethod
 
 from robotix.action.action_set import ActionSet
 from robotix.goal.goal import Goal
+from robotix.memory.memory import Memory
 
 
-class Robot(ABC):
-    def __init__(self, action_set:ActionSet, actuator_set:ActuatorSet, sensor_set:SensorSet):
+class Robot(ABC, SensorSet):
+    """
+    A robot is a sensor set
+    """
+    def __init__(self, action_set:ActionSet, sensor_set:SensorSet , memory:Memory=None) -> None:
         '''
 
         Args:
             action_set: Set of commands that are valid for a robot
-            actuator_set:
             sensor_set:
         '''
-        self._sensor_set = sensor_set
-        self._actuator_set = actuator_set
-        self._action_set = action_set
+        self.__sensor_set = sensor_set
+        self.__action_set = action_set
+        self.__memory = memory
+
+    def build_from_urdf(self, urdf:str):
+        """
+        URDF to build a robot
+        Args:
+            urdf:
+
+        Returns:
+
+        """
+        pass
+
+    def run_action(self, action:Action):
+        self.__memory.memorize()
+
+
+    def achieve_goal(self, goal:Goal) -> None:
+        self.__memory.memorize()
 
     @abstractmethod
-    def run_command(self, cmd:Action):
+    def on_action_start(self):
         pass
 
     @abstractmethod
-    def achieve_goal(self, goal:Goal, sensor_set_to_record:SensorSet|bool|None=None) -> None:
-        record = True
-        if sensor_set_to_record == None:
-            record = False
-        if sensor_set_to_record == True:
-            sensor_set_to_record = None
+    def on_action_end(self):
+        pass
+
+    @abstractmethod
+    def on_goal_achieve_start(self):
+        pass
+
+    @abstractmethod
+    def on_goal_achieve_end(self):
+        pass
+
+    @abstractmethod
+    def on_sensor_obs(self):
+        pass
+
+
+
+
 
