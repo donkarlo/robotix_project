@@ -6,7 +6,7 @@ from robotix.goal.robot_goal import RobotGoal
 
 class Goal:
     '''
-    A action is formed of several states for example for a quad it can be 3d position, pitch, yaw role
+    it is formed of several states for example for a quad it can be 3d position, pitch, yaw role
     This is a single action
     '''
     def __init__(self, states_list:Tuple[State,...]

@@ -3,9 +3,10 @@ from robotix.memory.conf.conf import Conf
 from robotix.memory.memorizing import Memorizing
 from robotix.memory.provoker import Provoker
 from utilityx.data.source.source import Source
+from robotix.memory.memorizing import Memory as MemoryBase
 
 
-class Memory(ABC):
+class Memory(MemoryBase):
     def __init__(self, source:Source, memorizing:Memorizing, remembering:Remebering):
         """
         In this method, I mean "all" method all the sensors etc are saved

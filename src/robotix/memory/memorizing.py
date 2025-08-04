@@ -1,4 +1,4 @@
-from robotix.memory.piece import Piece
+from robotix.memory.storage import Storage
 
 
 class Memorizing:
@@ -8,7 +8,13 @@ class Memorizing:
     def __init__(self, source:Source):
         pass
 
-    def memorize(self)->bool:
-        """"""
+    def memorize(self, episodes:List[Episode,...])->bool:
+        """
+        What entities exist to memorize
+
+        """
+        pass
+
+    def set_storage(self, storage:Storage):
         pass
 

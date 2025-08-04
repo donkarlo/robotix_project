@@ -1,7 +1,8 @@
-from robotix.memory.piece import Piece
+from robotix.memory.provoker import Provoker
+from robotix.memory.memorizing import Memorizing as MemorizingBase
 
 
-class Memorizing:
+class Memorizing(MemorizingBase):
     """
     - The storage place will be detrmined
     """
