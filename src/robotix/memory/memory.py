@@ -1,11 +1,9 @@
-from abc import ABC, abstractmethod
-from robotix.memory.conf.conf import Conf
 from robotix.memory.memorizing import Memorizing
-from robotix.memory.provoker import Provoker
+from robotix.memory.remembering import Remembering
 
 
-class Memory(ABC):
-    def __init__(self, memorizing:Memorizing, membering:Remembering, storage:Storage):
+class Memory:
+    def __init__(self, memorizing:Memorizing, remembering:Remembering, storage:Storage):
         """
         coupling memorizing, remebering and storing
         Args:

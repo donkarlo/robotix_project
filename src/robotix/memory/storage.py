@@ -6,7 +6,7 @@ class Storage(Source):
         pass
 
     @abstractmethod
-    def save(self):
+    def save_by_unit(self):
         pass
 
     @abstractmethod

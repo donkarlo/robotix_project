@@ -1,4 +1,11 @@
+from typing import Tuple
+
+from mathx.physics.unit.unit import Unit
 from sensorx.obs.sensor_set_obss import SensorSetObss
+
+from robotix.action.action import Action
+from robotix.actuator.command.command import Command
+from robotix.goal.goal import Goal
 
 
 class SensoriMotor(Unit):
@@ -10,4 +17,5 @@ class SensoriMotor(Unit):
         self._goal = goal
         self._action = action
         self._prv_obss = prv_obss
+        self._commands = commands
         self._next_obss = next_obss
