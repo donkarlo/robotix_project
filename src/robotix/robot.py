@@ -5,7 +5,7 @@ from robotix.action.action import Action
 from abc import ABC, abstractmethod
 
 from robotix.action.action_set import ActionSet
-from robotix.goal.goal import Goal
+from robotix.goal.basic import Basic
 from robotix.memory.memory import Memory
 
 
@@ -39,7 +39,7 @@ class Robot(ABC, SensorSet):
         self.__memory.memorize()
 
 
-    def achieve_goal(self, goal:Goal) -> None:
+    def achieve_goal(self, goal:Basic) -> None:
         self.__memory.memorize()
 
     @abstractmethod

@@ -1,6 +1,6 @@
-from robotix.goal.goal import Goal
+from robotix.goal.basic import Basic
 
 
-class TimedFullPose(Goal):
+class TimedFullPose(Basic):
     def __init__(self):
         pass

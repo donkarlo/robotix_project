@@ -2,7 +2,7 @@ from abc import abstractmethod
 
 from sensorx.sensor_set import SensorSet
 
-from robotix.goal.goal import Goal
+from robotix.goal.basic import Basic
 class Remembering:
     """
     This class abstracts a strategy for remebering
@@ -14,7 +14,7 @@ class Remembering:
         pass
 
     @abstractmethod
-    def remember(self, goal:Goal, sensor_set:SensorSet)->Provoker:
+    def remember(self, goal:Basic, sensor_set:SensorSet)->Provoker:
         pass
 
     def load(self):

@@ -2,17 +2,17 @@ from abc import abstractmethod, ABC
 from typing import Tuple
 
 from robotix.environment.environment import Environment
-from robotix.goal.goal import Goal
+from robotix.goal.basic import Basic
 from robotix.robot import Robot
 class Scenario(ABC):
     """
     Scenario is more than a robot and its goals
     For ecxample it might include the environment state such as walls
     """
-    def __init__(self, robot:Robot, goals:Tuple[Goal,...], environment:Environment):
-        self.__robot = robot
-        self.__goals = goals
-        self.__environment = environment
+    def __init__(self, robot:Robot, goals:Tuple[Basic,...], environment:Environment):
+        self._robot = robot
+        self._goals = goals
+        self._environment = environment
 
     @abstractmethod
     def run(self) -> None:
@@ -22,4 +22,8 @@ class Scenario(ABC):
         - equally you can run
         Returns:
         """
+        pass
+
+    @abstractmethod
+    def learn(self):
         pass

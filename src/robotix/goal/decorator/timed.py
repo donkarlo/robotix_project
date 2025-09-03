@@ -1,5 +1,5 @@
 from robotix.goal.decorator.decorator import Decorator
 
 
-class Log(Decorator):
+class Timed(Decorator):
     pass

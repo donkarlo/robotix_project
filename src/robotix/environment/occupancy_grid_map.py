@@ -1,0 +1,2 @@
+class OccupancyGridMap:
+    pass
