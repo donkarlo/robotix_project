@@ -1,5 +1,4 @@
-from robotix.memory.provoker import Provoker
-from robotix.memory.memorizing import Memorizing as MemorizingBase
+from robotix.mind.memory.memorizing import Memorizing as MemorizingBase
 
 
 class Memorizing(MemorizingBase):

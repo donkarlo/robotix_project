@@ -1,5 +1,0 @@
-from robotix.goal.decorator.decorator import Decorator
-
-
-class Log(Decorator):
-    pass

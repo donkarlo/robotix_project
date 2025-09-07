@@ -1,4 +1,4 @@
-from robotix.action.action import Action
+from robotix.spa.action.action import Action
 from robotix.robot import Robot
 
 

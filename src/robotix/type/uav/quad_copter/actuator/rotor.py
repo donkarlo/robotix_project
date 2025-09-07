@@ -1,4 +1,4 @@
-from robotix.actuator.actuator import Actuator
+from robotix.spa.action.actuator.actuator import Actuator
 from robotix.type.uav.quad_copter.actuator.rotor_position import RotorPosition
 
 

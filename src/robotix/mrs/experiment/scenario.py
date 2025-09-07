@@ -1,6 +1,6 @@
 from typing import List
-from robotix.goal.robot_goal import RobotGoal
-from robotix.sensor.robot_sensor import RobotSensor
+from robotix.spa.plan.goal.robot_goal import RobotGoal
+from robotix.spa.sense.sensor.robot_sensor import RobotSensor
 
 
 class Scenario:

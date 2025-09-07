@@ -13,3 +13,7 @@ class Language:
         # first get words
         # then try to build words
         pass
+
+    def anomaly(self):
+        pass
+

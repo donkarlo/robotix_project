@@ -1,7 +1,7 @@
 from abc import abstractmethod
-from robotix.memory.provoker import Provoker
+from robotix.mind.memory.provoker import Provoker
 from utilityx.data.source.source import Source
-from robotix.memory.remembering import Remembering as RememberingBase
+from robotix.mind.memory.remembering import Remembering as RememberingBase
 
 
 class Remembering(RememberingBase):

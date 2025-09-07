@@ -1,12 +1,11 @@
 from sensorx.sensor_set import SensorSet
 
-from robotix.actuator.actuator_set import ActuatorSet
-from robotix.action.action import Action
+from robotix.spa.action.action import Action
 from abc import ABC, abstractmethod
 
-from robotix.action.action_set import ActionSet
-from robotix.goal.basic import Basic
-from robotix.memory.memory import Memory
+from robotix.spa.action.action_set import ActionSet
+from robotix.spa.plan.goal.goal import Goal
+from robotix.mind.memory.memory import Memory
 
 
 class Robot(ABC, SensorSet):
@@ -20,9 +19,9 @@ class Robot(ABC, SensorSet):
             action_set: Set of commands that are valid for a robot
             sensor_set:
         '''
-        self.__sensor_set = sensor_set
-        self.__action_set = action_set
-        self.__memory = memory
+        self._sensor_set = sensor_set
+        self._action_set = action_set
+        self._memory = memory
 
     def build_from_urdf(self, urdf:str):
         """
@@ -36,11 +35,11 @@ class Robot(ABC, SensorSet):
         pass
 
     def run_action(self, action:Action):
-        self.__memory.memorize()
+        self._memory.memorize()
 
 
-    def achieve_goal(self, goal:Basic) -> None:
-        self.__memory.memorize()
+    def achieve_goal(self, goal:Goal) -> None:
+        self._memory.memorize()
 
     @abstractmethod
     def on_action_start(self):

@@ -1,9 +1,7 @@
-from abc import ABC, abstractmethod
 from robotix.memory.conf.conf import Conf
-from robotix.memory.memorizing import Memorizing
-from robotix.memory.provoker import Provoker
+from robotix.mind.memory.memorizing import Memorizing
 from utilityx.data.source.source import Source
-from robotix.memory.memorizing import Memory as MemoryBase
+from robotix.mind.memory.memorizing import Memory as MemoryBase
 
 
 class Memory(MemoryBase):
