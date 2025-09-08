@@ -9,9 +9,8 @@ class Scenario(ABC):
     Scenario is more than a robot and its goals
     For ecxample it might include the environment goal_state such as walls
     """
-    def __init__(self, robot:Robot, goals:Tuple[Goal,...], environment:Environment):
+    def __init__(self, robot:Robot, environment:Environment):
         self._robot = robot
-        self._goals = goals
         self._environment = environment
 
     @abstractmethod
@@ -25,5 +24,6 @@ class Scenario(ABC):
         pass
 
     @abstractmethod
-    def learn(self, sensor_set_obss):
+    def learn(self, sensor_set_obss)->None:
+        """It can be offline or online"""
         pass

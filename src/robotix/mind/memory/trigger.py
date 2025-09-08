@@ -1,4 +1,4 @@
-class Provoker:
+class Trigger:
     """
     - A sub sequence of sensor-action-commands-time
     from a clustering approach that has a specific meaning

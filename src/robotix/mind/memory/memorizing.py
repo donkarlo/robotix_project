@@ -13,7 +13,7 @@ class Memorizing:
         What entities exist to memorize
 
         """
-        pass
+        return False
 
     def set_storage(self, storage:Storage):
         pass
