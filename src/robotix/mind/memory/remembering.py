@@ -14,7 +14,7 @@ class Remembering:
         pass
 
     @abstractmethod
-    def remember(self, goal:Goal, sensor_set:SensorSet):
+    def remember(self, goal:Goal, sensor_set:SensorSet)->None:
         pass
 
     def load(self):

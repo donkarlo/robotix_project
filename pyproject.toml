@@ -20,13 +20,23 @@ dev = [
 
 [tool.mypy]
 python_version = "3.13"
-disallow_incomplete_defs = True
-disallow_untyped_defs = False
+
+# force type hints for args + return types everywhere
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+# allow missing type stubs from external libs
 ignore_missing_imports = true
+
+# project layout
 mypy_path = ["./src"]
 namespace_packages = true
 explicit_package_bases = true
+
+# only check these
 files = ["roboticx", "tests"]
+
+# exclude pytest conftest files
 exclude = '(^|/)conftest\.py$'
 
 [tool.setuptools]

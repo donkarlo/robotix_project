@@ -9,5 +9,10 @@ class Experiment:
         self._testing_scenarios = test_scenarios
         self._learning_scenarios = learning_scenarios
 
-    def learn(self)->None:
-        self._learning_scenarios.learn()
+    def run(self)->None:
+        for learning_scenario in self._learning_scenarios:
+            learning_scenario.learn()
+
+        for testing_scenario in self._testing_scenarios:
+            testing_scenario.test()
+

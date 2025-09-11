@@ -9,21 +9,29 @@ class Scenario(ABC):
     Scenario is more than a robot and its goals
     For ecxample it might include the environment goal_state such as walls
     """
-    def __init__(self, robot:Robot, environment:Environment):
+    def __init__(self, robot:Robot, goal:Goal, environment:Environment):
+        """
+
+        :param robot:
+        :param goal: Maybe it is a composite and decorated goal, that is a sequence of timed goalsarer
+        :param environment:
+        """
         self._robot = robot
+        self._goal = goal
         self._environment = environment
 
-    @abstractmethod
-    def run(self) -> None:
-        """
-        - For example find the leader Robot in an MRS and run it
-        - Or run the first goal and then nexts sequentially
-        - equally you can run
-        Returns:
-        """
-        pass
+
+
+    def run(self)->None:
+        for goal in self._goal:
+            self._robot.achieve_goal(goal)
+
+    def learn(self)->None:
+        learning_data = None
+        if learning_data:
+            self.run()
+
 
     @abstractmethod
-    def learn(self, sensor_set_obss)->None:
-        """It can be offline or online"""
+    def do_learn(self)->None:
         pass
