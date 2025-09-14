@@ -1,0 +1,10 @@
+#any changes in sensors etc must come with
+tarrot_t650:
+  id:
+    num: 1
+    name: tarot_t650
+  type:
+    id:
+      name: quadcopter
+  sensors:
+    type_ids: [ 1,2 ]

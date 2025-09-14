@@ -1,0 +1,51 @@
+time:
+  units:
+    millisecond:
+      id:
+        num: 1
+        name: millisecond
+        short: ms
+    second:
+      id:
+        num: 2
+        name: second
+        short: s
+    minute:
+      id:
+        num: 3
+        name: minute
+        short: m
+    hour:
+      id:
+        num: 4
+        name: hour
+        short: h
+distance:
+  units:
+    millimeter:
+      id:
+        num: 1
+        name: millimeter
+        short: mm
+    centimeter:
+      id:
+        num: 2
+        name: centimeter
+        short: cm
+    meter:
+      id:
+        num: 3
+        name: meter
+        short: m
+    kilometer:
+      id:
+        num: 4
+        name: kilometer
+        short: km
+frequency:
+  units:
+    hertz:
+      id:
+        num: 1
+        name: herz
+        short: hz

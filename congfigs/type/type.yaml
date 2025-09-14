@@ -1,0 +1,4 @@
+quadcopter:
+  id:
+    num: 1
+    name: quadcopter

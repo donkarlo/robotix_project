@@ -164,7 +164,7 @@ def printMsgsInBagFile(args):
     # Establish counters to keep track of the message number being received under each topic name
     msg_counters = {} # empty dict
     total_count = 0
-    bag_in = rosbag.Bag(args.bag_file_in)
+    bag_in = rosbag.TopicFrequencyFinder(args.bag_file_in)
     for topic, msg, t in bag_in.read_messages(args.topics_to_read):
         print("\n# =======================================")
         total_count += 1
