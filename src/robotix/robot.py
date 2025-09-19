@@ -11,7 +11,7 @@ class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, sensor_set:SensorSet , mind:Mind , id:Optional[int,str]=None) -> None:
+    def __init__(self, sensor_set:SensorSet , mind:Mind , id:Optional[str]=None) -> None:
         """
 
         :param sensor_set:

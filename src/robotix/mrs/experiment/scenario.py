@@ -1,16 +1,17 @@
 from typing import List
 from robotix.spa.plan.goal.robot_goal import RobotGoal
 from robotix.spa.sense.sensor.robot_sensor import RobotSensor
+from robotix.experiment.scenario import Scenario
 
 
-class Scenario:
+class Scenario(SingleRobotScenario):
     def __init__(self, robots_goals:List[RobotGoal,...]):
         self.__robots_goals = robots_goals
 
     def learn(self)->None:
         pass
 
-    def achieve_goals(self, robots_sensors_to_save:List[RobotSensor,...]=None) -> bool:
+    def run(self, robots_sensors_to_save:List[RobotSensor,...]=None) -> bool:
         """"
 
         Args:

@@ -1,9 +1,11 @@
 from utilityx.conf.conf import Conf
 
 
-class Environment:
+class World:
     """
-    The environment is just for assessment as the exact location of obstacles such as walls are determined
+    - The world is just for assessment as the exact location of obstacles such as walls are determined
+    - world has the location of the obstacles in it
+    - en
     """
     def __init__(self):
         pass

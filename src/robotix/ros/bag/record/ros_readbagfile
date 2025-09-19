@@ -5,7 +5,7 @@
 #   OR:
 #       #!/usr/local/bin/python3
 #
-# Run `which python3` to see which Python 3 binary executable your system's environment is
+# Run `which python3` to see which Python 3 binary executable your system's world is
 # configured to use by default.
 #
 # See also:

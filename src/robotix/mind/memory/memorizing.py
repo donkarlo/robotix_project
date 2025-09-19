@@ -1,4 +1,4 @@
-from robotix.mind.memory.storage import Storage
+from robotix.mind.memory.storage.storage import Storage
 
 
 class Memorizing:

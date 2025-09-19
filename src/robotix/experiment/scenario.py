@@ -7,18 +7,18 @@ from robotix.robot import Robot
 class Scenario(ABC):
     """
     Scenario is more than a robot and its goals
-    For ecxample it might include the environment goal_state such as walls
+    For ecxample it might include the world goal_state such as walls
     """
-    def __init__(self, robot:Robot, goal:Goal, environment:Environment):
+    def __init__(self, robot:Robot, goal:Goal, world:World):
         """
 
         :param robot:
         :param goal: Maybe it is a composite and decorated goal, that is a sequence of timed goalsarer
-        :param environment:
+        :param world:
         """
         self._robot = robot
         self._goal = goal
-        self._environment = environment
+        self._world = world
 
 
 

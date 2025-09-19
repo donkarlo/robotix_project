@@ -5,9 +5,9 @@ from robotix.spa.plan.goal.goal import Goal
 from src.robotix.robot import Robot
 
 
-class Mrs(ABC):
+class Group(ABC):
     '''A set of robots whose states are inter related through commands'''
-    def __init__(self, robot_members:set[Robot]):
+    def __init__(self, robot_members:List[Robot]):
         self._members = robot_members
 
     def add_robot(self, robot:Robot)->None:
@@ -17,10 +17,5 @@ class Mrs(ABC):
     def get_members(self)->List[Robot]:
         return self._members
 
-    def achieve_goal(self, robot:Robot, goal:Goal):
-        robot.achieve_goal(goal)
-
-
-    @abstractmethod
-    def on_sensor_obs(self, robot:Robot, sensor)->None:
-        pass
+    def achieve_goal(self, robot:Robot, goal:Goal)->bool:
+        return robot.achieve_goal(goal)
