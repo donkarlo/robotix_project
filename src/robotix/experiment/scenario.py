@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABC
 from typing import Tuple
 
-from robotix.environment.environment import Environment
+from robotix.world.world import World
 from robotix.spa.plan.goal.goal import Goal
 from robotix.robot import Robot
 class Scenario(ABC):
@@ -20,18 +20,19 @@ class Scenario(ABC):
         self._goal = goal
         self._world = world
 
-
+        # run
 
     def run(self)->None:
-        for goal in self._goal:
-            self._robot.achieve_goal(goal)
+        self._robot.achieve_goal(self._goal)
 
-    def learn(self)->None:
-        learning_data = None
-        if learning_data:
-            self.run()
+    def learn(self):
+        self._robot.learn()
 
+    def get_world(self)->World:
+        return self._world
 
-    @abstractmethod
-    def do_learn(self)->None:
-        pass
+    def get_goal(self)->Goal:
+        return self._goal
+
+    def get_robot(self)->Robot:
+        return self._robot

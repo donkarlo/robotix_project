@@ -14,9 +14,10 @@ class Robot(ABC):
     def __init__(self, sensor_set:SensorSet , mind:Mind , id:Optional[str]=None) -> None:
         """
 
-        :param sensor_set:
-        :param mind:
-        :param id:
+        Args:
+            sensor_set:
+            mind:
+            id:
         """
         self._sensor_set = sensor_set
         self._mind:Mind = mind
@@ -41,6 +42,14 @@ class Robot(ABC):
     @abstractmethod
     def on_sensor_obs(self):
         pass
+
+    @abstractmethod
+    def on_goal_change(self):
+        pass
+
+    @abstractmethod
+    def learn(self):
+        self._mind.learn()
 
 
 

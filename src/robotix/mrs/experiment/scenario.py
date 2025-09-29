@@ -5,13 +5,13 @@ from robotix.experiment.scenario import Scenario
 
 
 class Scenario(SingleRobotScenario):
-    def __init__(self, robots_goals:List[RobotGoal,...]):
+    def __init__(self, robots_goals:Optional[List[RobotGoal]]=None, world:Optional[World]=None):
         self.__robots_goals = robots_goals
 
     def learn(self)->None:
         pass
 
-    def run(self, robots_sensors_to_save:List[RobotSensor,...]=None) -> bool:
+    def run(self, robots_sensors_to_save:List[RobotSensor]=None) -> bool:
         """"
 
         Args:
