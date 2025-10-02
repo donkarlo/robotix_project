@@ -7,7 +7,7 @@ class Rotor(Actuator):
         self._rotation_speed = 0.0
         self.__rotor_position = position
 
-    def set_rotation_speed(self, rotation_speed:float):
+    def set_rotation_speed(self, rotation_speed:float)->None:
         self._rotation_speed = rotation_speed
 
     def stop(self)->None:

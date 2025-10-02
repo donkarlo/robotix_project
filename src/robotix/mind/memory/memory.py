@@ -1,5 +1,6 @@
 from robotix.mind.memory.memorizing import Memorizing
 from robotix.mind.memory.remembering import Remembering
+from robotix.mind.memory.storage.storage import Storage
 
 
 class Memory:
@@ -9,9 +10,9 @@ class Memory:
         Args:
 
         """
-        self._storage = storage
         self._memorizing = memorizing
         self._remembering = remembering
+        self._storage = storage
 
         self.__set_storage()
 
@@ -19,7 +20,11 @@ class Memory:
     def get_memorizing(self)->Memorizing:
         return self._memorizing
 
-    def __set_storage(self)->bool:
+    def __set_storage(self)->None:
+        """
+
+        Returns:
+
+        """
         self._memorizing.set_storage(self._storage)
         self._remembering.set_storage(self._storage)
-        return True

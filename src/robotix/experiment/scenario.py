@@ -1,15 +1,19 @@
-from abc import abstractmethod, ABC
-from typing import Tuple
+from typing import Optional
 
-from robotix.world.world import World
+from abc import ABC
+
+from robotix.spa.plan.plan import Plan
 from robotix.spa.plan.goal.goal import Goal
 from robotix.robot import Robot
+from physix.world.world import World
+
+
 class Scenario(ABC):
     """
     Scenario is more than a robot and its goals
     For ecxample it might include the world goal_state such as walls
     """
-    def __init__(self, robot:Robot, goal:Goal, world:World):
+    def __init__(self, robot:Robot, goal:Goal, world:World, plan:Optional[Plan]=None):
         """
 
         :param robot:
@@ -19,6 +23,7 @@ class Scenario(ABC):
         self._robot = robot
         self._goal = goal
         self._world = world
+        self._plan = plan
 
         # run
 
@@ -36,3 +41,6 @@ class Scenario(ABC):
 
     def get_robot(self)->Robot:
         return self._robot
+
+    def get_plan(self)->Plan:
+        return self._plan

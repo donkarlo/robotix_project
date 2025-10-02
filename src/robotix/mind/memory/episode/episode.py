@@ -1,8 +1,7 @@
 from abc import abstractmethod
-from utilityx.data.source.unit import Unit
 
 
-class  Episode(Unit):
+class  Episode:
     """
     Maybe different from Trigger, I should think about it
     - from what an episode must be composed

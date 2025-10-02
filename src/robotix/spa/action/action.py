@@ -7,10 +7,11 @@ class Action(ABC):
     - Action is assessable
     - It is also an abstraction. what we call a verb in NLP
     - MAVLINK defines actions
+    - if an action is breakable to smaller actions then it is actually a Goal
+    - History will be kept in episodes
     """
     def __init__(self):
-        # th
-        self.__command_history = []
+        pass
 
     @abstractmethod
     def run(self):

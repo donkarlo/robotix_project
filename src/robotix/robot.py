@@ -1,9 +1,11 @@
-from typing import Optional
+from typing import Optional, List
 
 from sensorx.sensor_set import SensorSet
 
 from robotix.mind.mind import Mind
 from abc import ABC, abstractmethod
+
+from robotix.spa.action.actuator.actuator import Actuator
 from robotix.spa.plan.goal.goal import Goal
 
 
@@ -11,7 +13,7 @@ class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, sensor_set:SensorSet , mind:Mind , id:Optional[str]=None) -> None:
+    def __init__(self, actuators:List[Actuator], sensor_set:SensorSet, mind:Mind, id:Optional[str]=None) -> None:
         """
 
         Args:
@@ -19,6 +21,7 @@ class Robot(ABC):
             mind:
             id:
         """
+        self._actuators = actuators
         self._sensor_set = sensor_set
         self._mind:Mind = mind
         self._id = id

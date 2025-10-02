@@ -1,7 +1,6 @@
-from mathx.linalg.matrix.vec.col_vec import ColVec
+from mathx.linalg.vec.vec import Vec
 
-
-class State(ColVec):
+class State(Vec):
     '''
     This is a physical goal_state
     '''

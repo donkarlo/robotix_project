@@ -1,3 +1,6 @@
+from robotix.spa.plan.goal.goal import Goal
+
+
 class Spa:
     """
     - Stands for sense-plan-action
