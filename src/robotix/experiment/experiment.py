@@ -4,7 +4,7 @@ from typing import List
 
 class Experiment:
     """
-    We know in a robotic experiment a robot tries to achieve a goal
+    We know in a robotic experiment a robot tries to achieve a mission
     """
 
     def __init__(self, learning_scenarios: List[Scenario], testing_scenarios: List[Scenario]):

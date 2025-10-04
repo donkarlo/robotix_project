@@ -5,8 +5,8 @@ class  Episode:
     """
     Maybe different from Trigger, I should think about it
     - from what an episode must be composed
-        − Goal
-            - action (with feed back)
+        − Mission
+            - act (with feed back)
                 - commands (one time signals to actuators)
             - sensors
     """

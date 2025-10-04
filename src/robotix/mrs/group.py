@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABC
 from typing import List
 
-from robotix.spa.plan.goal.goal import Goal
+from robotix.spa.plan.mission.mission import Mission
 from src.robotix.robot import Robot
 
 
@@ -17,5 +17,5 @@ class Group(ABC):
     def get_members(self)->List[Robot]:
         return self._members
 
-    def achieve_goal(self, robot:Robot, goal:Goal)->bool:
-        return robot.achieve_goal(goal)
+    def achieve_mission(self, robot:Robot, mission:Mission)->bool:
+        return robot.achieve_mission(mission)

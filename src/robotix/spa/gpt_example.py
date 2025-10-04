@@ -9,7 +9,7 @@ from typing import Protocol, runtime_checkable, Sequence, List, Dict, Any, Optio
 # ----------------- PROTOCOLS -----------------
 
 @runtime_checkable
-class GoalProto(Protocol):
+class MissionProto(Protocol):
     """Abstract mission objective."""
 
     @property
@@ -59,7 +59,7 @@ class PlanProto(Protocol):
 class PlannerProto(Protocol):
     """Produces candidate plans and selects one."""
 
-    def propose(self, goal: GoalProto, state: "WorldState") -> List[PlanProto]: ...
+    def propose(self, mission: MissionProto, state: "WorldState") -> List[PlanProto]: ...
 
     def score(self, plan: PlanProto, state: "WorldState") -> float: ...
 
@@ -81,7 +81,7 @@ class WorldState:
 # ----------------- GOALS (explicit inheritance) -----------------
 
 @dataclass(frozen=True)
-class DeliverGoal(GoalProto):
+class DeliverMission(MissionProto):
     """Deliver a payload to a dock."""
     dock_id: str
     payload_id: str = "default"
@@ -118,7 +118,7 @@ class GoToWaypoint(ActionProto):
         return 0.2
 
     def execute(self, state: WorldState) -> WorldState:
-        # TODO: send ROS action/service/command; wait/result handling
+        # TODO: send ROS act/service/command; wait/result handling
         return state
 
     def can_recover(self, error: Exception) -> bool:
@@ -217,8 +217,8 @@ class SequentialPlan(PlanProto):
 class EnergyRiskPlanner(PlannerProto):
     """Offer distinct plans (short&busy vs long&safe) and score them."""
 
-    def propose(self, goal: GoalProto, state: WorldState) -> List[PlanProto]:
-        params = goal.parameters()
+    def propose(self, mission: MissionProto, state: WorldState) -> List[PlanProto]:
+        params = mission.parameters()
         dock = params["dock_id"]
 
         p_short = SequentialPlan(
@@ -268,8 +268,8 @@ class SPAController:
         return WorldState(pose=None, obstacles=None, battery=0.55, risk_level=0.1)
 
     # --- PLAN ---
-    def plan(self, goal: GoalProto, state: WorldState) -> Optional[PlanProto]:
-        candidates = self.planner.propose(goal, state)
+    def plan(self, mission: MissionProto, state: WorldState) -> Optional[PlanProto]:
+        candidates = self.planner.propose(mission, state)
         return self.planner.select(candidates, state)
 
     # --- ACT ---
@@ -285,13 +285,13 @@ class SPAController:
         return state
 
     # --- ONE CYCLE ---
-    def tick(self, goal: GoalProto) -> WorldState:
+    def tick(self, mission: MissionProto) -> WorldState:
         state = self.sense()
         # (Re)plan if none or not feasible anymore
         if self.current_plan is None or not self.current_plan.is_feasible(state):
-            self.current_plan = self.plan(goal, state)
+            self.current_plan = self.plan(mission, state)
             if self.current_plan is None:
-                raise RuntimeError("No feasible plan for the given goal.")
+                raise RuntimeError("No feasible plan for the given mission.")
         return self.act(self.current_plan, state)
 
 
@@ -299,7 +299,7 @@ class SPAController:
 
 if __name__ == "__main__":
     controller = SPAController(EnergyRiskPlanner())
-    goal = DeliverGoal(dock_id="D1")
+    mission = DeliverMission(dock_id="D1")
     # Optional runtime check (shallow) — thanks to @runtime_checkable
-    assert isinstance(goal, GoalProto)
-    final_state = controller.tick(goal)
+    assert isinstance(mission, MissionProto)
+    final_state = controller.tick(mission)

@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import IntEnum, auto
 
-class RotorPosition(Enum):
-    FRONT_LEFT = 0
-    FRONT_RIGHT = 1
-    REAR_LEFT = 2
-    REAR_RIGHT = 3
+class RotorPosition(IntEnum):
+    FRONT_LEFT = auto()
+    FRONT_RIGHT = auto()
+    REAR_LEFT = auto()
+    REAR_RIGHT = auto()

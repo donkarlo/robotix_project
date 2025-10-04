@@ -1,12 +1,12 @@
 from typing import List
-from robotix.spa.plan.goal.robot_goal import RobotGoal
+from robotix.spa.plan.mission.robot_mission import RobotMission
 from robotix.spa.sense.sensor.robot_sensor import RobotSensor
 from robotix.experiment.scenario import Scenario
 
 
 class Scenario(SingleRobotScenario):
-    def __init__(self, robots_goals:Optional[List[RobotGoal]]=None, world:Optional[World]=None):
-        self.__robots_goals = robots_goals
+    def __init__(self, robots_missions:Optional[List[RobotMission]]=None, world:Optional[World]=None):
+        self.__robots_missions = robots_missions
 
     def learn(self)->None:
         pass
@@ -23,10 +23,10 @@ class Scenario(SingleRobotScenario):
             # @TODO: the code on ros to save the topics for sensors in robots_sensors_to_save
             # Probably needs to call a bash script here.
             pass
-        for robot_goal in self.__robots_goals:
-            robot = robot_goal.get_robot()
-            goal = robot_goal.get_goal()
-            robot.achieve_goal(goal)
+        for robot_mission in self.__robots_missions:
+            robot = robot_mission.get_robot()
+            mission = robot_mission.get_mission()
+            robot.achieve_mission(mission)
         return True
 
 

@@ -1,6 +1,6 @@
 #any changes in sensors etc must come with
-tarrot_t650:
-  id: "tarot_t650"
+tarrot_t650_basic:
+  id: "tarot_t650_basic"
   type: "quadcopter"
   sensors:
     - "rp_a2"

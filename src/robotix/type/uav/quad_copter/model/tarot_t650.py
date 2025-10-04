@@ -1,21 +1,19 @@
-from robotix.spa.plan.goal.goal import Goal
+from robotix.plan.mission.mission import Mission
 from robotix.type.uav.quad_copter.quad_copter import QuadCopter
 
 
 class TarotT650(QuadCopter):
-    def __init__(self):
-        pass
 
     def build_from_urdf(self, urdf: str) -> None:
         super().build_from_urdf(urdf)
 
-    def achieve_goal(self, goal: Goal) -> bool:
-        pass
+    def achieve_mission(self, mission: Mission) -> bool:
+        return True
 
     def on_sensor_obs(self):
         pass
 
-    def on_goal_change(self):
+    def on_mission_change(self):
         pass
 
     def learn(self):

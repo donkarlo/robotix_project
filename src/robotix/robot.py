@@ -5,8 +5,8 @@ from sensorx.sensor_set import SensorSet
 from robotix.mind.mind import Mind
 from abc import ABC, abstractmethod
 
-from robotix.spa.action.actuator.actuator import Actuator
-from robotix.spa.plan.goal.goal import Goal
+from robotix.act.actuator.actuator import Actuator
+from robotix.plan.mission.mission import Mission
 
 
 class Robot(ABC):
@@ -38,7 +38,7 @@ class Robot(ABC):
         pass
 
     @abstractmethod
-    def achieve_goal(self, goal:Goal)->bool:
+    def achieve_mission(self, mission:Mission)->bool:
         #This is where the robot should remeber
         return False
 
@@ -47,7 +47,7 @@ class Robot(ABC):
         pass
 
     @abstractmethod
-    def on_goal_change(self):
+    def on_mission_change(self):
         pass
 
     @abstractmethod

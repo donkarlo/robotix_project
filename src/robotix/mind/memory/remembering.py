@@ -6,11 +6,11 @@ from sensorx.sensor_set import SensorSet
 
 from robotix.mind.memory.episode.episode import Episode
 from robotix.mind.memory.storage.storage import Storage
-from robotix.spa.plan.goal.goal import Goal
+from robotix.plan.mission.mission import Mission
 class Remembering:
     """
     This class abstracts a strategy for remebering
-    The action of remebering by an evidence, episode or sequence of observation or just will
+    The act of remebering by an evidence, episode or sequence of observation or just will
     - remembering is the process of bringing (meaningful) data from long-term memory
     """
     def __init__(self):
