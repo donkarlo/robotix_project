@@ -13,7 +13,7 @@ class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, actuators:List[Actuator], sensor_set:SensorSet, mind:Mind, id:Optional[str]=None) -> None:
+    def __init__(self, actuators:List[Actuator], sensor_set:SensorSet, mind:Mind, id:Optional[str]=None):
         """
 
         Args:
@@ -25,17 +25,6 @@ class Robot(ABC):
         self._sensor_set = sensor_set
         self._mind:Mind = mind
         self._id = id
-
-    def build_from_urdf(self, urdf:str)->None:
-        """
-        URDF to build a robot
-        Args:
-            urdf:
-
-        Returns:
-
-        """
-        pass
 
     @abstractmethod
     def achieve_mission(self, mission:Mission)->bool:
@@ -51,8 +40,11 @@ class Robot(ABC):
         pass
 
     @abstractmethod
-    def learn(self):
+    def learn(self)->None:
         self._mind.learn()
+
+    def set_id(self, id:str)->None:
+        self._id = id
 
 
 

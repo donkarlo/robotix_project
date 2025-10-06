@@ -1,0 +1,2 @@
+class ContinualLearning:
+    pass

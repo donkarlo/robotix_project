@@ -5,3 +5,5 @@ The prediction knowledge is done through math and physics models
 - Examples
     - Kalman filter
 """
+class ModelDriven:
+    pass

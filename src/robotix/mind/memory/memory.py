@@ -1,10 +1,10 @@
 from robotix.mind.memory.memorizing import Memorizing
 from robotix.mind.memory.remembering import Remembering
-from robotix.mind.memory.storage.storage import Storage
+from robotix.mind.memory.level.levels import Levels
 
 
 class Memory:
-    def __init__(self, memorizing:Memorizing, remembering:Remembering, storage:Storage):
+    def __init__(self, memorizing:Memorizing, remembering:Remembering, levels:Levels):
         """
         coupling memorizing, remebering and storing
         Args:
@@ -12,19 +12,19 @@ class Memory:
         """
         self._memorizing = memorizing
         self._remembering = remembering
-        self._storage = storage
+        self._levels = levels
 
-        self.__set_storage()
+        self.__set_levels()
 
 
     def get_memorizing(self)->Memorizing:
         return self._memorizing
 
-    def __set_storage(self)->None:
+    def __set_levels(self)->None:
         """
 
         Returns:
 
         """
-        self._memorizing.set_storage(self._storage)
-        self._remembering.set_storage(self._storage)
+        self._memorizing.set_levels(self._levels)
+        self._remembering.set_levels(self._levels)

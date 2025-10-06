@@ -7,7 +7,7 @@ class  Episode:
     - from what an episode must be composed
         − Mission
             - act (with feed back)
-                - commands (one time signals to actuators)
+                - commands (one time signals to actuator_set)
             - sensors
     """
     def __init__(self):

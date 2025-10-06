@@ -5,8 +5,10 @@ from abc import abstractmethod
 from sensorx.sensor_set import SensorSet
 
 from robotix.mind.memory.episode.episode import Episode
-from robotix.mind.memory.storage.storage import Storage
-from robotix.plan.mission.mission import Mission
+from robotix.mind.memory.level.levels import Levels
+from robotix.mind.memory.trigger import Trigger
+
+
 class Remembering:
     """
     This class abstracts a strategy for remebering
@@ -17,16 +19,24 @@ class Remembering:
         """
         It is not necessary to set the data source as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Memory class
         """
-        self._storage = None
+        self._levels = None
 
-    def set_storage(self, storage: Storage)-> None:
-        self._storage = storage
+    def set_levels(self, levels: Levels)-> None:
+        self._levels = levels
 
     @abstractmethod
-    def remember(self, observed_episodes:List[Episode])->None:
+    def remember(self, trigger:Trigger)->None:
+        """
+        This is unintentionall
+        Args:
+            trigger:
+
+        Returns:
+
+        """
         pass
 
-
-
-    def load(self):
+    @abstractmethod
+    def recall(self):
+        """intentional"""
         pass
