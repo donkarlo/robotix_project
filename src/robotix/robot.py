@@ -1,3 +1,4 @@
+from robotix.mind.memory.episode.experience import Experience
 from typing import Optional, List
 
 from sensorx.sensor_set import SensorSet
@@ -13,18 +14,18 @@ class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, actuators:List[Actuator], sensor_set:SensorSet, mind:Mind, id:Optional[str]=None):
+    def __init__(self, actuators:List[Actuator], sensor_set:SensorSet, mind:Mind, name:Optional[str]=None):
         """
 
         Args:
             sensor_set:
             mind:
-            id:
+            name:
         """
         self._actuators = actuators
         self._sensor_set = sensor_set
         self._mind:Mind = mind
-        self._id = id
+        self.__name = name
 
     @abstractmethod
     def achieve_mission(self, mission:Mission)->bool:
@@ -43,8 +44,19 @@ class Robot(ABC):
     def learn(self)->None:
         self._mind.learn()
 
-    def set_id(self, id:str)->None:
-        self._id = id
+    def set_name(self, name:str)->None:
+        self.__name = name
+
+    def get_mind(self)->Mind:
+        return self._mind
+
+    def get_name(self)->str:
+        return self.__name
+
+    def get_experience_by_name(self, name:str)->Experience:
+        return self._mind.get_memory().get_experience_set().get_experience_by_name(name)
+
+
 
 
 

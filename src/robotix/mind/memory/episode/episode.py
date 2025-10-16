@@ -1,4 +1,5 @@
 from abc import abstractmethod
+from sensorx.obs.sensor_set_obs.sensor_set_obs_vals import SensorSetObsVals
 
 
 class  Episode:
@@ -6,11 +7,10 @@ class  Episode:
     Maybe different from Trigger, I should think about it
     - from what an episode must be composed
         − Mission
-            - act (with feed back)
-                - commands (one time signals to actuator_set)
-            - sensors
+        − plan
+        - mental world is formed by experoceptive
     """
-    def __init__(self):
+    def __init__(self, command, sensor_set_vals:SensorSetObsVals):
         pass
 
     @abstractmethod

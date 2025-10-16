@@ -1,6 +1,6 @@
-from typing import List
-
+from typing import List, Optional
 from robotix.sense.state.state import State
+from robotix.act.goal.goal import Goal
 
 class Mission:
     '''
@@ -9,5 +9,5 @@ class Mission:
     - Mission is not a tangibeable concept. Action is tangeable. DeliverMission or CorridorInspectionMission. But Action needs tangeable points and in the world such as GoTo point.
     - if an act is breakable to smaller actions then it is actually a mission
     '''
-    def __init__(self, states:List[State]):
-        self._states = states
+    def __init__(self, goals:List[Goal], id:Optional[str]=None):
+        self._goals = goals

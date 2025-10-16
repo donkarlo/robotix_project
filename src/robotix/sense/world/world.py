@@ -1,5 +1,6 @@
 class World:
     """
-    This is the world sensed from the sensors of the robot
+    This is the world sensed from the exteroceptive sensors of the robot
     """
-    pass
+    def __init__(self):
+        pass

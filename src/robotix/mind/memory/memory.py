@@ -1,10 +1,13 @@
+from robotix.mind.memory.episode.experience import Experience
 from robotix.mind.memory.memorizing import Memorizing
 from robotix.mind.memory.remembering import Remembering
-from robotix.mind.memory.level.levels import Levels
+from robotix.mind.memory.level.level_stack import LevelStack
+from robotix.mind.memory.episode.experience_set import ExperienceSet
+from typing import Optional
 
 
 class Memory:
-    def __init__(self, memorizing:Memorizing, remembering:Remembering, levels:Levels):
+    def __init__(self, memorizing:Memorizing, remembering:Remembering, experience_set:Optional[ExperienceSet]=None):
         """
         coupling memorizing, remebering and storing
         Args:
@@ -12,19 +15,33 @@ class Memory:
         """
         self._memorizing = memorizing
         self._remembering = remembering
-        self._levels = levels
 
-        self.__set_levels()
+        if ExperienceSet is not None:
+            self._experience_set = experience_set
+        else:
+            self._experience_set = ExperienceSet()
+
+        self.set_experience_set(experience_set)
 
 
     def get_memorizing(self)->Memorizing:
         return self._memorizing
 
-    def __set_levels(self)->None:
+    def get_remembering(self)->Remembering:
+        return self._remembering
+
+    def get_experience_set(self)->ExperienceSet:
+        return self._experience_set
+
+    def set_experience_set(self, experience_set:ExperienceSet)->None:
         """
 
         Returns:
 
         """
-        self._memorizing.set_levels(self._levels)
-        self._remembering.set_levels(self._levels)
+        self._experience_set = experience_set
+        self._memorizing.set_experience_set(self._experience_set)
+        self._remembering.set_experience_set(self._experience_set)
+
+    def add_experience(self, experience:Experience)->None:
+        self._experience_set.add(experience)

@@ -14,6 +14,9 @@ class Action(ABC):
     def __init__(self, goal:Goal):
         self._goal = goal
 
+    def get_goal(self)->Goal:
+        return self._goal
+
     @abstractmethod
     def run(self):
         pass

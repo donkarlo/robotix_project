@@ -13,7 +13,7 @@ dx_dt = np.gradient(x, t)
 dy_dt = np.gradient(y, t)
 dz_dt = np.gradient(z, t)
 
-# Compute the tangent vector T
+# Compute the tangent vector ActionType
 T = np.array([dx_dt, dy_dt, dz_dt]).T
 T_norm = np.linalg.norm(T, axis=1).reshape(-1, 1)
 T_unit = T / T_norm
@@ -31,7 +31,7 @@ N_unit = dT_dt / dT_dt_norm
 # Compute the binormal vector B
 B_unit = np.cross(T_unit, N_unit)
 
-# Compute torsion τ = ( (dB/dt) . N ) / |T x N|
+# Compute torsion τ = ( (dB/dt) . N ) / |ActionType x N|
 dB_dt = np.gradient(B_unit, axis=0)
 torsion = np.einsum('ij,ij->i', dB_dt, N_unit) / np.linalg.norm(np.cross(T_unit, N_unit), axis=1)
 
@@ -68,7 +68,7 @@ for idx in torsion_indices:
     plane_u, plane_v = np.meshgrid(np.linspace(-plane_size, plane_size, 10),
                                    np.linspace(-plane_size, plane_size, 10))
 
-    # Transform plane into global coordinates using Binormal (B) and Tangent (T) vectors
+    # Transform plane into global coordinates using Binormal (B) and Tangent (ActionType) vectors
     plane_x_global = x[idx] + plane_u * B_unit[idx, 0] + plane_v * T_unit[idx, 0]
     plane_y_global = y[idx] + plane_u * B_unit[idx, 1] + plane_v * T_unit[idx, 1]
     plane_z_global = z[idx] + plane_u * B_unit[idx, 2] + plane_v * T_unit[idx, 2]

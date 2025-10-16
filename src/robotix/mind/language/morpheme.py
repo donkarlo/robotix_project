@@ -6,8 +6,8 @@ class Morpheme(Meaning):
     """
     Smallest meaningful language component. In persian it is called takvaj
     """
-    def __init__(self, syllabels:List[Syllable]):
-        self._syllabels = syllabels
+    def __init__(self, syllables:List[Syllable]):
+        self._syllables = syllables
 
     def get_syllables(self)->List[Syllable]:
-        return self._syllabels
+        return self._syllables

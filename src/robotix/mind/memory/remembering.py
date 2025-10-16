@@ -1,12 +1,9 @@
 from typing import List
-
 from abc import abstractmethod
-
 from sensorx.sensor_set import SensorSet
-
 from robotix.mind.memory.episode.episode import Episode
-from robotix.mind.memory.level.levels import Levels
 from robotix.mind.memory.trigger import Trigger
+from robotix.mind.memory.episode.experience_set import ExperienceSet
 
 
 class Remembering:
@@ -21,8 +18,8 @@ class Remembering:
         """
         self._levels = None
 
-    def set_levels(self, levels: Levels)-> None:
-        self._levels = levels
+    def set_experience_set(self, experience_set: ExperienceSet) -> None:
+        self._experience_set = experience_set
 
     @abstractmethod
     def remember(self, trigger:Trigger)->None:

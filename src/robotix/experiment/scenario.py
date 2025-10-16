@@ -13,7 +13,7 @@ class Scenario(ABC):
     Scenario is more than a robot and its missions
     For ecxample it might include the world mission_state such as walls
     """
-    def __init__(self, robot:Robot, mission:Mission, world:World, plan:Optional[Plan]=None):
+    def __init__(self, robot:Robot, mission:Mission, plan: Plan, world:World, name:Optional[str]=None):
         """
 
         :param robot:
@@ -22,8 +22,10 @@ class Scenario(ABC):
         """
         self._robot = robot
         self._mission = mission
-        self._world = world
         self._plan = plan
+
+        self._world = world
+        self._name = name
 
         # run
 
@@ -44,3 +46,6 @@ class Scenario(ABC):
 
     def get_plan(self)->Plan:
         return self._plan
+
+    def get_name(self)->str:
+        return self._name

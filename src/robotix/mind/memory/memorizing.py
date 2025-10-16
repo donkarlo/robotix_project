@@ -1,23 +1,23 @@
 from typing import List
 from robotix.mind.memory.episode.episode import Episode
-from robotix.mind.memory.level.levels import Levels
+from robotix.mind.memory.episode.experience_set import ExperienceSet
 
 
 class Memorizing:
     """
-    - The levels place will be detrmined
+    - The _levels place will be detrmined
     """
     def __init__(self):
-        #should be set by calling set levels from Memory class
-        self._levels = None
+        #should be set by calling set _levels from Memory class
+        self._experience_set = None
 
-    def memorize(self, episodes:List[Episode])->bool:
+    def memorize(self, episodes:List[Episode])->None:
         """
         What entities exist to memorize
 
         """
-        return False
+        pass
 
-    def set_levels(self, levels: Levels) -> None:
-        self._levels = levels
+    def set_experience_set(self, experience_set:ExperienceSet) -> None:
+        self._experience_set = experience_set
 

@@ -6,11 +6,11 @@ from sensorx.obs.sensor_set_obs_vals import SensorSetObsVals
 from mathx.linalg.vec.vec import Vec
 
 
-class SensorsetValsBetweenMissionActionCommands(Episode):
+class SensorsetValsBetweenCommands(Episode):
     """
     multiple sensor data between two consequent commands
     """
-    def __init__(self, mission: Mission, action: Action, command: Command):
+    def __init__(self, mission: Mission, action: Optional[Action]=None, command:Optional[Command]=None):
         self._mission = mission
         self._action = action
         self._command = command
