@@ -5,7 +5,7 @@ VecType = TypeVar("VecType", bound=Vec)
 
 class CollectionGenerator(Generic[VecType]):
     @staticmethod
-    def clone_from_states_list(states_list:List[Type[VecType]], ) -> List[Action]:
+    def clone_from_states_list(states_list:List[Type[VecType]]) -> List[Action]:
         path = Path(vecs_file_path)
         vecs_text = File(path).get_ram().strip()
         actions: List[Action] = []

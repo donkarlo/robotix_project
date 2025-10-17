@@ -3,7 +3,7 @@ from robotix.act.goal.acceptance_criterion import AcceptanceCriterion
 from typing import TypeVar, Generic, Optional
 
 # to cover either state or vectors such as position
-VecType=TypeVar('ActionType', bound=Vec)
+VecType=TypeVar('VecType', bound=Vec)
 
 class Goal(Generic[VecType]):
     """
