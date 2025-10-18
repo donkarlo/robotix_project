@@ -1,6 +1,6 @@
 from physix.dimension.unit.unit import Unit
-from robotix.physical.brain.neuron import Neuron
-from robotix.physical.brain.spike import Spike
+from robotix.physical.nerve.neuron import Neuron
+from robotix.physical.nerve.spike.spike import Spike
 
 
 class Message:

@@ -6,7 +6,7 @@ class Language:
     For a language first the words are determined then with some methods the necessary alphabets for those words are determined
     - Language must be both useful for surviaval for example it must increase homeostasis rate but it also should turn so much deceptive that it reverses back its direction to reduce and even exinct the robot or race.
     - In fact a powerful language should be more enable to create so much illusion that it reduces the homeostasis rate more.
-    - in fact
+    - Language can not exist anywhere other than an agent (Robot mind)
     """
 
     def __init__(self, meanings:List[Meaning]):
