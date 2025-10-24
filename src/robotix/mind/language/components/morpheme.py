@@ -1,5 +1,5 @@
 from robotix.mind.language.meaning import Meaning
-from robotix.mind.language.syllable import Syllable
+from robotix.mind.language.components.syllable import Syllable
 
 
 class Morpheme(Meaning):

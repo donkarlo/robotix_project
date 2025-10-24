@@ -264,7 +264,7 @@ class SPAController:
 
     # --- SENSE ---
     def sense(self) -> WorldState:
-        # TODO: fuse ROS topics (odom, lidar, battery, etc.)
+        # TODO: fuse ROS topics (odom, sensor, battery, etc.)
         return WorldState(pose=None, obstacles=None, battery=0.55, risk_level=0.1)
 
     # --- PLAN ---

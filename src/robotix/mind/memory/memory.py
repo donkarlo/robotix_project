@@ -35,9 +35,7 @@ class Memory:
 
     def set_experience_set(self, experience_set:ExperienceSet)->None:
         """
-
         Returns:
-
         """
         self._experience_set = experience_set
         self._memorizing.set_experience_set(self._experience_set)

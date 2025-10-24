@@ -4,7 +4,17 @@ from typing import List
 
 class LevelStack:
     def __init__(self, levels:List[Level]):
-        # sorted from bottom or most basic to to most detailed with more clusters and causality relations
+        """
+        sorted from bottom or most basic to to most detailed with more clusters and causality relations
+
+        level startegy
+        - level[0] is for raw data such as those for ros messages in topic file
+        - level[1] changing representation of data and storing it
+
+
+        Args:
+            levels:
+        """
         self._levels = levels
 
     def add_level(self, level:Level)->None:

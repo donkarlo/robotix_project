@@ -1,1 +1,0 @@
-"""message as objects of a class"""

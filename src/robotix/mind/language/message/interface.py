@@ -1,6 +1,0 @@
-from typing import Protocol
-
-
-class Interface(Protocol):
-    def convert_to_format(self, format): ...
-    def convert_from_format(self, format): ...

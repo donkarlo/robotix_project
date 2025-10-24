@@ -14,7 +14,7 @@ class Level4(Level):
 
     def test_metacognitive_uncertainty(self) -> UnitInterval:
         """
-        Opts to 'decline' or seek info when confidence is low; calibrated confidence
+        Opts to 'decline' or seek information when confidence is low; calibrated confidence
         correlates with actual accuracy across tasks (proper scoring).
         """
         return 0.0

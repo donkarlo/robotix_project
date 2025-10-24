@@ -24,11 +24,11 @@ dev = [
 [tool.mypy]
 python_version = "3.13"
 
-# force type hints for args + return types everywhere
+# force describer hints for args + return types everywhere
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 
-# allow missing type stubs from external libs
+# allow missing describer stubs from external libs
 ignore_missing_imports = true
 
 # project layout

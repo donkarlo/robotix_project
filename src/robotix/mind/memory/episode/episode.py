@@ -10,7 +10,7 @@ class  Episode:
         − plan
         - mental world is formed by experoceptive
     """
-    def __init__(self, command, sensor_set_vals:SensorSetObsVals):
+    def __init__(self, info:List[Info]):
         pass
 
     @abstractmethod

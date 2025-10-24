@@ -3,6 +3,9 @@ from robotix.mind.memory.memory import Memory
 
 
 class Mind:
+    """
+    Is all about the concepts. Whenever there is something tangiable, it should go to physical>brain
+    """
     def __init__(self, memory:Memory, learn:Learn):
         self._memory = memory
         self._learn = learn
