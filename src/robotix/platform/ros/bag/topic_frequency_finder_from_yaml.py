@@ -17,7 +17,7 @@ class TopicFrequencyFinder:
     Read either:
       - a YAML(.gz) dump created from rosbag (stream-parse header.stamp), or
       - a .bag file (query 'rosbag information --yaml' and compute avg freq as count/duration).
-    Reports, for each topic: message count and a frequency estimate.
+    Reports, for each topic: episodic count and a frequency estimate.
     """
 
     _TOPIC_LINE = re.compile(r'^\s*(?:#\s*)?topic:\s*"?([^"\n]+)"?\s*$')
@@ -52,7 +52,7 @@ class TopicFrequencyFinder:
 
     def _stats_from_yaml_stream(self) -> Dict[str, TopicStat]:
         """
-        Stream-parse YAML dump: detect 'topic:' lines and for each message emit a timestamp from header.stamp.
+        Stream-parse YAML dump: detect 'topic:' lines and for each episodic emit a timestamp from header.stamp.
         Compute per-topic: count, span (t_max - t_min), avg frequency = (count-1)/span (using positive deltas implicitly).
         Note: If header.stamp is missing for some messages, those won't contribute timestamps.
         """
@@ -115,11 +115,11 @@ class TopicFrequencyFinder:
                         have_nsecs = True
                         continue
 
-                    # When both seen, emit exactly once per message
+                    # When both seen, emit exactly once per episodic
                     if have_secs and have_nsecs:
                         ts = float(secs) + float(nsecs) * 1e-9
                         s = stats[curr_topic]
-                        # bump count for this message
+                        # bump count for this episodic
                         s["count"] = int(s["count"]) + 1
                         # update t_min / t_max
                         tmin = s["t_min"]
@@ -160,7 +160,7 @@ class TopicFrequencyFinder:
 
     def _stats_from_bag_cli(self) -> Dict[str, TopicStat]:
         """
-        Use `rosbag information --yaml <file.bag>` to get per-topic message counts and bag duration.
+        Use `rosbag information --yaml <file.bag>` to get per-topic episodic counts and bag duration.
         Compute avg frequency per topic = count / duration (coarse but useful).
         Requires ROS Noetic 'rosbag' installed and on PATH.
         """

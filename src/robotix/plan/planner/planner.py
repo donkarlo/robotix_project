@@ -1,5 +1,5 @@
 
-from robotix.mind.world import World
+from robotix.cognition.mind.world import World
 from robotix.spa.plan.mission.interface import Interface as MissionInterface
 from robotix.plan.plan import Plan
 from abc import ABC, abstractmethod

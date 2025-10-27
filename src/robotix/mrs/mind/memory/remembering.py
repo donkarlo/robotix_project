@@ -1,11 +1,11 @@
 from abc import abstractmethod
-from robotix.mind.memory.trigger import Trigger
+from robotix.cognition.mind.memory.trigger import Trigger
 from utilityx.data.source.source import Source
-from robotix.mind.memory.remembering import Remembering as RememberingBase
+from robotix.cognition.mind.memory.remembering import Remembering as RememberingBase
 
 
 class Remembering(RememberingBase):
-    """The act of remebering by an evidence, episode or sequence of observation or just will"""
+    """The act of remebering by an evidence, episodic or sequence of observation or just will"""
     def __init__(self, provoker:Trigger):
         """It is not necessary to set the data source as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Memory class"""
         pass

@@ -5,11 +5,11 @@ from robotix.physical.nerve.spike.spike import Spike
 
 class Message:
     """
-    commands, actions, plans, missionssensor obss should be all translatable to message\
+    commands, actions, plans, missionssensor obss should be all translatable to episodic\
     - the most comlicated msg is nested key values
-    - message is message only if structurally similllar messages have been seen in the brain of the system
+    - episodic is episodic only if structurally similllar messages have been seen in the brain of the system
     """
-    def __init__(self, nueurons_spikes_times:List[Tuple(Neuron,Spike,float)], time_unit:Unit):
+    def __init__(self, nueurons_spikes_times:List[Tuple[Neuron,Spike,float]], time_unit:Unit):
         self._time_unit = time_unit
         self._nueurons_spikes_times = nueurons_spikes_times
 

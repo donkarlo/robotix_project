@@ -20,7 +20,7 @@ class MessageFrequency99CI:
         return open(p, "r", encoding="utf-8", errors="ignore")
 
     def _parse_header_stamps(self, fp, targets: set[str]):
-        # Stream parse: yield (topic, ts) using ONLY header.stamp (secs+nsecs) once per message.
+        # Stream parse: yield (topic, ts) using ONLY header.stamp (secs+nsecs) once per episodic.
         curr = None
         in_header = in_stamp = False
         have_secs = have_nsecs = False
@@ -73,7 +73,7 @@ class MessageFrequency99CI:
                     if have_secs and have_nsecs:
                         ts = float(secs) + float(nsecs) * 1e-9
                         yield curr, ts
-                        in_stamp = False  # emit once per message
+                        in_stamp = False  # emit once per episodic
 
     @staticmethod
     def _percentile_sorted(arr: List[float], p: float) -> float:

@@ -1,6 +1,8 @@
+from robotix.platform.ros.message.field.field import Field
 from typing import Protocol, List, Any
+from utilix.data.type.dic.dic import Dic
 
 class Interface(Protocol):
-    _fields = List[Any]
-    @classmethod
-    def init_from_dic(cls, dic: Dic): ...
+    _fileds:List[Field]
+    def __init__(self, fields:List[Field]): ...
+    def get_fields(self) -> List[Field]: ...

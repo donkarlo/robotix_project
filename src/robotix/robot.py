@@ -1,9 +1,9 @@
-from robotix.mind.memory.episode.experience import Experience
+from robotix.cognition.mind.memory.episode.experience import Experience
 from typing import Optional, List
 
 from sensorx.sensor_set import SensorSet
 
-from robotix.mind.mind import Mind
+from robotix.cognition.mind.mind import Mind
 from abc import ABC, abstractmethod
 
 from robotix.act.actuator.actuator import Actuator

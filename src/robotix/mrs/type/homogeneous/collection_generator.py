@@ -1,8 +1,5 @@
 from robotix.robot import Robot
-from typing import List, Optional
-from robotix.act.actuator.actuator_set import ActuatorSet
-from sensorx.sensor_set import SensorSet
-from robotix.mind.mind import Mind
+from typing import List
 import copy
 
 class CollectionGenerator:
@@ -18,7 +15,7 @@ class CollectionGenerator:
 
         """
         for counter, name in enumerate(names):
-            # TODO: check uniqness of the name
+            # TODO: check uniqness of the _name
             copied_robot = copy.deepcopy(sample_robot)
             copied_robot.set_name(name)
             robots.append(copied_robot)

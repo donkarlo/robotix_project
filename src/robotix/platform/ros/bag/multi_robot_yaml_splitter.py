@@ -37,7 +37,7 @@ def _split_topic(topic: str | None) -> tuple[str, List[str]]:
 
 class UltraFastNamedSplitter:
     """
-    Stream-split a huge multi-doc YAML by robot name using ONLY the comment header block.
+    Stream-split a huge multi-doc YAML by robot _name using ONLY the comment header block.
     The header block (# topic/msg_count/timestamp) appears BEFORE the '---' of the next doc.
     We capture a 'pending header/topic' and attach it to the next started document.
 
@@ -60,7 +60,7 @@ class UltraFastNamedSplitter:
         # Unknown (optional)
         self._unknown: Optional[IO[str]] = None
 
-        # Per-robot ordered unique message-describer tokens (for final filename)
+        # Per-robot ordered unique episodic-describer tokens (for final filename)
         self._robot_types_ordered: Dict[str, List[str]] = {}
         self._robot_types_seen: Dict[str, set] = {}
 
@@ -104,7 +104,7 @@ class UltraFastNamedSplitter:
         # Attach any pending header/topic to the new doc
         self.cur_lines = []
         self.cur_header_lines = self.pending_header_lines
-        # Resolve robot + message types for this new doc
+        # Resolve robot + episodic types for this new doc
         robot, types = _split_topic(self.pending_topic)
         self.cur_robot = robot
         self._record_types(robot, types)
@@ -181,7 +181,7 @@ class UltraFastNamedSplitter:
             # EOF: flush last (possibly half) doc
             self._flush_doc()
 
-        # Close temps and rename to final names with message types in order of first appearance
+        # Close temps and rename to final names with episodic types in order of first appearance
         result: Dict[str, Path] = {}
         for robot, h in self._handles.items():
             tmp_path = Path(h.name)

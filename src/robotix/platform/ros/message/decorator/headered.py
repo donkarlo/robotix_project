@@ -1,14 +1,11 @@
-from robotix.platforms.ros.message.frame_sequence import FrameSequence
-from robotix.platforms.ros.message.time_stamp import TimeStamp
+from robotix.platform.ros.message.type.header.header import Header
+from robotix.platform.ros.message.interface import Interface
 
 
-class Header:
-    def __init__(self, time_stamp:TimeStamp, frame_sequence:FrameSequence):
-        self._time_stamp = time_stamp
-        self._frame_sequence = frame_sequence
+class Headered(Decorator):
+    def __init__(self, inner:Interface, header:Header):
+        super().__init__(inner)
+        self._header = header
 
-    def get_time_stamp(self)->TimeStamp:
-        return self._time_stamp
-
-    def get_frame_sequence(self)->FrameSequence:
-        return self._frame_sequence
+    def get_header(self) -> Header:
+        return self._header

@@ -1,4 +1,4 @@
-from robotix.mind.memory.memorizing import Memorizing as MemorizingBase
+from robotix.cognition.mind.memory.memorizing import Memorizing as MemorizingBase
 
 
 class Memorizing(MemorizingBase):

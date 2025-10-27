@@ -1,19 +1,17 @@
 from robotix.plan.mission.mission import Mission
 from robotix.type.uav.quad_copter.act.actuator.rotor_set import RotorSet
 from robotix.type.uav.quad_copter.quad_copter import QuadCopter
-from typing import List, Optional
+from typing import Optional
 from robotix.act.actuator.type.rotor.rotor import Rotor
 from sensorx.sensor_set import SensorSet
 from sensorx.type.lidar.rp_a2.sensor import Sensor as RpA2Lidar
 from sensorx.type.gps.odom.sensor import Sensor as GpsOdomSensor
-from robotix.mind.memory.level.level import Level
-from utilix.data.storage.storage import Storage
-from robotix.mind.mind import Mind
-from robotix.mind.memory.memory import Memory
-from robotix.mind.memory.memorizing import Memorizing
-from robotix.mind.memory.remembering import Remembering
-from robotix.mind.learn.learn import Learn
-from robotix.mind.memory.episode.experience_set import ExperienceSet
+from robotix.cognition.mind.mind import Mind
+from robotix.cognition.mind.memory.memory import Memory
+from robotix.cognition.mind.memory.memorizing import Memorizing
+from robotix.cognition.mind.memory.remembering import Remembering
+from robotix.cognition.mind.learn.learn import Learn
+from robotix.cognition.mind.memory.episode.experience_set import ExperienceSet
 
 
 class TarotT650Oldest(QuadCopter):

@@ -1,12 +1,9 @@
-from robotix.type.uav.quad_copter.act.actuator.rotor_position import RotorPosition
 from typing import Optional
 
 from sensorx.sensor_set import SensorSet
 
-from robotix.act.actuator.actuator_set import ActuatorSet
-from robotix.act.actuator.type.rotor.rotor import Rotor
 from src.robotix.robot import Robot
-from robotix.mind.mind import Mind
+from robotix.cognition.mind.mind import Mind
 from robotix.type.uav.quad_copter.act.actuator.rotor_set import RotorSet
 
 

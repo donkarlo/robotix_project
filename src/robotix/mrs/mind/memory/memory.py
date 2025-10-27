@@ -1,7 +1,7 @@
 from robotix.memory.conf.conf import Conf
-from robotix.mind.memory.memorizing import Memorizing
+from robotix.cognition.mind.memory.memorizing import Memorizing
 from utilityx.data.source.source import Source
-from robotix.mind.memory.memorizing import Memory as MemoryBase
+from robotix.cognition.mind.memory.memorizing import Memory as MemoryBase
 
 
 class Memory(MemoryBase):
