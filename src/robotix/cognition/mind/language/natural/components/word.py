@@ -1,4 +1,4 @@
-from robotix.cognition.mind.language.natural.components.morpheme import Morpheme
+from robotix.cognition.mind.language.natural.components.morphem.morpheme import Morpheme
 from typing import List
 
 class Word(Meaning):

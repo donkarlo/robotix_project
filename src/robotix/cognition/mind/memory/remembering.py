@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from robotix.cognition.mind.memory.trigger import Trigger
-from robotix.cognition.mind.memory.episode.experience_set import ExperienceSet
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.collection.collection import Collection as ExperienceCollection
 
 
 class Remembering:
@@ -15,8 +15,8 @@ class Remembering:
         """
         self._levels = None
 
-    def set_experience_set(self, experience_set: ExperienceSet) -> None:
-        self._experience_set = experience_set
+    def set_experience_collection(self, experience_collection: ExperienceCollection) -> None:
+        self._experience_set = experience_collection
 
     @abstractmethod
     def remember(self, trigger:Trigger)->None:

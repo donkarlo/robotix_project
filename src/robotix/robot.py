@@ -1,5 +1,5 @@
-from robotix.cognition.mind.memory.episode.experience import Experience
 from typing import Optional, List
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.experience import Experience
 
 from sensorx.sensor_set import SensorSet
 
@@ -54,7 +54,7 @@ class Robot(ABC):
         return self.__name
 
     def get_experience_by_name(self, name:str)->Experience:
-        return self._mind.get_memory().get_experience_set().get_experience_by_name(name)
+        return self._mind.get_memory().get_experience_collection().get_experience_by_name(name)
 
 
 

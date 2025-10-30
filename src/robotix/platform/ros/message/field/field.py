@@ -1,8 +1,15 @@
-from typing import Any
+from typing import Any, Type
 
 
 class Field:
-    def __init__(self, name:str, value:Any, type:str):
+    def __init__(self, name:str, value:Any, type:Type):
+        """
+
+        Args:
+            name:
+            value:
+            type:
+        """
         self._name = name
         self._value = value
         self._type = type

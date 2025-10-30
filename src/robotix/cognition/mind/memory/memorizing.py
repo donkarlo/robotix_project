@@ -1,6 +1,6 @@
+from robotix.cognition.mind.memory.long_term.explicit.episodic.episode.episode import Episode
 from typing import List
-from robotix.cognition.mind.memory.episode.episode import Episode
-from robotix.cognition.mind.memory.episode.experience_set import ExperienceSet
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.collection.collection import Collection
 
 
 class Memorizing:
@@ -9,7 +9,7 @@ class Memorizing:
     """
     def __init__(self):
         #should be set by calling set _levels from Memory class
-        self._experience_set = None
+        self._experience_collection = None
 
     def memorize(self, episodes:List[Episode])->None:
         """
@@ -18,6 +18,6 @@ class Memorizing:
         """
         pass
 
-    def set_experience_set(self, experience_set:ExperienceSet) -> None:
-        self._experience_set = experience_set
+    def set_experience_collection(self, experience_collection:Collection) -> None:
+        self._experience_collection = experience_collection
 

@@ -1,9 +1,6 @@
-from robotix.physical.nerve.spike.spike import Spike
+from robotix.physical.nervous.neuron.spike.spike import Spike
 
 
 class Neuron:
-    def shoot_spike(self, spike:List[Spike]):
+    def fire_spike(self, spike:Spike):
         pass
-    def shoot_spikes(self, spikes:List[Spike]):
-        for spike in spikes:
-            self.shoot_spike(spike)

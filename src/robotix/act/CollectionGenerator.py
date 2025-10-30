@@ -3,7 +3,7 @@ import copy
 from robotix.act.action import Action
 from typing import Generic, TypeVar, Type, List
 from utilix.data.storage.type.file.file import File
-from mathx.linalg.vec.vec import Vec
+from mathx.linalg.tensor.vector.vector import Vector
 from robotix.act.goal.goal import Goal
 from utilix.os.path import Path
 
@@ -43,7 +43,7 @@ class CollectionGenerator:
                 vec_components.append(float(component))
 
             new_action = copy.deepcopy(sample_action)
-            new_action.get_goal().get_desired_state().set_components(vec_components)
+            new_action.get_goal().get_desired_state().get_vector_representation().set_components(vec_components)
             actions.append(new_action)
         return actions
 

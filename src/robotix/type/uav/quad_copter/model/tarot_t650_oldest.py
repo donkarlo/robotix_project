@@ -11,16 +11,17 @@ from robotix.cognition.mind.memory.memory import Memory
 from robotix.cognition.mind.memory.memorizing import Memorizing
 from robotix.cognition.mind.memory.remembering import Remembering
 from robotix.cognition.mind.learn.learn import Learn
-from robotix.cognition.mind.memory.episode.experience_set import ExperienceSet
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.collection.collection import \
+    Collection as ExperienceCollection
 
 
 class TarotT650Oldest(QuadCopter):
 
-    def __init__(self, experience_set:ExperienceSet, name:Optional[str]=None):
+    def __init__(self, experience_collection: ExperienceCollection, name:Optional[str]=None):
         rotor = Rotor()
         rotor_set = RotorSet(rotor)
         sensor_set = SensorSet([RpA2Lidar(), GpsOdomSensor()])
-        memory = Memory(Memorizing(), Remembering(), experience_set)
+        memory = Memory(Memorizing(), Remembering(), experience_collection)
         mind = Mind(memory, Learn())
         super().__init__(rotor_set, sensor_set, mind, name)
 

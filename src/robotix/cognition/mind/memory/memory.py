@@ -1,12 +1,14 @@
-from robotix.cognition.mind.memory.episode.experience import Experience
 from robotix.cognition.mind.memory.memorizing import Memorizing
 from robotix.cognition.mind.memory.remembering import Remembering
-from robotix.cognition.mind.memory.episode.experience_set import ExperienceSet
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.collection.collection import \
+    Collection as ExperienceCollection
+from robotix.cognition.mind.memory.long_term.explicit.episodic.experience.experience import Experience
 from typing import Optional
 
 
 class Memory:
-    def __init__(self, memorizing:Memorizing, remembering:Remembering, experience_set:Optional[ExperienceSet]=None):
+    def __init__(self, memorizing:Memorizing, remembering:Remembering, experience_collection:Optional[
+        ExperienceCollection]=None):
         """
         coupling memorizing, remebering and storing
         Args:
@@ -15,12 +17,12 @@ class Memory:
         self._memorizing = memorizing
         self._remembering = remembering
 
-        if ExperienceSet is not None:
-            self._experience_set = experience_set
+        if ExperienceCollection is not None:
+            self._experience_collection = experience_collection
         else:
-            self._experience_set = ExperienceSet()
+            self._experience_collection = ExperienceCollection()
 
-        self.set_experience_set(experience_set)
+        self.set_experience_collection(experience_collection)
 
 
     def get_memorizing(self)->Memorizing:
@@ -29,16 +31,16 @@ class Memory:
     def get_remembering(self)->Remembering:
         return self._remembering
 
-    def get_experience_set(self)->ExperienceSet:
-        return self._experience_set
+    def get_experience_collection(self)->ExperienceCollection:
+        return self._experience_collection
 
-    def set_experience_set(self, experience_set:ExperienceSet)->None:
+    def set_experience_collection(self, experience_collection:ExperienceCollection)->None:
         """
         Returns:
         """
-        self._experience_set = experience_set
-        self._memorizing.set_experience_set(self._experience_set)
-        self._remembering.set_experience_set(self._experience_set)
+        self._experience_collection = experience_collection
+        self._memorizing.set_experience_collection(self._experience_collection)
+        self._remembering.set_experience_collection(self._experience_collection)
 
     def add_experience(self, experience:Experience)->None:
-        self._experience_set.add_child(experience)
+        self._experience_collection.add_child(experience)

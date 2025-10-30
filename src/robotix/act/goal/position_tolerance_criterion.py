@@ -1,6 +1,6 @@
 import math
 from robotix.act.goal.acceptance_criterion import AcceptanceCriterion
-from physix.kinematics.position import Position
+from physix.quantity.type.kinematic.pose.position.position import Position
 
 
 class PositionToleranceCriterion(AcceptanceCriterion):

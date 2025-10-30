@@ -1,17 +1,19 @@
 from physix.dimension.unit.unit import Unit
 from robotix.physical.nerve.neuron import Neuron
 from robotix.physical.nerve.spike.spike import Spike
+from sensorx.sensor import Sensor
 
 
 class Message:
     """
-    commands, actions, plans, missionssensor obss should be all translatable to episodic\
-    - the most comlicated msg is nested key values
-    - episodic is episodic only if structurally similllar messages have been seen in the brain of the system
+    - a message must have a generator source and a channel and a destination
+    - many of these messages make one trace in mind>memory>episodic>episod>trace
+    - This message is not a ROS message, ROS message already a type of trace so it is
     """
-    def __init__(self, nueurons_spikes_times:List[Tuple[Neuron,Spike,float]], time_unit:Unit):
-        self._time_unit = time_unit
-        self._nueurons_spikes_times = nueurons_spikes_times
+    def __init__(self, spike, gneration_time:Time, channel, source:Union[Sensor, Mind], destination:Union[Mind, actuator]):
+        self._generation_time = gneration_time
+        self._spike = spike
+        self._channel = channel
 
     def get_rate(self, unit:Unit)->float:
         """calculate base on frequency of nueurons_spikes_times"""
