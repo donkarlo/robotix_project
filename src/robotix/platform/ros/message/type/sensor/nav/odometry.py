@@ -3,19 +3,22 @@ from functools import cache
 from mathx.probability.covariance_matrix import CovarianceMatrix
 from physix.quantity.type.kinematic.kinematic import Kinematic
 from physix.quantity.decorator.distributed.gaussianed import Gaussianed
-from physix.quantity.type.pose.position import Position
-from physix.quantity.type.pose.quaternion import Quaternion
-from physix.quantity.type.twist.angular import Angular
-from physix.quantity.type.twist.linear import Linear
-from physix.quantity.type.twist.twist import Twist
+from physix.quantity.type.kinematic.pose.pose import Pose
+from physix.quantity.type.kinematic.pose.position.position import Position
+from physix.quantity.type.kinematic.pose.orientation.quaternion import Quaternion
+from physix.quantity.type.kinematic.twist.angular import Angular
+from physix.quantity.type.kinematic.twist.linear import Linear
+from physix.quantity.type.kinematic.twist.twist import Twist
 from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
     PopulationFilledTrace
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.kind.types import Types
+from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.type.types import Types
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
 from robotix.platform.ros.message.type.header.header import Header
+from typing import List, Sequence
+import numpy as np
 
 
 class Odometry(Message):
@@ -44,7 +47,7 @@ class Odometry(Message):
         fields.append(field)
 
         ## orientation
-        field = Field("pose_covarience", Dic(dic["pose"]["covariance"]), Dic)
+        field = Field("pose_covarience", dic["pose"]["covariance"], Sequence)
         fields.append(field)
 
         # twist
@@ -57,10 +60,10 @@ class Odometry(Message):
         fields.append(field)
 
         ## orientation
-        field = Field("twist_covarience", Dic(dic["twist"]["covariance"]), Dic)
+        field = Field("twist_covarience", dic["twist"]["covariance"], Sequence)
         fields.append(field)
 
-        return cls(dic)
+        return cls(fields)
 
     @cache
     def get_distributed_kinematic_population_filled_trace(self)-> PopulationFilledTrace:
@@ -73,7 +76,7 @@ class Odometry(Message):
         orientation = Quaternion(orientation_field["x"], orientation_field["y"], orientation_field["z"],
                                  orientation_field["w"])
         pose_cov_field = self.get_field_value_by_name("pose_covarience")
-        cov_pose = CovarianceMatrix(pose_cov_field.reshape(6, 6))
+        cov_pose = CovarianceMatrix(np.array(pose_cov_field).reshape(6, 6), False)
 
         distributed_pose = Gaussianed(Pose(position, orientation), cov_pose)
 
@@ -84,10 +87,10 @@ class Odometry(Message):
         angular_twist_field = self.get_field_value_by_name("angular_twist")
         angular_twist = Angular(angular_twist_field["x"], angular_twist_field["y"], angular_twist_field["z"])
 
-        pose_cov_field = self.get_field_value_by_name("twist_covarience")
-        cov_twist = CovarianceMatrix(pose_cov_field.reshape(6, 6))
+        twist_cov_field = self.get_field_value_by_name("twist_covarience")
+        cov_twist = CovarianceMatrix(np.array(twist_cov_field).reshape(6, 6), False)
 
-        distributed_pose = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
+        distributed_twist = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
 
         # kinematic
         trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time , Types.ditributed_kinematic)

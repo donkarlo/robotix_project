@@ -2,19 +2,16 @@ from functools import cache
 
 from mathx.probability.covariance_matrix import CovarianceMatrix
 from physix.quantity.decorator.distributed.gaussianed import Gaussianed
-from physix.quantity.type.pose.position import Position
-from physix.quantity.type.pose.quaternion import Quaternion
-from physix.quantity.type.twist.angular import Angular
-from physix.quantity.type.twist.linear import Linear
-from physix.quantity.type.twist.twist import Twist
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
-from sensorx.obs.decorator.timed import Timed
 from utilix.data.type.dic.dic import Dic
 from robotix.platform.ros.message.type.header.header import Header
-from sensorx.type.lidar.obs.obs import Obs as LidarObs
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.kind.types import Types
+from sensorx.type.lidar.observation.observation import Observation as LidarObservation
+from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.type.types import Types
+from typing import List
+from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
+    PopulationFilledTrace
 
 
 class Scan(Message):
@@ -46,8 +43,8 @@ class Scan(Message):
         fields.append(field)
 
         ##
-        value = dic["angle_incremenet"]
-        field = Field("angle_incremenet", value, "array")
+        value = dic["angle_increment"]
+        field = Field("angle_increment", value, "array")
         fields.append(field)
 
         ##
@@ -66,8 +63,8 @@ class Scan(Message):
         fields.append(field)
 
         ##
-        value = dic["intencities"]
-        field = Field("intencities", value, "array")
+        value = dic["intensities"]
+        field = Field("intensities", value, "array")
         fields.append(field)
 
         return cls(fields)
@@ -81,5 +78,5 @@ class Scan(Message):
 
     @cache
     def get_scan_ranges_population_filled_trace(self)-> PopulationFilledTrace:
-        return PopulationFilledTrace(LidarObs(self._fields[ranges]), self._time,
+        return PopulationFilledTrace(LidarObservation(self.get_field_value_by_name("ranges")), self._time,
                                      Types.lidar_scan_ranges)

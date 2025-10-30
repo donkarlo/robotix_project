@@ -1,12 +1,12 @@
 from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import PopulationFilledTrace
 from robotix.platform.ros.message.type.sensor.nav.odometry import Odometry as RosOdometryMessage
-from utilix.data.storage.decorator.multi_valued.add_value_observer_protocol import AddValueObserverProtocol
+from utilix.data.storage.decorator.multi_valued.add_value_observer_interface import AddValueObserverInterface
 from utilix.data.type.dic.dic import Dic
 from typing import Type, Any, List, Dict, override
 from robotix.platform.ros.message.type.sensor.lidar.scan.scan import Scan as RosScanMessage
 
 
-class Collection(AddValueObserverProtocol):
+class Collection(AddValueObserverInterface):
 
     def __init__(self, classes: List[Type]):
         self._time_unit:Unit = None
@@ -28,3 +28,4 @@ class Collection(AddValueObserverProtocol):
                     trace = RosScanMessage.init_from_dic(trace).get_scan_ranges_population_filled_trace()
 
             self._traces.append(trace)
+            pass

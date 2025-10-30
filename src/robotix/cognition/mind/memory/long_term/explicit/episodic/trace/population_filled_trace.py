@@ -28,3 +28,12 @@ class PopulationFilledTrace(Trace):
 
     def convert_to_population_acrtivity_field(self, decoder)->PopulationActivityField:
         pass
+
+    def set_time(self, time:float) -> None:
+        self._time = float
+
+    def set_type(self, type:int) -> None:
+        self._type = type
+
+    def set_formatted_data(self, formatted_data:Any) -> None:
+        self._formatted_data = formatted_data

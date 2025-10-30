@@ -2,10 +2,9 @@ from functools import cache
 
 from physix.quantity.type.time import Time
 from physix.dimension.unit.unit import Unit
-from robotix.platform.ros.message.message import Message
 
-
-class TimeStamp(Message):
+from utilix.data.type.dic.dic import Dic
+class TimeStamp:
     def __init__(self, seconds:int, nano_seconds:int):
         self._second = seconds
         self._nano_second = nano_seconds

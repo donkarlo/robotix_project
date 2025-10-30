@@ -1,11 +1,9 @@
 from robotix.platform.ros.message.type.header.frame_id_stack import FrameIdStack
-from robotix.platform.ros.message.message import Message
-from robotix.platforms.ros.message.frame_sequence import FrameSequence
-from robotix.platforms.ros.message.time_stamp import TimeStamp
-
+from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
+from utilix.data.type.dic.dic import Dic
 
 class Header:
-    def __init__(self, time_stamp: TimeStamp, frame_id_stack:FrameSequence,sequence:int):
+    def __init__(self, time_stamp: TimeStamp, frame_id_stack:FrameIdStack,sequence:int):
         self._time_stamp = time_stamp
         self._frame_id_stack = frame_id_stack
         self._sequence = sequence
@@ -13,7 +11,7 @@ class Header:
     def get_time_stamp(self)->TimeStamp:
         return self._time_stamp
 
-    def get_frame_sequence(self)->FrameSequence:
+    def get_frame_sequence(self)->FrameIdStack:
         return self._frame_id_stack
 
 
