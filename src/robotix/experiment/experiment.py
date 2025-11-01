@@ -1,4 +1,4 @@
-from robotix.experiment.scenario import Scenario
+from robotix.lab.scenario import Scenario
 from typing import List
 
 

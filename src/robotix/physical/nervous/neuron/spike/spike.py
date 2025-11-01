@@ -6,7 +6,7 @@ class Spike:
     """
     electrical load sent to brain or recived from brain. about 1ms and 100 milli volts
     - it is not curvy, it goes up suddenly and comes down suddenly
-    - another _name is action potential or nerve impulse
+    - another __name is role potential or nerve impulse
     - spike is formed of power (Voltage) and duration (Time)
     """
     def __init__(self, time_interval:Interval, time_unit:Unit, voltage_interval:Interval, voltage_unit:Unit):

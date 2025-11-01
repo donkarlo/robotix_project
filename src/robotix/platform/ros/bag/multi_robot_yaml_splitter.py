@@ -37,7 +37,7 @@ def _split_topic(topic: str | None) -> tuple[str, List[str]]:
 
 class UltraFastNamedSplitter:
     """
-    Stream-split a huge multi-doc YAML by robot _name using ONLY the comment header block.
+    Stream-split a huge multi-doc YAML by robot __name using ONLY the comment header block.
     The header block (# topic/msg_count/timestamp) appears BEFORE the '---' of the next doc.
     We capture a 'pending header/topic' and attach it to the next started document.
 

@@ -1,5 +1,5 @@
 from utilix.ui.cli.cli import Cli as BaseCli
-from robotix.experiment.experiment import Experiment
+from robotix.lab.experiment import Experiment
 
 
 class Cli(BaseCli):

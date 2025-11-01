@@ -1,7 +1,7 @@
-from robotix.act.action import Action
+from robotix.action.action import Action
 
 
 class TakeOff(Action):
-    """Land act"""
+    """Land role"""
     def __init__(self):
         pass

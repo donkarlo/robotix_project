@@ -1,4 +1,3 @@
-from sensorx.sensor_set import SensorSet
 from utilityx.data.source import Source
 from utilityx.data.source.type import Type
 from utilityx.data.source.format import Format

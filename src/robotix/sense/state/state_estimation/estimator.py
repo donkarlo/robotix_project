@@ -1,4 +1,4 @@
-from sensorx.obs.sensor_set_obss import SensorSetObss
+from sensorx.observation.sensor_set_obss import SensorSetObss
 
 
 class Estimator:

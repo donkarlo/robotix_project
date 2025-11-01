@@ -1,5 +1,5 @@
 
-from robotix.cognition.mind.world import World
+from robotix.mental.cognition.world import World
 from robotix.spa.plan.mission.interface import Interface as MissionInterface
 from robotix.plan.plan import Plan
 from abc import ABC, abstractmethod
@@ -10,13 +10,13 @@ class Planner(ABC):
         self._mission = mission
         self._world = world
 
-        # to lazy load a plan
+        # to lazy load a pre_plan
         self._plan:Plan = None
 
     @abstractmethod
     def get_plan(self)->Plan:
         """
-        To return a plan of Actions
+        To return a pre_plan of Actions
         Returns:
 
         """

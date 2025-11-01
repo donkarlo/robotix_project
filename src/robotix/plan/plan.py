@@ -1,6 +1,6 @@
 from typing import List
 
-from robotix.act.action import Action
+from robotix.action.action import Action
 
 
 class Plan:

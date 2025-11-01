@@ -9,14 +9,13 @@ from physix.quantity.type.kinematic.pose.orientation.quaternion import Quaternio
 from physix.quantity.type.kinematic.twist.angular import Angular
 from physix.quantity.type.kinematic.twist.linear import Linear
 from physix.quantity.type.kinematic.twist.twist import Twist
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
+from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.population_filled_trace import \
     PopulationFilledTrace
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.type.types import Types
+from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.type.types import Types
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
-from robotix.platform.ros.message.type.header.header import Header
 from typing import List, Sequence
 import numpy as np
 
@@ -93,7 +92,7 @@ class Odometry(Message):
         distributed_twist = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
 
         # kinematic
-        trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time , Types.ditributed_kinematic)
+        trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time, Types.ditributed_quaternion_kinematic)
 
         return trace
 

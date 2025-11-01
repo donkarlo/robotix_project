@@ -161,7 +161,7 @@ def parseArgs():
 
 def printMsgsInBagFile(args):
     no_msgs_found = True
-    # Establish counters to keep track of the episodic number being received under each topic _name
+    # Establish counters to keep track of the episodic number being received under each topic __name
     msg_counters = {} # empty dict
     total_count = 0
     bag_in = rosbag.TopicFrequencyFinder(args.bag_file_in)
@@ -175,7 +175,7 @@ def printMsgsInBagFile(args):
         else:
             msg_counters[topic] += 1;
 
-        # Print topic _name and episodic receipt information
+        # Print topic __name and episodic receipt information
         print("# topic:           " + topic)
         print("# msg_count:       %u" % msg_counters[topic])
         # the comma at the end prevents the newline char being printed at the end in Python2; see:

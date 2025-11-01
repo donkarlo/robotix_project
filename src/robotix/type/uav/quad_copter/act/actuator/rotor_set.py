@@ -1,9 +1,9 @@
-from robotix.act.actuator.actuator_set import ActuatorSet
-from robotix.act.actuator.type.rotor.rotor import Rotor
+from robotix.physical.actuator.collection.collection import Collection
+from robotix.physical.actuator.type.rotor.rotor import Rotor
 from robotix.type.uav.quad_copter.act.actuator.rotor_position import RotorPosition
 
 
-class RotorSet(ActuatorSet):
+class RotorSet(Collection):
     def __init__(self, rotor:Rotor):
         rotor_class = rotor.__class__
         self._front_left_rotor = rotor_class(RotorPosition.FRONT_LEFT)
@@ -12,7 +12,7 @@ class RotorSet(ActuatorSet):
         self._rear_right_rotor = rotor_class(RotorPosition.REAR_RIGHT)
         super().__init__([self._front_left_rotor, self._front_right_rotor, self._rear_left_rotor, self._rear_right_rotor])
 
-    def get_actuator_set(self) -> ActuatorSet:
+    def get_actuator_set(self) -> Collection:
         return self._actuator_set
     def get_front_left_rotor(self) -> Rotor:
         return self._front_left_rotor

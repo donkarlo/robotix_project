@@ -1,16 +1,13 @@
 from functools import cache
 
-from mathx.probability.covariance_matrix import CovarianceMatrix
-from physix.quantity.decorator.distributed.gaussianed import Gaussianed
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
-from robotix.platform.ros.message.type.header.header import Header
 from sensorx.type.lidar.observation.observation import Observation as LidarObservation
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.type.types import Types
+from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.type.types import Types
 from typing import List
-from robotix.cognition.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
+from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.population_filled_trace import \
     PopulationFilledTrace
 
 
@@ -18,7 +15,7 @@ class Scan(Message):
     def __init__(self, fields:List[Field]):
         super().__init__(fields)
         if self.get_field_value_by_name("ranges") is None or self.get_field_value_by_name("time") is None:
-            raise ValueError("ranges must be between field._name s")
+            raise ValueError("ranges must be between field.__name s")
         self._time = self.get_field_value_by_name("time")
 
     @classmethod

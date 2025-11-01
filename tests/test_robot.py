@@ -1,5 +1,5 @@
 from robotix.robot import Robot
-from sensorx.sensor_set import SensorSet
+from sensorx.collection.collection import Collection
 class TestRobot:
-    def test__init__(self, sensor_set:SensorSet)->None:
+    def test__init__(self, sensor_set:Collection)->None:
         robot = Robot()

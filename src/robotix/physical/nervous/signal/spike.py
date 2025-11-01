@@ -1,1 +1,1 @@
-"""the _name for smallest signal either a control one from brain to hand or a sensory one from skin to brain"""
+"""the __name for smallest signal either a control one from brain to hand or a sensory one from skin to brain"""

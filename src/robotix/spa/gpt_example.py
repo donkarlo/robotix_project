@@ -118,7 +118,7 @@ class GoToWaypoint(ActionProto):
         return 0.2
 
     def execute(self, state: WorldState) -> WorldState:
-        # TODO: send ROS act/service/command; wait/result handling
+        # TODO: send ROS role/service/command; wait/result handling
         return state
 
     def can_recover(self, error: Exception) -> bool:
@@ -256,7 +256,7 @@ class EnergyRiskPlanner(PlannerProto):
 # ----------------- SPA ORCHESTRATOR -----------------
 
 class SPAController:
-    """Sense → Plan → Act loop with plan retention and re-evaluation."""
+    """Sense → Plan → Act loop with pre_plan retention and re-evaluation."""
 
     def __init__(self, planner: PlannerProto):
         self.planner = planner
@@ -287,11 +287,11 @@ class SPAController:
     # --- ONE CYCLE ---
     def tick(self, mission: MissionProto) -> WorldState:
         state = self.sense()
-        # (Re)plan if none or not feasible anymore
+        # (Re)pre_plan if none or not feasible anymore
         if self.current_plan is None or not self.current_plan.is_feasible(state):
             self.current_plan = self.plan(mission, state)
             if self.current_plan is None:
-                raise RuntimeError("No feasible plan for the given mission.")
+                raise RuntimeError("No feasible pre_plan for the given mission.")
         return self.act(self.current_plan, state)
 
 
