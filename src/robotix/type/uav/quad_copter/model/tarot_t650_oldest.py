@@ -1,17 +1,17 @@
-from robotix.plan.mission.mission import Mission
+from robotix.mind.goal.composite.mission.mission import Mission
 from robotix.type.uav.quad_copter.act.actuator.rotor_set import RotorSet
 from robotix.type.uav.quad_copter.quad_copter import QuadCopter
 from typing import Optional
-from robotix.physical.actuator.type.rotor.rotor import Rotor
+from robotix.body.actuator.type.rotor.rotor import Rotor
 from sensorx.collection.collection import Collection
 from sensorx.type.lidar.rp_a2.sensor import Sensor as RpA2Lidar
 from sensorx.type.gps.odom.sensor import Sensor as GpsOdomSensor
-from robotix.mental.cognition.mind import Mind
-from robotix.mental.cognition.memory.memory import Memory
-from robotix.mental.cognition.memory.memorizing import Memorizing
-from robotix.mental.cognition.memory.remembering import Remembering
-from robotix.mental.cognition.learning.learning import Learning
-from robotix.mental.cognition.memory.long_term.explicit.episodic.experience.collection.collection import \
+from robotix.mind.mind import Mind
+from robotix.mind.memory.memory import Memory
+from robotix.mind.memory.memorizing.memorizing import Memorizing
+from robotix.mind.memory.remembering.remembering import Remembering
+from robotix.mind.learning.learning import Learning
+from robotix.mind.memory.long_term.explicit.episodic.experience.collection.collection import \
     Collection as ExperienceCollection
 
 

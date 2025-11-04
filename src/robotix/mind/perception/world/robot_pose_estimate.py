@@ -1,0 +1,2 @@
+class RobotPoseEstimate:
+    pass

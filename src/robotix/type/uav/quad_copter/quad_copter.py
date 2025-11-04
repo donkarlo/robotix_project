@@ -3,7 +3,7 @@ from typing import Optional
 from sensorx.collection.collection import Collection
 
 from src.robotix.robot import Robot
-from robotix.mental.cognition.mind import Mind
+from robotix.mind.mind import Mind
 from robotix.type.uav.quad_copter.act.actuator.rotor_set import RotorSet
 
 

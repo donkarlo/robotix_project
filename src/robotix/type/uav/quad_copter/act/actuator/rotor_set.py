@@ -1,5 +1,5 @@
-from robotix.physical.actuator.collection.collection import Collection
-from robotix.physical.actuator.type.rotor.rotor import Rotor
+from robotix.body.actuator.collection.collection import Collection
+from robotix.body.actuator.type.rotor.rotor import Rotor
 from robotix.type.uav.quad_copter.act.actuator.rotor_position import RotorPosition
 
 

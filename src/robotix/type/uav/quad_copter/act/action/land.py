@@ -1,4 +1,4 @@
-from robotix.action.action import Action
+from robotix.mind.action.action import Action
 
 
 class Land(Action):

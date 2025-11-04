@@ -242,9 +242,9 @@ class TopicFrequencyFinder:
         return topics
 
 
-# ---------- Example usage ----------
+# ---------- PublisherExample usage ----------
 if __name__ == "__main__":
-    # Example 1: YAML dump (recommended for Python 3.13)
+    # PublisherExample 1: YAML dump (recommended for Python 3.13)
     yaml_path = "/home/donkarlo/Dropbox/projs/research/data/self-aware-drones/ctumrs/two-drones/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml"
     bag1 = TopicFrequencyFinder(yaml_path)
     stats1 = bag1.stats()
@@ -257,7 +257,7 @@ if __name__ == "__main__":
         tmax = "n/a" if s.t_max is None else f"{s.t_max:.3f}"
         print(f"{t:30s} {s.count:10d} {tmin:14s} {tmax:14s} {f:14s}")
 
-    # Example 2: .bag (fallback via 'rosbag information --yaml', gives avg freq as count/duration)
+    # PublisherExample 2: .bag (fallback via 'rosbag information --yaml', gives avg freq as count/duration)
     # bag_path = "/path/to/file.bag"
     # bag2 = TopicFrequencyFinder(bag_path)
     # stats2 = bag2.stats()

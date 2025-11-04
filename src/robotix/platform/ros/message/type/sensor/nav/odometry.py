@@ -9,9 +9,9 @@ from physix.quantity.type.kinematic.pose.orientation.quaternion import Quaternio
 from physix.quantity.type.kinematic.twist.angular import Angular
 from physix.quantity.type.kinematic.twist.linear import Linear
 from physix.quantity.type.kinematic.twist.twist import Twist
-from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.population_filled_trace import \
+from robotix.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
     PopulationFilledTrace
-from robotix.mental.cognition.memory.long_term.explicit.episodic.trace.type.types import Types
+from robotix.mind.memory.long_term.explicit.episodic.trace.type.types import Types
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp

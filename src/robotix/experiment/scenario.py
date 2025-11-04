@@ -2,8 +2,8 @@ from typing import Optional
 
 from abc import ABC
 
-from robotix.plan.plan import Plan
-from robotix.plan.mission.mission import Mission
+from robotix.mind.action.composite.plan.plan import Plan
+from robotix.mind.goal.composite.mission.mission import Mission
 from robotix.robot import Robot
 from physix.world.world import World
 
@@ -11,26 +11,28 @@ from physix.world.world import World
 class Scenario(ABC):
     """
     Scenario is more than a robot and its missions
-    For ecxample it might include the world mission_state such as walls
     """
-    def __init__(self, robot:Robot, mission:Mission, plan: Plan, world:World, name:Optional[str]=None):
+    def __init__(self, robot:Robot, initial_mission:Mission, initial_plan: Plan, world:World, label:Optional[str]=None):
         """
-
-        :param robot:
-        :param mission: Maybe it is a composite and decorated mission, that is a sequence of timed missionsarer
-        :param world:
+        
+        Args:
+            robot: 
+            initial_mission: 
+            initial_plan: 
+            world: 
+            label: 
         """
         self._robot = robot
-        self._mission = mission
-        self._plan = plan
+        self._initial_mission = initial_mission
+        self._initial_plan = initial_plan
 
         self._world = world
-        self._name = name
+        self._label = label
 
         # run
 
     def run(self)->None:
-        self._robot.achieve_mission(self._mission)
+        self._robot.achieve_mission(self._initial_mission)
 
     def learn(self):
         self._robot.learn()
@@ -39,13 +41,13 @@ class Scenario(ABC):
         return self._world
 
     def get_mission(self)->Mission:
-        return self._mission
+        return self._initial_mission
 
     def get_robot(self)->Robot:
         return self._robot
 
     def get_plan(self)->Plan:
-        return self._plan
+        return self._initial_plan
 
     def get_name(self)->str:
-        return self._name
+        return self._label

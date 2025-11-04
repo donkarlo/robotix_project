@@ -1,4 +1,4 @@
-from robotix.action.action import Action
+from robotix.mind.action.action import Action
 from physix.kinematics.pose import Pose
 
 

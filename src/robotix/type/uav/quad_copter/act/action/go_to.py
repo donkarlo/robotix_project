@@ -1,6 +1,6 @@
-from robotix.action.action import Action
+from robotix.mind.action.action import Action
 from physix.quantity.type.kinematic.pose.position.position import Position
-from robotix.action.goal.goal import Goal
+from robotix.mind.goal.goal import Goal
 
 
 class GoTo(Action):
