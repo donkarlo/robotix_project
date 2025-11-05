@@ -3,7 +3,7 @@ from robotix.mind.cognition.semiotic.meaning.observation.fomation_publisher impo
 from robotix.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
 from robotix.mind.decision_making.decision_making import DecisionMaking
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 from robotix.mind.memory.memory import Memory
 from typing import override, List
 from robotix.mind.reasoning.reasoning import Reasoning

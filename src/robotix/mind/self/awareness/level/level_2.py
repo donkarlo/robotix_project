@@ -5,7 +5,7 @@ UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]
 
 
 # -------------------------
-# Level 2 – Mirror/representation-based self-identification
+# LowerAndHigherAwareLayer 2 – Mirror/representation-based self-identification
 # -------------------------
 class Level2(Level):
     """
@@ -27,7 +27,7 @@ class Level2(Level):
 
     def test_crossmodal_self_mapping(self) -> UnitInterval:
         """
-        Associates self-unique signatures across modalities (voice/propeller-harmonics,
+        Associates self-unique signatures across modality_collection (voice/propeller-harmonics,
         RF/odometry trace, odor tag), discriminating own signals from conspecifics.
         """
         return 0.0

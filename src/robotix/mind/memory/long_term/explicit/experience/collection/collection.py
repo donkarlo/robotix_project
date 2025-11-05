@@ -1,7 +1,12 @@
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 from typing import List, Optional
 class Collection:
     def __init__(self, member_experiences:Optional[List[Experience]]=None):
+        """
+        in an experiment, on collection can be considered as learning[normal] and testing[follow, next_to]
+        Args:
+            member_experiences:
+        """
         if member_experiences is not None:
             self._members_experience = member_experiences
         else:

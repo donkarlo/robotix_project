@@ -5,7 +5,7 @@ UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]
 
 
 # -------------------------
-# Level 1 – Perceptual self-recognition / agency via contingencies
+# LowerAndHigherAwareLayer 1 – Perceptual self-recognition / agency via contingencies
 # -------------------------
 class Level1(Level):
     """

@@ -5,7 +5,7 @@ UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]
 
 
 # -------------------------
-# Level 4 – Meta-self (metacognition, self-concept)
+# LowerAndHigherAwareLayer 4 – Meta-self (metacognition, self-concept)
 # -------------------------
 class Level4(Level):
     """

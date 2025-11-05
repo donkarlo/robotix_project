@@ -12,7 +12,7 @@ class Scenario(ABC):
     """
     Scenario is more than a robot and its missions
     """
-    def __init__(self, robot:Robot, initial_mission:Mission, initial_plan: Plan, world:World, label:Optional[str]=None):
+    def __init__(self, robot:Robot, initial_mission:Mission, initial_plan: Plan, world:World, name:Optional[str]=None):
         """
         
         Args:
@@ -20,14 +20,14 @@ class Scenario(ABC):
             initial_mission: 
             initial_plan: 
             world: 
-            label: 
+            name:
         """
         self._robot = robot
         self._initial_mission = initial_mission
         self._initial_plan = initial_plan
 
         self._world = world
-        self._label = label
+        self._name = name
 
         # run
 
@@ -49,5 +49,5 @@ class Scenario(ABC):
     def get_plan(self)->Plan:
         return self._initial_plan
 
-    def get_name(self)->str:
-        return self._label
+    def get_name(self)->Optional[str]:
+        return self._name

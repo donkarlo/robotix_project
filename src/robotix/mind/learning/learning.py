@@ -11,3 +11,6 @@ class Learning:
 
     def update_model_parameters(self, model_parameters:List) -> None:
         pass
+
+    def learn(self):
+        pass

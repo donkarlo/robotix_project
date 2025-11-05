@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from robotix.mind.memory.force import Force
-from robotix.mind.memory.long_term.explicit.episodic.experience.collection.collection import Collection as ExperienceCollection
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.experience.collection.collection import Collection as ExperienceCollection
+from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 
 
 class Remembering:

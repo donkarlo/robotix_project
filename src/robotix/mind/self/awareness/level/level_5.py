@@ -5,7 +5,7 @@ UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]
 
 
 # -------------------------
-# Level 5 – Reflective/existential self (counterfactual, normative, narrative)
+# LowerAndHigherAwareLayer 5 – Reflective/existential self (counterfactual, normative, narrative)
 # -------------------------
 class Level_5(Level):
     """

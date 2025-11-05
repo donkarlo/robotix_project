@@ -1,4 +1,4 @@
-from robotix.mind.memory.long_term.explicit.episodic.experience.level.interface import Interface
+from robotix.mind.memory.long_term.explicit.experience.modality.stack.layer.interface import Interface
 from utilix.oop.design_pattern.structural.decorator.decorator import Decorator as BaseDecorator
 
 

@@ -23,17 +23,17 @@ class Trace(ABC):
 
     @abstractmethod
     def set_formatted_data(self, formatted_data:Any)->None:
-        """will comes from higher levels such as clusters or experiences etc"""
+        """will comes from higher layers such as clusters or experiences etc"""
         pass
 
     @abstractmethod
     def set_type(self) -> None:
-        """will comes from higher levels such as clusters or experiences etc"""
+        """will comes from higher layers such as clusters or experiences etc"""
         pass
 
     @abstractmethod
     def set_time(self) -> None:
-        """will comes from higher levels such as clusters or experiences etc"""
+        """will comes from higher layers such as clusters or experiences etc"""
         pass
 
     def get_nervous_population_activity_field(self) -> Optional[NervousSpikeActivityField]:

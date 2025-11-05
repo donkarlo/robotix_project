@@ -5,7 +5,7 @@ UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]
 
 
 # -------------------------
-# Level 3 – Perspective-taking and episodic awareness
+# LowerAndHigherAwareLayer 3 – Perspective-taking and episodic awareness
 # -------------------------
 class Level3(Level):
     """

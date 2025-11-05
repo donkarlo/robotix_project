@@ -1,9 +1,9 @@
 from physix.dimension.unit.unit import Unit
 
-from robotix.mind.memory.long_term.explicit.episodic.experience.level.level import Level
+from robotix.mind.memory.long_term.explicit.experience.modality.stack.layer.layer import Layer
 from robotix.mind.memory.long_term.explicit.episodic.trace.trace import Trace
 from robotix.platform.ros.message.type.sensor.nav.odometry import Odometry as RosOdometryMessage
-from utilix.data.storage.decorator.multi_valued.add_value_observer_interface import AddValueObserverInterface
+from utilix.data.storage.decorator.multi_valued.add_value_subscriber import AddValueSubscriber
 from utilix.data.type.dic.dic import Dic
 from typing import Any, List, override
 from robotix.platform.ros.message.type.sensor.lidar.scan.scan import Scan as RosScanMessage
@@ -12,7 +12,7 @@ from robotix.mind.action.composite.plan.plan import Plan
 from utilix.data.storage.interface import Interface as DataStorageProto
 
 
-class MissionPrePlanSensor(Level, AddValueObserverInterface):
+class MissionPrePlanSensor(Layer, AddValueSubscriber):
 
     def __init__(self, storage:DataStorageProto ,mission:Mission, pre_plan:Plan):
         super().__init__(storage)

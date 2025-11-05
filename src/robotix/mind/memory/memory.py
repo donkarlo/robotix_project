@@ -1,15 +1,15 @@
 from robotix.mind.memory.long_term.explicit.episodic.trace.trace import Trace
-from robotix.mind.memory.long_term.explicit.episodic.trace.trace_arrival_observer_interface import \
-    TraceArrivalObserverInterface
+from robotix.mind.memory.long_term.explicit.episodic.trace.observer.arrival_subscriber import \
+    ArrivalSubscriber
 from robotix.mind.memory.memorizing.memorizing import Memorizing
 from robotix.mind.memory.remembering.remembering import Remembering
-from robotix.mind.memory.long_term.explicit.episodic.experience.collection.collection import \
+from robotix.mind.memory.long_term.explicit.experience.collection.collection import \
     Collection as ExperienceCollection
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 from typing import override
 
 
-class Memory(TraceArrivalObserverInterface):
+class Memory(ArrivalSubscriber):
     def get_memorizing(self)->Memorizing:
         return self._memorizing
 

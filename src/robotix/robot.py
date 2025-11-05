@@ -1,11 +1,9 @@
 from typing import Optional, Union
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 from robotix.body.body import Body
 from robotix.mind.memory.force import Force
 from robotix.mind.mind import Mind
-from abc import ABC, abstractmethod
-from sensorx.observation.observation import Observation
-from sensorx.sensor import Sensor
+from abc import ABC
 
 
 class Robot(ABC):
