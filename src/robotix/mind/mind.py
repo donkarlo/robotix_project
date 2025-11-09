@@ -1,11 +1,9 @@
-from robotix.mind.cognition.semiotic.meaning.meaning import Meaning
 from robotix.mind.cognition.semiotic.meaning.observation.fomation_publisher import FormationPublisher as MeaningFormationPublisher
 from robotix.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
 from robotix.mind.decision_making.decision_making import DecisionMaking
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.long_term.explicit.experience.experience import Experience
 from robotix.mind.memory.memory import Memory
-from typing import override, List
+from typing import List
 from robotix.mind.reasoning.reasoning import Reasoning
 
 
@@ -47,22 +45,6 @@ class Mind(MeaningFormationPublisher):
 
     def get_memory(self)->Memory:
         return self._memory
-    @override
-    def attach_meaning_formation_subscriber(self, formation_subscriber: MeaningFormationSubscriber) -> None:
-        self._meaning_formation_subscribers.append(formation_subscriber)
-
-    @override
-    def detach_meaning_formation_subscriber(self, formation_subscriber: MeaningFormationSubscriber) -> None:
-        self._meaning_formation_subscribers.delete(formation_subscriber)
-
-    @override
-    def notify_meaning_formation_subscribers(self, meaning:Meaning) -> None:
-        for meaning_subscriber in self._meaning_formation_subscribers:
-            meaning_subscriber.do_with_formed_meaning(meaning)
-
-
-    def remeber_experience_by_name(self, name:str) -> Experience:
-        pass
 
 
 

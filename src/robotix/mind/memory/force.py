@@ -1,3 +1,8 @@
+from typing import List
+
+from mathx.probability.bayesian.evidence import Evidence
+
+
 class Force:
     """
     - similar to force=ma in physics
@@ -6,5 +11,9 @@ class Force:
 
     - This provoker can be a provoker to remeber other things
     """
-    def __init__(self):
-        pass
+    def __init__(self, evidence:List[Evidence]):
+        """Force is a ratio of evidence or how much an evidence is forceful. it ,us be a vector. So it must have both magnitude and direction"""
+        self._evidence = evidence
+
+    def get_evidence(self)->Evidence:
+        return self._evidence

@@ -11,7 +11,7 @@ class StateChangeObserver(Protocol):
         """
 
         Args:
-            sensor_collection: all modality_members must be of deocrator Sensored(Observation) so that we know to what sensor it belongs
+            sensor_collection: all members must be of deocrator Sensored(Observation) so that we know to what sensor it belongs
 
         Returns:
 

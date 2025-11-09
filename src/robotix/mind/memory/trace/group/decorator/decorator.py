@@ -1,0 +1,10 @@
+from robotix.mind.memory.trace.group.decorator.interface import Interface
+from utilix.oop.design_pattern.structural.decorator.decorator import Decorator as BaseDecorator
+
+
+class Decorator(BaseDecorator, Interface):
+    """
+    """
+
+    def __init__(self, inner: Interface):
+        super(BaseDecorator, self).__init__(inner)

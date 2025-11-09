@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from robotix.mind.memory.force import Force
-from robotix.mind.memory.long_term.explicit.experience.collection.collection import Collection as ExperienceCollection
-from robotix.mind.memory.long_term.explicit.experience.experience import Experience
+from robotix.mind.memory.long_term.explicit.auto_biographic.episodic.experience.collection.collection import Collection as ExperienceCollection
+from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
 
 
 class Remembering:
@@ -10,7 +10,7 @@ class Remembering:
     The role of remebering by an evidence, episodic or sequence of observation or just will
     - remembering is the process of bringing (meaningful) data from long-term memory
     """
-    def __init__(self):
+    def __init__(self, order):
         """
         It is not necessary to set the data source as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Memory class
         """

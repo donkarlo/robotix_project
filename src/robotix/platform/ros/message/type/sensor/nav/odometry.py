@@ -9,9 +9,9 @@ from physix.quantity.type.kinematic.pose.orientation.quaternion import Quaternio
 from physix.quantity.type.kinematic.twist.angular import Angular
 from physix.quantity.type.kinematic.twist.linear import Linear
 from physix.quantity.type.kinematic.twist.twist import Twist
-from robotix.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
-    PopulationFilledTrace
-from robotix.mind.memory.long_term.explicit.episodic.trace.type.types import Types
+from robotix.mind.memory.trace.population_filled import \
+    PopulationFilled as PopulationFilledTrace
+from robotix.mind.memory.trace.kind.kinds import Kinds
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
@@ -92,7 +92,7 @@ class Odometry(Message):
         distributed_twist = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
 
         # kinematic
-        trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time, Types.ditributed_quaternion_kinematic)
+        trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time, Kinds.ditributed_quaternion_kinematic)
 
         return trace
 

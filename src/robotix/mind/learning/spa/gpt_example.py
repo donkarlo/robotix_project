@@ -1,5 +1,5 @@
 # =======================================================
-# Sense–Plan–Act (SPA) skeleton with explicit Protocols
+# Perception–Plan–Act (SPA) skeleton with explicit Protocols
 # Python 3.13 — ROS Noetic friendly (wire actions later)
 # =======================================================
 from dataclasses import dataclass, field
@@ -70,7 +70,7 @@ class PlannerProto(Protocol):
 
 @dataclass
 class WorldState:
-    """Fused state from Sense step (fill from ROS topics)."""
+    """Fused state from Perception step (fill from ROS topics)."""
     pose: Any
     obstacles: Any
     battery: float
@@ -256,7 +256,7 @@ class EnergyRiskPlanner(PlannerProto):
 # ----------------- SPA ORCHESTRATOR -----------------
 
 class SPAController:
-    """Sense → Plan → Act loop with pre_plan retention and re-evaluation."""
+    """Perception → Plan → Act loop with pre_plan retention and re-evaluation."""
 
     def __init__(self, planner: PlannerProto):
         self.planner = planner

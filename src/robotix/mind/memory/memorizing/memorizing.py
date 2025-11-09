@@ -1,12 +1,12 @@
-from robotix.mind.memory.long_term.explicit.episodic.episode.episode import Episode
-from typing import List
-from robotix.mind.memory.long_term.explicit.experience.collection.collection import Collection
-from robotix.mind.memory.long_term.explicit.episodic.trace.trace import Trace
-from robotix.mind.memory.long_term.explicit.episodic.trace.observer.arrival_subscriber import \
-    ArrivalSubscriber
+from robotix.mind.memory.long_term.explicit.episodic.experience.episode.episode import Episode
+from typing import List, override
+from robotix.mind.memory.long_term.explicit.auto_biographic.episodic.experience.collection.collection import Collection
+from robotix.mind.memory.trace.trace import Trace
+from robotix.mind.memory.trace.observer.creation_subscriber import \
+    CreationSubscriber
 
 
-class Memorizing(ArrivalSubscriber):
+class Memorizing(CreationSubscriber):
     """
     - The _layers place will be detrmined
     """
@@ -24,7 +24,7 @@ class Memorizing(ArrivalSubscriber):
     def set_experience_collection(self, experience_collection:Collection) -> None:
         self._experience_collection = experience_collection
 
-    @override
-    def do_with_arrived_trace(self, trace: Trace) -> None:
-        pass
 
+    @override(CreationSubscriber)
+    def do_with_created_trace(self, trace: Trace) ->None:
+        pass

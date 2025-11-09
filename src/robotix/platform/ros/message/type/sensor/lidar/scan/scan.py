@@ -5,10 +5,10 @@ from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
 from sensorx.type.lidar.observation.observation import Observation as LidarObservation
-from robotix.mind.memory.long_term.explicit.episodic.trace.type.types import Types
+from robotix.mind.memory.trace.kind.kinds import Kinds
 from typing import List
-from robotix.mind.memory.long_term.explicit.episodic.trace.population_filled_trace import \
-    PopulationFilledTrace
+from robotix.mind.memory.trace.population_filled import \
+    PopulationFilled as PopulationFilledTrace
 
 
 class Scan(Message):
@@ -76,4 +76,4 @@ class Scan(Message):
     @cache
     def get_scan_ranges_population_filled_trace(self)-> PopulationFilledTrace:
         return PopulationFilledTrace(LidarObservation(self.get_field_value_by_name("ranges")), self._time,
-                                     Types.lidar_scan_ranges)
+                                Kinds.lidar_scan_ranges)

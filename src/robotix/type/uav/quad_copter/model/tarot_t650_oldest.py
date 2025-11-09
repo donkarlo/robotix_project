@@ -11,7 +11,7 @@ from robotix.mind.memory.memory import Memory
 from robotix.mind.memory.memorizing.memorizing import Memorizing
 from robotix.mind.memory.remembering.remembering import Remembering
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.long_term.explicit.experience.collection.collection import \
+from robotix.mind.memory.long_term.explicit.auto_biographic.episodic.experience.collection.collection import \
     Collection as ExperienceCollection
 
 
