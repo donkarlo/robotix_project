@@ -44,9 +44,10 @@ class Robot(ABC):
         return self.__name
 
     def remember_experience_by_name(self, name:str)->Experience:
-        return self._mind.get_memory().get_experience_collection().get_experience_by_name(name)
+        return self._mind.get_memory().get_experience_group().get_experience_by_name(name)
 
     def remember(self, trigger:Optional[Force]=None)->Union[Experience]:
+        print("I am remebering")
         return self._mind.get_memory().get_remembering().remember(trigger)
 
 

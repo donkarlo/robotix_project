@@ -1,8 +1,7 @@
 from typing import List
-
 from robotix.mind.memory.trace.group.decorator.decorator import Decorator
-from robotix.mind.memory.trace.group.decorator.interface import Interface
-from robotix.mind.memory.trace.trace import Trace
+from robotix.mind.memory.trace.group.interface import Interface
+from robotix.mind.memory.trace.population_filled import PopulationFilled
 from utilix.data.storage.decorator.multi_valued.interface import Interface as MultiValuedStorageInterface
 
 
@@ -10,7 +9,7 @@ from utilix.data.storage.decorator.multi_valued.interface import Interface as Mu
 class Storaged(Decorator):
     """
     """
-    def __init__(self, inner:Interface,storage: MultiValuedStorageInterface):
+    def __init__(self, inner:Interface, storage: MultiValuedStorageInterface):
         """
         """
         super(Decorator, self).__init__(inner)
@@ -19,10 +18,10 @@ class Storaged(Decorator):
     def get_storage(self) -> MultiValuedStorageInterface:
         return self._storage
 
-    def _set_traces(self) -> None:
-        ram_values = self._storage.get_ram_values()
-        traces = []
-        for ram_value in ram_values:
-            traces.append(ram_value)
-        self._inner._traces = traces
-
+    def get_members(self, slc:slice)->List[PopulationFilled]:
+        if slc is not None:
+            members = self._storage.get_ram_values_from_values_slices_by_slice(slc)
+        else:
+            members = self._storage.get_ram_values()
+        self._inner.reset_members(members)
+        return super().get_members()

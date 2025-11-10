@@ -1,18 +1,13 @@
 from abc import abstractmethod
-from typing import List
 
-from robotix.mind.memory.trace.trace import Trace
-from utilix.data.storage.storage import Storage
+from robotix.mind.memory.trace.group.group import Group as TraceGroup
 from utilix.oop.design_pattern.structural.composite.component import Component as BaseComponent
 
 
 class Component(BaseComponent):
-    def __init__(self, trace_storage:Storage):
-        self._trace_storage = trace_storage
+    def __init__(self, trace_group: TraceGroup, name:str):
+        super().__init__(name)
+        self._trace_group = trace_group
 
-    def get_storage(self)->Storage:
-        return self._trace_storage
-
-    @abstractmethod
-    def get_traces(self)->List[Trace]:
-        pass
+    def get_trace_group(self)-> TraceGroup:
+        return self._trace_group

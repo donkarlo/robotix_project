@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from robotix.mind.memory.force import Force
-from robotix.mind.memory.long_term.explicit.auto_biographic.episodic.experience.collection.collection import Collection as ExperienceCollection
+from robotix.mind.memory.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
 from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
 
 
@@ -16,8 +16,8 @@ class Remembering:
         """
         self._levels = None
 
-    def set_experience_collection(self, experience_collection: ExperienceCollection) -> None:
-        self._experience_collection = experience_collection
+    def set_experience_group(self, experience_group: ExperienceGroup) -> None:
+        self._experience_group = experience_group
 
     @abstractmethod
     def remember(self, force:Force)->None:
@@ -39,4 +39,4 @@ class Remembering:
         pass
 
     def recall_experience_by_experience_name(self, experience_name:str)->Experience:
-        return self._experience_collection.get_experience_by_name(experience_name)
+        return self._experience_group.get_experience_by_name(experience_name)

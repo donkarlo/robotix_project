@@ -22,7 +22,7 @@ x_tunnel = (5 + tunnel_radius * np.cos(theta_mesh)) * np.cos(t_mesh)
 y_tunnel = (5 + tunnel_radius * np.cos(theta_mesh)) * np.sin(t_mesh)
 z_tunnel = t_mesh + tunnel_radius * np.sin(theta_mesh)
 
-# Choose a point on the spiral path for the quadcopter
+# Choose a point on the spiral str_path for the quadcopter
 quad_index = 150  # Midpoint of the spiral
 quad_x, quad_y, quad_z = x[quad_index], y[quad_index], z[quad_index]
 
@@ -41,13 +41,13 @@ rotor_positions = np.array([
 fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
 
-# Plot the main spiral path
+# Plot the main spiral str_path
 ax.plot(x, y, z, color='blue', linewidth=2, label='Spiral Path')
 
 # Plot the noisy GPS points
 ax.scatter(x_noisy, y_noisy, z_noisy, color='red', s=5, alpha=0.6, label='Noisy GPS Points')
 
-# Plot the helical tunnel around the spiral path
+# Plot the helical tunnel around the spiral str_path
 ax.plot_surface(x_tunnel, y_tunnel, z_tunnel, color='cyan', alpha=0.2)
 
 # Plot quadcopter body (center marker)

@@ -30,7 +30,7 @@ INSTALLATION INSTRUCTIONS:
             # OR, if the above cmd ultimately fails due to permissions errors, use `sudo` too:
             sudo pip3 install bagpy
 1. Create a symlink in ~/bin to this script so you can run it from anywhere:
-            cd /path/to/here
+            cd /str_path/to/here
             mkdir -p ~/bin
             ln -si "${PWD}/ros_readbagfile.py" ~/bin/gs_ros_readbagfile
             ln -si "${PWD}/ros_readbagfile.py" ~/bin/ros_readbagfile

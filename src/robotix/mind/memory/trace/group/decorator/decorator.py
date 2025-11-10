@@ -1,4 +1,4 @@
-from robotix.mind.memory.trace.group.decorator.interface import Interface
+from robotix.mind.memory.trace.group.interface import Interface
 from utilix.oop.design_pattern.structural.decorator.decorator import Decorator as BaseDecorator
 
 

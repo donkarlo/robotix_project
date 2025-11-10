@@ -1,12 +1,12 @@
-from typing import Protocol, List
+from typing import Protocol, List, runtime_checkable
 
 from robotix.mind.memory.trace.trace import Trace
 
-
+@runtime_checkable
 class Interface(Protocol):
     """
     
     """
     _traces: List[Trace]
-    def _set_traces(self) -> List[Trace]:
+    def get_traces(self, traces:List[Trace]) -> List[Trace]:
         ...

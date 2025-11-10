@@ -205,10 +205,10 @@ class UltraFastNamedSplitter:
 
 if __name__ == "__main__":
     # Simple interactive CLI
-    src = input("Input YAML file path: ").strip()
+    src = input("Input YAML file str_path: ").strip()
     while not src or not Path(src).exists():
-        print("File not found. Please enter a valid path.")
-        src = input("Input YAML file path: ").strip()
+        print("File not found. Please enter a valid str_path.")
+        src = input("Input YAML file str_path: ").strip()
 
     default_out = str(Path(src).parent)
     out_dir = input(f"Output directory [default: {default_out}]: ").strip() or default_out

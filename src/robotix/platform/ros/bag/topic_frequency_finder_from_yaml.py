@@ -42,7 +42,7 @@ class TopicFrequencyFinder:
             except Exception:
                 return self._stats_from_bag_cli()
 
-    # ---------- YAML(.gz) path ----------
+    # ---------- YAML(.gz) str_path ----------
 
     def _open_text(self) -> TextIO:
         p = self._path
@@ -156,7 +156,7 @@ class TopicFrequencyFinder:
             out[t] = TopicStat(topic=t, count=count, t_min=t_min, t_max=t_max, freq_avg_hz=freq_avg)
         return out
 
-    # ---------- .bag path via 'rosbag information --yaml' ----------
+    # ---------- .bag str_path via 'rosbag information --yaml' ----------
 
     def _stats_from_bag_cli(self) -> Dict[str, TopicStat]:
         """
@@ -258,7 +258,7 @@ if __name__ == "__main__":
         print(f"{t:30s} {s.count:10d} {tmin:14s} {tmax:14s} {f:14s}")
 
     # PublisherExample 2: .bag (fallback via 'rosbag information --yaml', gives avg freq as count/duration)
-    # bag_path = "/path/to/file.bag"
+    # bag_path = "/str_path/to/file.bag"
     # bag2 = TopicFrequencyFinder(bag_path)
     # stats2 = bag2.stats()
     # ...
