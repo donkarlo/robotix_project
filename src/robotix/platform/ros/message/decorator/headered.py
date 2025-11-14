@@ -1,4 +1,4 @@
-from robotix.platform.ros.message.type.header.header import Header
+from robotix.platform.ros.message.kind.header.header import Header
 from robotix.platform.ros.message.interface import Interface
 
 

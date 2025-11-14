@@ -1,7 +1,7 @@
 from typing import List, Any, Optional
 from abc import ABC, abstractmethod
 from robotix.platform.ros.message.field.field import Field
-from robotix.platform.ros.message.type.header.header import Header
+from robotix.platform.ros.message.kind.header.header import Header
 from utilix.data.type.dic.dic import Dic
 from functools import cache
 

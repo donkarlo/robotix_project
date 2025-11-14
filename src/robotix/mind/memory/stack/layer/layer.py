@@ -1,7 +1,7 @@
 from typing import List
 
-from robotix.mind.memory.trace.observer.arrival_publisher import ArrivalPublisher as TraceArrivalPublisher
-from robotix.mind.memory.trace.observer.creation_subscriber import CreationSubscriber
+from robotix.mind.memory.composite.observer.trace.creation_publisher import CreationPublisher as TraceArrivalPublisher
+from robotix.mind.memory.composite.observer.trace.creation_subscriber import TraceCreationSubscriber
 from robotix.mind.memory.trace.trace import Trace
 from utilix.data.storage.decorator.multi_valued.interface import Interface as MultiValuedStorageInterface
 from utilix.data.storage.decorator.multi_valued.multi_valued import MultiValued
@@ -29,13 +29,13 @@ class Layer(TraceArrivalPublisher):
     def add_trace(self, trace: Trace)->None:
         pass
 
-    def attach_trace_arrival_subscriber(self, subscriber: CreationSubscriber) -> None:
+    def attach_trace_creation_subscriber(self, subscriber: TraceCreationSubscriber) -> None:
         self._trace_arrival_subscribers.append(subscriber)
 
-    def detach_trace_arrival_subscriber(self, subscriber: CreationSubscriber) -> None:
+    def detach_trace_creation_subscriber(self, subscriber: TraceCreationSubscriber) -> None:
         self._trace_arrival_subscribers.remove(subscriber)
 
-    def notify_trace_arrival_subscribers(self, trace: Trace) -> None:
+    def notify_trace_creation_subscribers(self, trace: Trace) -> None:
         for trace_arrival_subscriber in self._trace_arrival_subscribers:
             trace_arrival_subscriber.do_something_with_new_published_subject(trace)
 

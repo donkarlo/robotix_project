@@ -3,13 +3,14 @@ from typing import List, override
 
 from robotix.mind.memory.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
 from robotix.mind.memory.trace.trace import Trace
-from robotix.mind.memory.trace.observer.creation_subscriber import \
-    CreationSubscriber
+from robotix.mind.memory.composite.observer.trace.creation_subscriber import \
+    TraceCreationSubscriber
 
 
-class Memorizing(CreationSubscriber):
+class Memorizing(TraceCreationSubscriber):
     """
     - The _layers place will be detrmined
+    - memory can not memorize unless it is given a meaningful group of trace such as Memory/Composite/Componnet
     """
     def __init__(self):
         #should be set by calling set _layers from Memory class
@@ -22,7 +23,7 @@ class Memorizing(CreationSubscriber):
         """
         pass
 
-    def set_experience_group(self, experience_group: ExperienceGroup) -> None:
+    def set_memory_tree(self, experience_group: ExperienceGroup) -> None:
         self._experience_group = experience_group
 
 

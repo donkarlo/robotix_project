@@ -14,7 +14,7 @@ from robotix.mind.memory.trace.population_filled import \
 from robotix.mind.memory.trace.kind.kinds import Kinds
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
-from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
+from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
 from typing import List, Sequence
 import numpy as np

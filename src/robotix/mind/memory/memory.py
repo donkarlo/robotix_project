@@ -1,6 +1,7 @@
+from robotix.mind.memory.composite.composite import Composite as MemoryTree
 from robotix.mind.memory.trace.trace import Trace
-from robotix.mind.memory.trace.observer.creation_subscriber import \
-    CreationSubscriber as TraceCreationSubcriber
+from robotix.mind.memory.composite.observer.trace.creation_subscriber import \
+    TraceCreationSubscriber as TraceCreationSubcriber
 from robotix.mind.memory.memorizing.memorizing import Memorizing
 from robotix.mind.memory.remembering.remembering import Remembering
 from robotix.mind.memory.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
@@ -11,19 +12,18 @@ from typing import override, List
 class Memory(TraceCreationSubcriber):
 
 
-    def __init__(self, experience_group: ExperienceGroup, memorizing:Memorizing, remembering:Remembering):
+    def __init__(self, memory_tree:MemoryTree, memorizing:Memorizing, remembering:Remembering):
         """
         Here we design the aritecture or philosophy of the memory. The body part is in body
         coupling memorizing, remebering and storing
         Args:
-            experience_group
+            memory_tree
 
         """
-        self._experience_group = experience_group
         self._memorizing = memorizing
         self._remembering = remembering
 
-        self.set_experience_group(experience_group)
+        self._set_memory_tree(memory_tree)
 
     def get_remembering(self)->Remembering:
         return self._remembering
@@ -31,32 +31,28 @@ class Memory(TraceCreationSubcriber):
     def get_memorizing(self) -> Memorizing:
         return self._memorizing
 
-    def get_experience_group(self)-> ExperienceGroup:
-        return self._experience_group
+    def get_memory_tree(self)-> ExperienceGroup:
+        return self._memory_tree
 
-    def set_experience_group(self, experience_group: ExperienceGroup)->None:
+    def _set_memory_tree(self, experience_group: ExperienceGroup)->None:
         """
         Returns:
         """
-        self._experience_group = experience_group
-        self._memorizing.set_experience_group(self._experience_group)
-        self._remembering.set_experience_group(self._experience_group)
+        self._memory_tree = experience_group
+        self._memorizing.set_memory_tree(self._memory_tree)
+        self._remembering.set_memory_tree(self._memory_tree)
 
-    def add_experience(self, experience:Experience)->None:
-        self._experience_group.add_child(experience)
+    def recieve_traceable(self, traceable: Traceable):
+        """
+        something that has the potential to be a memorizable trace
+        Returns:
 
-    @override
-    def do_with_created_trace(self, trace: Trace) -> None:
-        self.get_remembering().do_with_arrived_trace(trace)
-        self.get_memorizing().do_with_created_trace(trace)
+        """
+        pass
 
-    def review(self):
-        experiences:List[Experience] = self.get_experience_group().get_members()
-        for experience in experiences:
-            for modality in experience.get_modality_collection().get_members():
-                for layer in modality.get_stack().get_layers():
-                    if layer.get_trace_group() is not None:
-                        if layer is upper_buildable:
-                            layer.build_next_upper_layer()
+    def decide_memorizable(self):
+        pass
+
+
 
 

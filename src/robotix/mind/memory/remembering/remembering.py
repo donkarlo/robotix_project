@@ -16,7 +16,7 @@ class Remembering:
         """
         self._levels = None
 
-    def set_experience_group(self, experience_group: ExperienceGroup) -> None:
+    def set_memory_tree(self, experience_group: ExperienceGroup) -> None:
         self._experience_group = experience_group
 
     @abstractmethod
@@ -40,3 +40,8 @@ class Remembering:
 
     def recall_experience_by_experience_name(self, experience_name:str)->Experience:
         return self._experience_group.get_experience_by_name(experience_name)
+
+    def review(self):
+        #TODO: traverse from leaves to roots
+        tree: List[Experience] = self.get_memory_tree().get_members()
+

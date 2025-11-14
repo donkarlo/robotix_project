@@ -20,7 +20,7 @@ class Trace(ABC):
         self._formatted_data:Any = None
         self._time = None
         # is it a command? a lidar sensor? a initial_mission?
-        self._type = None
+        self._kind = None
 
     @abstractmethod
     def set_formatted_data(self, formatted_data:Any)->None:

@@ -1,0 +1,2 @@
+class RosBagYamlModalitiesToFormingModalities(Generator):
+    pass

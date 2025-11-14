@@ -2,7 +2,7 @@ from functools import cache
 
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
-from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
+from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
 from sensorx.type.lidar.observation.observation import Observation as LidarObservation
 from robotix.mind.memory.trace.kind.kinds import Kinds

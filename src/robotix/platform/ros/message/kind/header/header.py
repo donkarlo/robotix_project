@@ -1,5 +1,5 @@
-from robotix.platform.ros.message.type.header.frame_id_stack import FrameIdStack
-from robotix.platform.ros.message.type.header.time_stamp import TimeStamp
+from robotix.platform.ros.message.kind.header.frame_id_stack import FrameIdStack
+from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.type.dic.dic import Dic
 
 class Header:
