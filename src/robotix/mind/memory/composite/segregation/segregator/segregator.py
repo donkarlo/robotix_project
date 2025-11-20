@@ -14,10 +14,11 @@ class Segregator(SegregatorInterface, ABC):
         self._source_component = source_component
 
         # cached
-        self._segregated_components:List[MemoryComponent] = []
+        self._segregated_components:List[MemoryComponent] = None
 
     def get_segregated_components(self)->List[MemoryComponent]:
-        if self._segregated_components == []:
+        if self._segregated_components is None:
+            self._segregated_components = []
             self.segregate()
         return self._segregated_components
 

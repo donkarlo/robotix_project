@@ -50,7 +50,7 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
         self._current_uni_formted_multi_value_storage.attach_add_to_ram_values_subscriber(self)
         self._current_uni_formted_multi_value_storage.attach_group_ram_values_addition_finished_subscriber(self)
 
-        self._segregated_components: List[MemoryComponent] = []
+        self._segregated_components: Optional[List[MemoryComponent]] = None
 
         # helpers, this will be filled when self.do_when_a_new_value_is_added_to_ram is called from uniformated_multi_valued_yaml_file.add_value
         self._trace_groups_dic = Dic({})
@@ -78,9 +78,6 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
             segregated_component = MemoryComposite(storaged_traced_group, trace_kind_name)
 
             self._segregated_components.append(segregated_component)
-
-    def get_segregated_components(self) -> List[MemoryComponent]:
-        return self._segregated_components
 
     @override_from(Segregator)
     def segregate(self) -> None:
