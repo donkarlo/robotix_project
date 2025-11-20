@@ -3,8 +3,9 @@ from enum import Enum, auto
 
 class Kinds(Enum):
     EXPERIENCE = auto()
+    #such as sensors data
     MODALITY = auto()
-    #partitioned
+    #partitioned by clustering for example
     CLASSIFIED = auto()
     SEMANTIC = auto()
     # formed of episodes that answer the question

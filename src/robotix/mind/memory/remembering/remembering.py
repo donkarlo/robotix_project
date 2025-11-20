@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from robotix.mind.memory.force import Force
-from robotix.mind.memory.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.kind.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
+from robotix.mind.memory.kind.long_term.explicit.episodic.experience.experience import Experience
 
 
 class Remembering:
@@ -12,7 +12,7 @@ class Remembering:
     """
     def __init__(self, order):
         """
-        It is not necessary to set the data source as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Memory class
+        It is not necessary to set the data os_file as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Working class
         """
         self._levels = None
 

@@ -4,7 +4,7 @@ class LearningFromExistingLanguage:
     """
     def __init__(self, existing_dicts:List[Dict]):
         self._dicts = dicts
-        # an embedding based on distribution of values around each other in sequential patterns, similar to paragraphs and texts
+        # an embedding based on distribution of values around each other_kind in sequential patterns, similar to paragraphs and texts
         nlp_embedding = self._get_nlp_embedding()
         embeded_keys_vals = []
         for dic in existing_dicts:

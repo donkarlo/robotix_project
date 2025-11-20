@@ -1,6 +1,6 @@
 from robotix.platform.ros.message.message import Message
 from typing import Protocol
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 
 
 class Component(Protocol):

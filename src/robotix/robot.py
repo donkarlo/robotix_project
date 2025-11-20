@@ -1,23 +1,23 @@
 from typing import Optional, Union
-from robotix.mind.memory.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.memory.kind.long_term.explicit.episodic.experience.experience import Experience
 from robotix.body.body import Body
 from robotix.mind.memory.force import Force
 from robotix.mind.mind import Mind
 from abc import ABC
 
 
+
 class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, body:Body, mind:Mind, name:Optional[str]=None):
+    def __init__(self, body:Body, mind:Mind, name:Optional[str]):
         """
-        Todo: integrate sensors and actuators in to body part and change mind by mind
+
         Args:
-            actuators: An actuator might also be used for comunicating with the world
-            sensor_collection: for observing the world
-            mind:
-            name: meaningful only in a group. It is given the first time by the group and remebered and probably used and conveyed by the target robot while attending later groups
+            body: includes brain to
+            mind: where activity potential fields are converted to meaningful values
+            name:
         """
         self._body = body
         self._mind:Mind = mind

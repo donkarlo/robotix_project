@@ -1,7 +1,7 @@
 from robotix.platform.ros.message.composite.component import Component
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 
 
 class Composite(Component):

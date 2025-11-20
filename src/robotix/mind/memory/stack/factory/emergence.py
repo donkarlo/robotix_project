@@ -2,7 +2,7 @@ from typing import List
 
 from robotix.mind.memory.stack.layer.layer import Layer
 from utilix.data.storage.storage import Storage
-from utilix.data.type.stack.stack import Stack
+from utilix.data.kind.stack.stack import Stack
 
 
 class Emergence(Stack):

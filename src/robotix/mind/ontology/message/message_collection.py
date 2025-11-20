@@ -1,7 +1,7 @@
 from robotix.mind.action.action import Action
 from robotix.body.actuator.command.command import Command
 from utilix.data.storage.decorator.multi_valued.add_value_observer_protocol import AddValueObserverProtocol
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 from typing import Type
 from physix.uncertainty.gaussian.timed_pose_distribution import TimedPoseDistribution
 from sensorx.type.lidar.rp_a2.obs import Obs as LidarObs

@@ -1,6 +1,6 @@
 from robotix.platform.ros.message.kind.header.frame_id_stack import FrameIdStack
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 
 class Header:
     def __init__(self, time_stamp: TimeStamp, frame_id_stack:FrameIdStack,sequence:int):

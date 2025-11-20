@@ -1,6 +1,6 @@
 from robotix.platform.ros.message.field.field import Field
 from typing import Protocol, List, Any
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 
 class Interface(Protocol):
     _fileds:List[Field]

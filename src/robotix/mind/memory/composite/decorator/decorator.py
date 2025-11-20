@@ -6,4 +6,4 @@ class Decorator(BaseDecorator, MemoryComponent):
     """
     """
     def __init__(self, inner: MemoryComponent):
-        super(BaseDecorator, self).__init__(inner)
+        BaseDecorator.__init__(self, inner)

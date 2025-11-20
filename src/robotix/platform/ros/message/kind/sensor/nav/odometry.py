@@ -1,23 +1,25 @@
-from functools import cache
-
 from mathx.probability.covariance_matrix import CovarianceMatrix
-from physix.quantity.type.kinematic.kinematic import Kinematic
+from physix.quantity.decorator.distributed import gaussianed
+from physix.quantity.kind.kinematic.kinematic import Kinematic
 from physix.quantity.decorator.distributed.gaussianed import Gaussianed
-from physix.quantity.type.kinematic.pose.pose import Pose
-from physix.quantity.type.kinematic.pose.position.position import Position
-from physix.quantity.type.kinematic.pose.orientation.quaternion import Quaternion
-from physix.quantity.type.kinematic.twist.angular import Angular
-from physix.quantity.type.kinematic.twist.linear import Linear
-from physix.quantity.type.kinematic.twist.twist import Twist
-from robotix.mind.memory.trace.population_filled import \
-    PopulationFilled as PopulationFilledTrace
-from robotix.mind.memory.trace.kind.kinds import Kinds
+from physix.quantity.kind.kinematic.pose.orientation.orientation import Orientation
+from physix.quantity.kind.kinematic.pose.pose import Pose
+from physix.quantity.kind.kinematic.pose.position.position import Position
+from physix.quantity.kind.kinematic.pose.orientation.quaternion import Quaternion
+from physix.quantity.kind.kinematic.twist.angular import Angular
+from physix.quantity.kind.kinematic.twist.linear import Linear
+from physix.quantity.kind.kinematic.twist.twist import Twist
+from robotix.mind.memory.trace.decorator.timed import Timed
+from robotix.mind.memory.trace.kind.gaussianed_quaternion_kinematic import GaussianedQuaternionKinematic
+from robotix.mind.memory.trace.trace import Trace
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 from typing import List, Sequence
 import numpy as np
+from utilix.oop.klass.klass import Klass
+from utilix.oop.klass.structure.kind.based_on_inheritence import BasedOnInheritence
 
 
 class Odometry(Message):
@@ -32,41 +34,41 @@ class Odometry(Message):
         fields:List[Field] = []
 
         # time
-        time = TimeStamp.get_time_by_dic(dic)
-        field = Field("time", time, float)
+        time = TimeStamp.init_from_dic(dic).get_time()
+        field = Field("time", time)
         fields.append(field)
 
         # pose
         ## position
-        field = Field("position", Dic(dic["pose"]["pose"]["position"]), Dic)
+        field = Field("position", Dic(dic["pose"]["pose"]["position"]))
         fields.append(field)
 
         ## orientation
-        field = Field("orientation", Dic(dic["pose"]["pose"]["orientation"]), Dic)
+        field = Field("orientation", Dic(dic["pose"]["pose"]["orientation"]))
         fields.append(field)
 
         ## orientation
-        field = Field("pose_covarience", dic["pose"]["covariance"], Sequence)
+        field = Field("pose_covarience", dic["pose"]["covariance"])
         fields.append(field)
 
         # twist
         ## linear
-        field = Field("linear_twist", Dic(dic["twist"]["twist"]["linear"]), Dic)
+        field = Field("linear_twist", Dic(dic["twist"]["twist"]["linear"]))
         fields.append(field)
 
         ## angular
-        field = Field("angular_twist", Dic(dic["twist"]["twist"]["angular"]), Dic)
+        field = Field("angular_twist", Dic(dic["twist"]["twist"]["angular"]))
         fields.append(field)
 
         ## orientation
-        field = Field("twist_covarience", dic["twist"]["covariance"], Sequence)
+        field = Field("twist_covarience", dic["twist"]["covariance"])
         fields.append(field)
 
         return cls(fields)
 
-    @cache
-    def get_distributed_kinematic_population_filled_trace(self)-> PopulationFilledTrace:
 
+
+    def get_distributed_kinematic_trace(self)-> Trace:
         #pose
         position_field = self.get_field_value_by_name("position")
         position = Position(position_field["x"], position_field["y"], position_field["z"])
@@ -79,7 +81,7 @@ class Odometry(Message):
 
         distributed_pose = Gaussianed(Pose(position, orientation), cov_pose)
 
-        #twist
+        #twist is velocity
         linear_twist_field = self.get_field_value_by_name("linear_twist")
         linear_twist = Linear(linear_twist_field["x"], linear_twist_field["y"], linear_twist_field["z"])
 
@@ -92,8 +94,12 @@ class Odometry(Message):
         distributed_twist = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
 
         # kinematic
-        trace = PopulationFilledTrace(Kinematic(distributed_pose, distributed_twist), self._time, Kinds.ditributed_quaternion_kinematic)
+        trace = Trace.init_from_formatted_data_and_kind_and_name(Kinematic(distributed_pose, distributed_twist),
+                                                                 GaussianedQuaternionKinematic(), None)
+        timed_trace = Timed(trace, self._time)
 
-        return trace
+        kind = BasedOnInheritence(timed_trace)
+
+        return timed_trace
 
 

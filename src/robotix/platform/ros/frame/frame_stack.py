@@ -1,5 +1,5 @@
 from typing import List
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 
 
 class FrameSequence:

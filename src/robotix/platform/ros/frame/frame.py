@@ -1,4 +1,4 @@
-from utilix.data.type.dic import dic
+from utilix.data.kind.dic import dic
 from typing import Union
 
 

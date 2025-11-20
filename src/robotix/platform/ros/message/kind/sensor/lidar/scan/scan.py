@@ -1,14 +1,14 @@
 from functools import cache
-
+from robotix.mind.memory.trace.decorator.timed import Timed
+from robotix.mind.memory.trace.kind.kinds import Kinds
+from robotix.mind.memory.trace.kind.lidar_scan_ranges import LidarScanRanges
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
-from utilix.data.type.dic.dic import Dic
+from utilix.data.kind.dic.dic import Dic
 from sensorx.type.lidar.observation.observation import Observation as LidarObservation
-from robotix.mind.memory.trace.kind.kinds import Kinds
 from typing import List
-from robotix.mind.memory.trace.population_filled import \
-    PopulationFilled as PopulationFilledTrace
+from robotix.mind.memory.trace.trace import Trace as Trace
 
 
 class Scan(Message):
@@ -25,55 +25,54 @@ class Scan(Message):
         fields = []
 
         #time
-        time = TimeStamp.get_time_by_dic(dic)
-        field = Field("time", time, float)
+        time = TimeStamp.init_from_dic(dic).get_time()
+        field = Field("time", time)
         fields.append(field)
 
         ##
         value = dic["angle_min"]
-        field = Field("angle_min", value, "array")
+        field = Field("angle_min", value)
         fields.append(field)
 
         ##
         value = dic["angle_max"]
-        field = Field("angle_max", value, "array")
+        field = Field("angle_max", value)
         fields.append(field)
 
         ##
         value = dic["angle_increment"]
-        field = Field("angle_increment", value, "array")
+        field = Field("angle_increment", value)
         fields.append(field)
 
         ##
         value = dic["range_min"]
-        field = Field("range_min", value, "array")
+        field = Field("range_min", value)
         fields.append(field)
 
         ##
         value = dic["range_max"]
-        field = Field("range_max", value, "array")
+        field = Field("range_max", value)
         fields.append(field)
 
         ##
         value = dic["ranges"]
-        field = Field("ranges", value, "array")
+        field = Field("ranges", value)
         fields.append(field)
 
         ##
         value = dic["intensities"]
-        field = Field("intensities", value, "array")
+        field = Field("intensities", value)
         fields.append(field)
 
         return cls(fields)
 
-    @cache
     @staticmethod
     def is_this_message_type_from_dic(dic: Dic) -> bool:
         if not dic.has_nested_keys(["ranges"]):
             return False
         return True
 
-    @cache
-    def get_scan_ranges_population_filled_trace(self)-> PopulationFilledTrace:
-        return PopulationFilledTrace(LidarObservation(self.get_field_value_by_name("ranges")), self._time,
-                                Kinds.lidar_scan_ranges)
+    def get_scan_ranges_trace(self)-> Trace:
+        trace = Trace.init_from_formatted_data_and_kind_and_name(LidarObservation(self.get_field_value_by_name("ranges")), LidarScanRanges() ,None)
+        timed_trace = Timed(trace, self._time)
+        return timed_trace

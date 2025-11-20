@@ -1,9 +1,10 @@
 from typing import List
 from robotix.mind.memory.composite.component import Component as MemoryComponent
+from robotix.mind.memory.composite.segregation.segregator.interface import Interface as SegregatorInterface
 from abc import ABC, abstractmethod
 
 
-class Segregator(ABC, Interface):
+class Segregator(SegregatorInterface, ABC):
     """
     Neurological term for seprating different senses that we use here for a trace group to seprate it should cover
     - separating modalities

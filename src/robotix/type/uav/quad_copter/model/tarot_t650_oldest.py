@@ -7,11 +7,11 @@ from sensorx.collection.collection import Collection
 from sensorx.type.lidar.rp_a2.sensor import Sensor as RpA2Lidar
 from sensorx.type.gps.odom.sensor import Sensor as GpsOdomSensor
 from robotix.mind.mind import Mind
-from robotix.mind.memory.memory import Memory
+from robotix.mind.memory.working import Working
 from robotix.mind.memory.memorizing.memorizing import Memorizing
 from robotix.mind.memory.remembering.remembering import Remembering
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
+from robotix.mind.memory.kind.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
 
 
 class TarotT650Oldest(QuadCopter):
@@ -20,7 +20,7 @@ class TarotT650Oldest(QuadCopter):
         rotor = Rotor()
         rotor_set = RotorSet(rotor)
         sensor_set = Collection([RpA2Lidar(), GpsOdomSensor()])
-        memory = Memory(Memorizing(), Remembering(), experience_group)
+        memory = Working(Memorizing(), Remembering(), experience_group)
         mind = Mind(memory, Learning())
         super().__init__(rotor_set, sensor_set, mind, name)
 

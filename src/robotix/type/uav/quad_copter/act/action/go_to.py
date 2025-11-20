@@ -1,5 +1,5 @@
 from robotix.mind.action.action import Action
-from physix.quantity.type.kinematic.pose.position.position import Position
+from physix.quantity.kind.kinematic.pose.position.position import Position
 from robotix.mind.goal.goal import Goal
 
 

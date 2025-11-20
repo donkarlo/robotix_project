@@ -8,5 +8,5 @@ class PreDictionary:
     vison=auto()
     #from coclea
     orientation=auto()
-    # only relative to other objects
+    # only relative to other_kind objects
     position = auto()

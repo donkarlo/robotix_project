@@ -29,15 +29,15 @@ class Composite(MemoryComponent, BaseComposite):
         def create_file(file_path: Path) -> None:
             if not file_path.file_exists():
                 # Guarantee parent directories exist (defensive)
-                parent = os.path.dirname(file_path.get_native_absolute_path())
+                parent = os.path.dirname(file_path.get_native_absolute_string_path())
                 if parent and not os.path.isdir(parent):
                     os.makedirs(parent, exist_ok=True)
-                with open(file_path.get_native_absolute_path(), "w", encoding="utf-8"):
+                with open(file_path.get_native_absolute_string_path(), "w", encoding="utf-8"):
                     pass
 
         # Directory for this composite under root_path
         dir_name = self.get_name()
-        dir_abs = os.path.join(root_path.get_native_absolute_path(), dir_name)
+        dir_abs = os.path.join(root_path.get_native_absolute_string_path(), dir_name)
         dir_path = Path(dir_abs)
         if not dir_path.directory_exists():
             dir_path.create_missing_directories()

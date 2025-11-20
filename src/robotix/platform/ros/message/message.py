@@ -1,9 +1,7 @@
 from typing import List, Any, Optional
 from abc import ABC, abstractmethod
 from robotix.platform.ros.message.field.field import Field
-from robotix.platform.ros.message.kind.header.header import Header
-from utilix.data.type.dic.dic import Dic
-from functools import cache
+from utilix.data.kind.dic.dic import Dic
 
 
 class Message(ABC):
@@ -25,8 +23,7 @@ class Message(ABC):
         for field in self._fields:
             if field.get_name() == name:
                 return field.get_value()
-
-
+        raise KeyError(f"Field {name} not found")
 
 
 

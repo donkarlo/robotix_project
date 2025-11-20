@@ -1,5 +1,6 @@
 from enum import Enum, auto
 
+
 class Kinds(Enum):
     mission = auto()
     pre_plan = auto()
@@ -7,6 +8,6 @@ class Kinds(Enum):
     action = auto()
     command = auto()
     sensor_ob = auto()
-    ditributed_quaternion_kinematic = auto()
+    gaussianed_quaternion_kinematic = auto()
     lidar_scan_ranges = auto()
     human_command_remeber_experience = auto()

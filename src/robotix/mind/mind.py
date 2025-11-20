@@ -2,7 +2,7 @@ from robotix.mind.cognition.semiotic.meaning.observation.fomation_publisher impo
 from robotix.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
 from robotix.mind.decision_making.decision_making import DecisionMaking
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.memory import Memory
+from robotix.mind.memory.working import Working
 from typing import List
 from robotix.mind.reasoning.reasoning import Reasoning
 
@@ -17,7 +17,7 @@ class Mind(MeaningFormationPublisher):
     - https://en.wikipedia.org/wiki/Mind
         - The mind is that which thinks, feels, perceives, imagines, remembers, and wills. It covers the totality of mind phenomena, including both conscious processes, through which an individual is aware of external and internal circumstances, and unconscious processes, which can influence an individual without intention or awareness.
     """
-    def __init__(self, memory:Memory, learning:Learning, reasoning:Reasoning, decision_making:DecisionMaking):
+    def __init__(self, memory:Working, learning:Learning, reasoning:Reasoning, decision_making:DecisionMaking):
         """
 
         Args:
@@ -43,7 +43,7 @@ class Mind(MeaningFormationPublisher):
     def get_decision_making(self)->DecisionMaking:
         return self._decision_making
 
-    def get_memory(self)->Memory:
+    def get_memory(self)->Working:
         return self._memory
 
 

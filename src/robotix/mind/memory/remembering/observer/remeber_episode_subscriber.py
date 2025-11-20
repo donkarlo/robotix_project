@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from robotix.mind.memory.long_term.explicit.episodic.experience.episode.episode import Episode
+from robotix.mind.memory.kind.long_term.explicit.episodic.experience.episode.episode import Episode
 
 
 class RememberEpisodeSubscriber(Protocol):

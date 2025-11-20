@@ -7,7 +7,7 @@ class Language:
     - Language is how we talk about an ontology
     - Language must be both useful for surviaval for example it must increase homeostasis rate but it also should turn so much deceptive that it reverses back its direction to reduce and even exinct the robot or race.
     - In fact a powerful language should be more enable to create so much illusion that it reduces the homeostasis rate more.
-    - Language can not exist anywhere other than an agent (Robot mind)
+    - Language can not exist anywhere other_kind than an agent (Robot mind)
     - Language is internalized through repeated social interaction
     """
 

@@ -5,7 +5,7 @@ class information():
     - knowledge is inside someone(A harmonic system)
     - example:
         when you flip a coin and tails come:
-            coin is the information source
+            coin is the information os_file
             episodic: is tails
             information: is 0 if head is 1
     - information is data inside a model and context
