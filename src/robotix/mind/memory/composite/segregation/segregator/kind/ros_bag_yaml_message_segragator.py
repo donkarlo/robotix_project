@@ -65,13 +65,15 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
 
             current_uni_format_yaml_file_parent_storage_str_path = Path(current_umvyf_storage_str_path).get_parent_directory_string_path()
 
-            segregated_storage_dir_path = DirPath(current_uni_format_yaml_file_parent_storage_str_path + os_sep + trace_group.get_name())
+            segregated_storage_dir_path = DirPath(current_uni_format_yaml_file_parent_storage_str_path + os_sep + trace_group.get_name() + os_sep + trace_group.get_name())
 
             segregated_storage_file_name = trace_group.get_name() + "." + self._storage_type
             segregated_storage_file_path = FilePath(segregated_storage_dir_path.get_native_os_string_path_with_trailing_slash() + segregated_storage_file_name)
 
             os_file = OsFile(segregated_storage_file_path, None, None)
             trace_group_storage = UniKinded(MultiValued(PklDataStorage(os_file, create_directory_structure=True), None), trace_kind_name, False)
+            trace_group_storage.add_to_ram_values_slice_group()
+
 
             storaged_traced_group = Storaged(trace_group, trace_group_storage)
 

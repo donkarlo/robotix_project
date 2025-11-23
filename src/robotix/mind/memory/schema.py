@@ -20,3 +20,8 @@ class Schema:
                 }
             }
         )
+    def draw(self):
+        self.get_schema_dic().draw()
+if __name__ == "__main__":
+    schema = Schema().draw()
+
