@@ -12,6 +12,7 @@ from robotix.platform.ros.message.kind.sensor.lidar.scan.scan import Scan as Ros
 from robotix.platform.ros.message.kind.sensor.nav.odometry import Odometry as RosOdometryMessage
 from utilix.data.kind.dic.dic import Dic
 from utilix.data.storage.decorator.multi_valued.multi_valued import MultiValued
+from utilix.data.storage.decorator.multi_valued.sliced import Sliced
 from utilix.data.storage.decorator.multi_valued.observer.add_to_ram_values_subscriber import \
     AddToRamValuesSubscriber as TraceAddValueSubscriber
 from utilix.data.storage.decorator.multi_valued.observer.group_ram_values_addition_finished_subscriber import \
@@ -32,9 +33,8 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
     Represents the modality group for one experience
     """
 
-    def __init__(self, current_memory_component: MemoryComponent, slc: slice):
+    def __init__(self, current_memory_component: MemoryComponent):
         self._storage_type = "pkl"
-        self._loading_slice = slc
         self._current_memory_component = current_memory_component
 
         if not BaseDecorator.has_decorator(self._current_memory_component.get_trace_group(), Storaged):
@@ -44,7 +44,7 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
             raise TypeError("Working component's trace group storage must be a UniformatedMultiValuedYamlFile")
 
         # umvyf stand for UniformatedMultiValuedYamlFile
-        self._current_uni_formted_multi_value_storage: UniformatedMultiValuedYamlFile = self._current_memory_component.get_trace_group().get_storage()
+        self._current_uni_formted_multi_value_storage:UniformatedMultiValuedYamlFile = self._current_memory_component.get_trace_group().get_storage()
 
         # observer subscriptions
         self._current_uni_formted_multi_value_storage.attach_add_to_ram_values_subscriber(self)
@@ -71,11 +71,11 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
             segregated_storage_file_path = FilePath(segregated_storage_dir_path.get_native_os_string_path_with_trailing_slash() + segregated_storage_file_name)
 
             os_file = OsFile(segregated_storage_file_path, None, None)
+            #TODO here multi valued must be replaced with Sliced
             trace_group_storage = UniKinded(MultiValued(PklDataStorage(os_file, create_directory_structure=True), None), trace_kind_name, False)
-            trace_group_storage.add_to_ram_values_slice_group()
-
 
             storaged_traced_group = Storaged(trace_group, trace_group_storage)
+            storaged_traced_group.save()
 
             segregated_component = MemoryComposite(storaged_traced_group, trace_kind_name)
 
@@ -84,13 +84,13 @@ class RosBagYamlMessageSegragator(Segregator, TraceAddValueSubscriber, GroupRamV
     @override_from(Segregator)
     def segregate(self) -> None:
         # this envokes TraceAddValueSubscriber.do_when_a_new_value_is_added_to_ram
-        self._current_uni_formted_multi_value_storage.load_slice(self._loading_slice)
+        self._current_uni_formted_multi_value_storage.load()
         # when finished GroupRamValuesAdditionFinishedSubscriber.do_when_group_ram_values_addition_is_finished
 
     @override_from(TraceAddValueSubscriber)
     def do_when_a_new_value_is_added_to_ram(self, value: Any) -> None:
         """
-        Is called from MultiValued storage decorator
+        Is called from SlicedValues storage decorator
         """
         if isinstance(value, Dic):
             # if it is a ros message

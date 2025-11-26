@@ -3,8 +3,7 @@ from typing import List
 from robotix.mind.memory.composite.observer.trace.creation_publisher import CreationPublisher as TraceArrivalPublisher
 from robotix.mind.memory.composite.observer.trace.creation_subscriber import TraceCreationSubscriber
 from robotix.mind.memory.trace.trace import Trace
-from utilix.data.storage.decorator.multi_valued.interface import Interface as MultiValuedStorageInterface
-from utilix.data.storage.decorator.multi_valued.multi_valued import MultiValued
+from utilix.data.storage.decorator.multi_valued.slices_cashed_interface import SlicesCashedInterface as MultiValuedStorageInterface
 from utilix.data.storage.interface import Interface as DataStorageInterface
 from utilix.oop.design_pattern.behavioral.observer.subscriber import Subscriber
 
@@ -19,8 +18,8 @@ class Layer(TraceArrivalPublisher):
         Args:
             storage:
         """
-        if not storage.isinstance(MultiValued):
-            raise TypeError(f"Storage must be an instance of {MultiValued.__name__}")
+        if not storage.isinstance(SlicesCashed):
+            raise TypeError(f"Storage must be an instance of {SlicesCashed.__name__}")
         self._storage = storage
 
         self._trace_arrival_subscribers: List[Subscriber] = []
