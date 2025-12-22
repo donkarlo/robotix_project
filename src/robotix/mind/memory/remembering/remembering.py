@@ -9,6 +9,7 @@ class Remembering:
     This class abstracts a strategy for remebering
     The role of remebering by an evidence, episodic or sequence of observation or just will
     - remembering is the process of bringing (meaningful) data from long-term memory
+    - remebering is always to reduce the suprise as much as possible. we remeber to make our prediction system better
     """
     def __init__(self, order):
         """
@@ -22,7 +23,6 @@ class Remembering:
     @abstractmethod
     def remember(self, force:Force)->None:
         """
-        This is unintentionall
         Args:
             force:
 

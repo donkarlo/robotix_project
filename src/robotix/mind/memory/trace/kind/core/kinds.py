@@ -2,6 +2,9 @@ from enum import Enum, auto
 
 
 class Kinds(Enum):
+    """
+    This is the dictionary of what can be placed in memory
+    """
     mission = auto()
     pre_plan = auto()
     plan = auto()

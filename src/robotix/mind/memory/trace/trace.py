@@ -2,7 +2,7 @@ from typing import Optional, Any
 
 from robotix.body.nervous.neuron.collection.population_activity_field import PopulationActivityField
 from robotix.mind.memory.trace.interface import Interface as TraceInterface
-from robotix.mind.memory.trace.kind.kind import Kind
+from robotix.mind.memory.trace.kind.core.kind import Kind
 
 
 class Trace(TraceInterface):
@@ -35,6 +35,9 @@ class Trace(TraceInterface):
         this_object._formatted_data = formatted_data
         this_object._kind = kind
         return this_object
+
+    def get_formatted_data(self) -> Any:
+        return self._formatted_data
 
     def get_nervous_population_activity_field(self) -> Optional[PopulationActivityField]:
         return self._population_activity_field

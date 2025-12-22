@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from utilix.data.kind.dic.dic import Dic
-from robotix.mind.memory.trace.kind.kind import Kind as SingleTraceKind
+from robotix.mind.memory.trace.kind.core.kind import Kind as SingleTraceKind
 
 
 class Kind(ABC):
@@ -30,6 +30,17 @@ class Kind(ABC):
 
     def get_name(self)->str:
         return self._name
+
+    def set_name(self, name:str)->None:
+        """
+        Can be used buy others to vote for their name or currently I am using it to name it according to trace kind plus slc
+        Args:
+            name:
+
+        Returns:
+
+        """
+        self._name = name
 
     @abstractmethod
     def get_schema(self)->Dic:

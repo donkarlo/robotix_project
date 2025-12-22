@@ -4,8 +4,8 @@ from robotix.type.uav.quad_copter.quad_copter import QuadCopter
 from typing import Optional
 from robotix.body.actuator.type.rotor.rotor import Rotor
 from sensorx.collection.collection import Collection
-from sensorx.type.lidar.rp_a2.sensor import Sensor as RpA2Lidar
-from sensorx.type.gps.odom.sensor import Sensor as GpsOdomSensor
+from sensorx.kind.lidar.rp_a2.sensor import Sensor as RpA2Lidar
+from sensorx.kind.gps.odom.sensor import Sensor as GpsOdomSensor
 from robotix.mind.mind import Mind
 from robotix.mind.memory.working import Working
 from robotix.mind.memory.memorizing.memorizing import Memorizing

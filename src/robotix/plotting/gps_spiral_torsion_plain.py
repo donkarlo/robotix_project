@@ -77,7 +77,7 @@ for idx in torsion_indices:
     ax.plot_surface(plane_x_global, plane_y_global, plane_z_global, color='green', alpha=0.3)
 
 # Plot quadcopter body (fully black, without transparency)
-ax.scatter(drone_x, drone_y, drone_z, color='black', marker='o', s=100, label='Quadcopter')
+ax.scatter(drone_x, drone_y, drone_z, color='black', marker='self__input_object', s=100, label='Quadcopter')
 
 # Plot quadcopter arms (fully black)
 for i in range(4):
@@ -88,7 +88,7 @@ for i in range(4):
 
 # Plot quadcopter rotors (fully black)
 ax.scatter(rotor_positions[:, 0], rotor_positions[:, 1], rotor_positions[:, 2],
-           color='black', marker='o', s=80)
+           color='black', marker='self__input_object', s=80)
 
 # Set plot labels
 ax.set_xlabel('X')

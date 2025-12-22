@@ -1,6 +1,6 @@
 from robotix.mind.memory.trace.group.decorator.decorator import Decorator
 from robotix.mind.memory.trace.group.interface import Interface as TraceGroupInterface
-from robotix.mind.memory.trace.group.kind.kind import Kind as TraceGroupKind
+from robotix.mind.memory.trace.group.kind.core.kind import Kind as TraceGroupKind
 
 
 class UniTraceKinded(Decorator):

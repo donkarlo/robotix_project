@@ -1,4 +1,4 @@
-from robotix.mind.memory.trace.group.kind.kind import Kind as GroupTraceKind
+from robotix.mind.memory.trace.group.kind.core.kind import Kind as GroupTraceKind
 from utilix.data.kind.dic.dic import Dic
 from utilix.oop.inheritance.overriding.override_from import override_from
 

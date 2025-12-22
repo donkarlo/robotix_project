@@ -1,5 +1,5 @@
-from robotix.body.brain.theory.bayesian.free_energy.active_inference import ActiveInference
-from robotix.body.brain.theory.bayesian.free_energy.preceptual_inference import PreceptualInference
+from robotix.body.nervous.brain.theory.bayesian.free_energy.active_inference import ActiveInference
+from robotix.body.nervous.brain.theory.bayesian.free_energy.preceptual_inference import PreceptualInference
 
 
 class FreeEnergy:

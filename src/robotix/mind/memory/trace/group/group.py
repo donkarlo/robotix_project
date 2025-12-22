@@ -1,6 +1,8 @@
 from typing import List, Optional, Any
+from functools import cache
+import numpy as np
 
-from robotix.mind.memory.trace.group.kind.kind import Kind as TraceGoupKind
+from robotix.mind.memory.trace.group.kind.core.kind import Kind as TraceGoupKind
 from robotix.mind.memory.trace.trace import Trace
 from robotix.mind.memory.trace.group.interface import Interface as GroupInterface
 from utilix.data.kind.group.group import Group as BaseGroup
@@ -14,6 +16,9 @@ class Group(BaseGroup, CompositeLeaf, GroupInterface):
         CompositeLeaf.__init__(self, name)
 
         self._kind: Optional[TraceGoupKind] = None
+
+        # lazy loading
+        self._formatted_datas = None
 
     @classmethod
     def init_from_traces_and_kind_and_name(cls, traces: Optional[List[Trace]], kind:Optional[TraceGoupKind],name: Optional[str])->"Group":
@@ -42,3 +47,14 @@ class Group(BaseGroup, CompositeLeaf, GroupInterface):
 
     def extract_dominant_kind_from_member_trace_kind(self)-> TraceGoupKind:
         ...
+
+    @cache
+    def get_formatted_data_list(self)->List[Any]:
+        if self._formatted_datas is None:
+            self._formatted_datas = []
+            for trace in self.get_traces():
+                self._formatted_datas.append(trace.get_formatted_data())
+            return self._formatted_datas
+
+
+

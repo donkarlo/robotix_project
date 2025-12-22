@@ -14,10 +14,11 @@ class Storaged(TraceGroupDecorator, StorageInterface):
     """
     def __init__(self, inner:TraceGroup, storage: MultiValuedStorageInterface):
         """
+        The storage in storaged is brain or physical part of the mind
         """
         TraceGroupDecorator.__init__(self, inner)
         self._storage = storage
-        tgm = inner.get_members()
+        # here we connect by reference the ram of storage and the mambers of the trace group
         self._storage.set_ram(inner.get_members())
 
     def get_storage(self) -> MultiValuedStorageInterface:

@@ -1,9 +1,7 @@
-from abc import abstractmethod
-
+from typing import Any, List
 from robotix.mind.memory.trace.group.group import Group as TraceGroup
 from robotix.mind.memory.trace.trace import Trace
 from utilix.oop.design_pattern.structural.composite.component import Component as BaseComponent
-from utilix.os.file_system.path.path import Path
 
 
 class Component(BaseComponent):
@@ -19,3 +17,6 @@ class Component(BaseComponent):
 
     def add_trace(self, trace:Trace)->None:
         self._trace_group.add_member(trace)
+
+    def get_formatted_data(self)->List[Any]:
+        return self._trace_group.get_formatted_data_list()

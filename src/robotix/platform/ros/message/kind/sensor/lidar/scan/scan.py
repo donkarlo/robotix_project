@@ -1,12 +1,10 @@
-from functools import cache
 from robotix.mind.memory.trace.decorator.timed import Timed
-from robotix.mind.memory.trace.kind.kinds import Kinds
 from robotix.mind.memory.trace.kind.lidar_scan_ranges import LidarScanRanges
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.kind.dic.dic import Dic
-from sensorx.type.lidar.observation.observation import Observation as LidarObservation
+from sensorx.kind.lidar.observation.observation import Observation as LidarObservation
 from typing import List
 from robotix.mind.memory.trace.trace import Trace as Trace
 

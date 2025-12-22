@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from robotix.mind.memory.composite.component import Component as MemoryComponent
 from robotix.mind.memory.composite.segregation.segregator.interface import Interface as SegregatorInterface
 from abc import ABC, abstractmethod
@@ -10,11 +10,11 @@ class Segregator(SegregatorInterface, ABC):
     - separating modalities
     - clustering
     """
-    def __init__(self, source_component:MemoryComponent):
-        self._source_component = source_component
+    def __init__(self, source_memory_component:MemoryComponent):
+        self._source_memory_component = source_memory_component
 
         # cached
-        self._segregated_components:List[MemoryComponent] = None
+        self._segregated_components:Optional[List[MemoryComponent]] = None
 
     def get_segregated_components(self)->List[MemoryComponent]:
         if self._segregated_components is None:

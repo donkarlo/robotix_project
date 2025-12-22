@@ -51,7 +51,7 @@ ax.scatter(x_noisy, y_noisy, z_noisy, color='red', s=5, alpha=0.6, label='Noisy 
 ax.plot_surface(x_tunnel, y_tunnel, z_tunnel, color='cyan', alpha=0.2)
 
 # Plot quadcopter body (center marker)
-ax.scatter(quad_x, quad_y, quad_z, color='black', marker='o', s=100, label='Quadcopter')
+ax.scatter(quad_x, quad_y, quad_z, color='black', marker='self__input_object', s=100, label='Quadcopter')
 
 # Plot quadcopter arms
 for i in range(4):
@@ -62,7 +62,7 @@ for i in range(4):
 
 # Plot quadcopter rotors
 ax.scatter(rotor_positions[:, 0], rotor_positions[:, 1], rotor_positions[:, 2],
-           color='black', marker='o', s=80)
+           color='black', marker='self__input_object', s=80)
 
 # Labels and legend
 ax.set_xlabel("X Axis")

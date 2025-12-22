@@ -4,7 +4,7 @@ from utilix.data.storage.decorator.multi_valued.add_value_observer_protocol impo
 from utilix.data.kind.dic.dic import Dic
 from typing import Type
 from physix.uncertainty.gaussian.timed_pose_distribution import TimedPoseDistribution
-from sensorx.type.lidar.rp_a2.obs import Obs as LidarObs
+from sensorx.kind.lidar.rp_a2.obs import Obs as LidarObs
 
 
 class MessageCollection(AddValueObserverProtocol):

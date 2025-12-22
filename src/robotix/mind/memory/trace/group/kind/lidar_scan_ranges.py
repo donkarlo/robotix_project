@@ -1,5 +1,4 @@
-from mathx.linalg.tensor.vector.vector import Vector
-from robotix.mind.memory.trace.group.kind.kind import Kind as GroupTraceKind
+from robotix.mind.memory.trace.group.kind.core.kind import Kind as GroupTraceKind
 from functools import cache
 from robotix.mind.memory.trace.kind.lidar_scan_ranges import LidarScanRanges as LidarScanRangesTraceKind
 

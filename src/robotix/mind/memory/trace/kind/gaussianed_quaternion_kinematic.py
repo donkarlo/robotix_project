@@ -1,6 +1,6 @@
 from functools import cache
 
-from robotix.mind.memory.trace.kind.kind import Kind
+from robotix.mind.memory.trace.kind.core.kind import Kind
 from utilix.data.kind.dic.dic import Dic
 
 
@@ -8,7 +8,7 @@ class GaussianedQuaternionKinematic(Kind):
     """
     """
     def __init__(self):
-        super().__init__("GaussianedQuaternionKinematic")
+        super().__init__("gaussianed_quaternion_kinematic")
 
     @cache
     def get_schema(self) -> Dic:

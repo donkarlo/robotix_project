@@ -1,11 +1,15 @@
-from typing import List, Protocol, runtime_checkable
+from typing import List, Protocol, runtime_checkable, Optional
 
 from robotix.mind.memory.composite.component import Component as MemoryComponent
 
 @runtime_checkable
 class Interface(Protocol):
-    _source_component: MemoryComponent
-    _segregated_components:List[MemoryComponent]
-    def __init__(self, source_component: MemoryComponent): ...
-    def segregate()->None: ...
-    def get_segregated_components()->List[MemoryComponent]: ...
+    _source_memory_component: MemoryComponent
+    _segregated_components:Optional[List[MemoryComponent]]
+
+    def __init__(self, source_memory_component: MemoryComponent):
+        ...
+    def segregate(self)->None:
+        ...
+    def get_segregated_components(self)->List[MemoryComponent]:
+        ...
