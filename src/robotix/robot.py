@@ -50,6 +50,11 @@ class Robot(ABC):
         print("I am remebering")
         return self._mind.get_memory().get_remembering().remember(trigger)
 
+    def wake_up(self)->None:
+        # loading memories
+        pass
+
+
 
 
 

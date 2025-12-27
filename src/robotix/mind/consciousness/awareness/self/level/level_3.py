@@ -1,4 +1,4 @@
-from robotix.mind.self.awareness.level.level import Level
+from robotix.mind.consciousness.awareness.self.awareness import Level
 from typing import Annotated, List, override
 
 UnitInterval = Annotated[float, "0.0 ≤ x ≤ 1.0"]

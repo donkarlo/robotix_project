@@ -2,8 +2,9 @@ from robotix.mind.cognition.semiotic.meaning.observation.fomation_publisher impo
 from robotix.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
 from robotix.mind.decision_making.decision_making import DecisionMaking
 from robotix.mind.learning.learning import Learning
-from robotix.mind.memory.working import Working
 from typing import List
+
+from robotix.mind.memory.composite.component import Component as MemoryComponent
 from robotix.mind.reasoning.reasoning import Reasoning
 
 
@@ -17,7 +18,7 @@ class Mind(MeaningFormationPublisher):
     - https://en.wikipedia.org/wiki/Mind
         - The mind is that which thinks, feels, perceives, imagines, remembers, and wills. It covers the totality of mind phenomena, including both conscious processes, through which an individual is aware of external and internal circumstances, and unconscious processes, which can influence an individual without intention or awareness.
     """
-    def __init__(self, memory:Working, learning:Learning, reasoning:Reasoning, decision_making:DecisionMaking):
+    def __init__(self, memory:MemoryComponent, learning:Learning, reasoning:Reasoning, decision_making:DecisionMaking):
         """
 
         Args:
@@ -45,6 +46,37 @@ class Mind(MeaningFormationPublisher):
 
     def get_memory(self)->Working:
         return self._memory
+
+    def set_mental_state(self):
+        pass
+
+    def reduce_suprise(self):
+        """
+        Somehow whenever  a new observation is noticed this must be activated to see how it is possible to reduce free energy.
+        ways to reduce:
+        - segregation
+        - fusion
+        - building new model
+        - switching to apropriate model
+        Returns:
+
+        """
+        pass
+
+    def get_mental_mode(self)->List:
+        """
+        Choices [Multiple could happen]:
+        - memory:
+            - remebering
+                -- was I intelligently controlled?
+            - recalling
+            - memorizing
+            - being intelligently controlled
+            - autonomous with goals
+        Returns:
+
+        """
+        pass
 
 
 

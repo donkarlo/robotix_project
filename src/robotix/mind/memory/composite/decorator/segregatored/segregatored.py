@@ -9,8 +9,7 @@ class Segregatored(Decorator):
     A segregation must be provoked when the system can not predict. maybe, some how, that I dont know at the moment of writing this. I mean it must happen on observing high anomary
 
     # Automatic triggers cases:
-        - High anomaly observation
-        - not having the mechanism to understand the storage
+        - To try to reduce suprise
 
     """
     def __init__(self, inner: Component, segregator:Segregator)->None:

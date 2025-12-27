@@ -12,3 +12,15 @@ class Body:
     def get_sensors(self)->SensorCollection:
         return self._sensor_collection
 
+    def sensor_addition_observer(self):
+        """
+        When a new sensor is added probably things like this might happen
+        - individual segragted predictive models such as when an IMU is added, then GPS prediction models nad LIDAR prediction models can be probably improved?
+        """
+        pass
+
+    def actuator_addition_observer(self):
+        pass
+
+
+

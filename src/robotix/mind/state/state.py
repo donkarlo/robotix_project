@@ -3,6 +3,7 @@ from enum import auto, Enum
 
 class State(Enum):
     DOING = auto()
+    RECALLING = auto()
     REMEMBERING = auto()
     BEING_CONTROLLED = auto()
     BEING_AUTONOMOUS = auto()
