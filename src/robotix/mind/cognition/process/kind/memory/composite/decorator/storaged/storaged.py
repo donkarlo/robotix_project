@@ -1,0 +1,2 @@
+class Storaged:
+    pass

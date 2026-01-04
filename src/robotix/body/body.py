@@ -1,4 +1,4 @@
-from robotix.body.actuator.collection.collection import Collection as ActuatorCollection
+from robotix.body.actuator.group.collection import Collection as ActuatorCollection
 from sensorx.collection.collection import Collection as SensorCollection
 
 class Body:

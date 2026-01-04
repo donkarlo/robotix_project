@@ -1,7 +1,7 @@
 from typing import Optional, Union
-from robotix.mind.memory.kind.long_term.explicit.episodic.experience.experience import Experience
+from robotix.mind.cognition.process.kind.memory.kind.long_term.explicit.episodic.experience.experience import Experience
 from robotix.body.body import Body
-from robotix.mind.memory.force import Force
+from robotix.mind.cognition.process.kind.memory.force import Force
 from robotix.mind.mind import Mind
 from abc import ABC
 
@@ -52,6 +52,7 @@ class Robot(ABC):
 
     def wake_up(self)->None:
         # loading memories
+        # if self._mind.get_memory().get
         pass
 
 

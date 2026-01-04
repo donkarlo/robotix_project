@@ -1,0 +1,43 @@
+from typing import List
+
+from robotix.mind.cognition.process.kind.memory.composite.observer.trace.creation_publisher import CreationPublisher as TraceArrivalPublisher
+from robotix.mind.cognition.process.kind.memory.composite.observer.trace.creation_subscriber import TraceCreationSubscriber
+from robotix.trace.trace import Trace
+from utilix.data.storage.decorator.multi_valued.slices_cashed_interface import SlicesCashedInterface as MultiValuedStorageInterface
+from utilix.data.storage.interface import Interface as DataStorageInterface
+from utilix.oop.design_pattern.behavioral.observer.subscriber import Subscriber
+
+
+class Layer(TraceArrivalPublisher):
+    """
+    Each current_level is LowerAndHigherAwareLayer should have access to hardware for saving data on it and have ram to keep it in its active memory
+    """
+    def __init__(self, storage: MultiValuedStorageInterface):
+        """
+        Every experience has its own trace_storage. a current_level can be formed of multiple experiences. now we just know storages for experiences. That is an experience
+        Args:
+            storage:
+        """
+        if not storage.isinstance(SlicesCashed):
+            raise TypeError(f"Storage must be an instance of {SlicesCashed.__name__}")
+        self._storage = storage
+
+        self._trace_arrival_subscribers: List[Subscriber] = []
+
+
+    def add_trace(self, trace: Trace)->None:
+        pass
+
+    def attach_trace_creation_subscriber(self, subscriber: TraceCreationSubscriber) -> None:
+        self._trace_arrival_subscribers.append(subscriber)
+
+    def detach_trace_creation_subscriber(self, subscriber: TraceCreationSubscriber) -> None:
+        self._trace_arrival_subscribers.remove(subscriber)
+
+    def notify_trace_creation_subscribers(self, trace: Trace) -> None:
+        for trace_arrival_subscriber in self._trace_arrival_subscribers:
+            trace_arrival_subscriber.do_something_with_new_published_subject(trace)
+
+
+    def get_storage(self) -> DataStorageInterface:
+        return self._storage

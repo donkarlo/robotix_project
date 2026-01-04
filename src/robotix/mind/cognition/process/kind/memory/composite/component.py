@@ -1,0 +1,28 @@
+from typing import Any, List
+from robotix.trace.group.group import Group as TraceGroup
+from robotix.trace.trace import Trace
+from utilix.oop.design_pattern.structural.composite.component import Component as BaseComponent
+
+
+class Component(BaseComponent):
+    """
+    - The component, either leaf or composite can only have one trace_group
+    """
+    def __init__(self, trace_group:TraceGroup, name:str):
+        """
+
+        Args:
+            trace_group: we use a group here because in memory meaningful things should be stored and meaning arises only from a population
+            name:
+        """
+        super().__init__(name)
+        self._trace_group = trace_group
+
+    def get_trace_group(self)-> TraceGroup:
+        return self._trace_group
+
+    def add_trace(self, trace:Trace)->None:
+        self._trace_group.add_member(trace)
+
+    def get_formatted_data(self)->List[Any]:
+        return self._trace_group.get_formatted_data_list()

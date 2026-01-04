@@ -6,6 +6,7 @@ from sensorx.sensor import Sensor
 
 class Message:
     """
+    - TODO: I have decide to replace Message with trace
     - a message must have a generator os_file and a channel and a destination
     - many of these messages make one trace in mind>memory>episodic>episod>trace
     - This message is not a ROS message, ROS message already a role of trace so it is

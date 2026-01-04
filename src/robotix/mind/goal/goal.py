@@ -1,5 +1,5 @@
 from mathx.linalg.tensor.vector.vector_representable import VectorRepresentable
-from robotix.mind.goal.acceptance_criterion import AcceptanceCriterion
+from robotix.mind.goal.acceptance.criterion import AcceptanceCriterion
 
 
 class Goal(VectorRepresentable):

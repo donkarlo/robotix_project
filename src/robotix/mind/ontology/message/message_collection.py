@@ -1,4 +1,4 @@
-from robotix.mind.action.action import Action
+from robotix.body.actuator.action.action import Action
 from robotix.body.actuator.command.command import Command
 from utilix.data.storage.decorator.multi_valued.add_value_observer_protocol import AddValueObserverProtocol
 from utilix.data.kind.dic.dic import Dic

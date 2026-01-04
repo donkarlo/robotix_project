@@ -2,7 +2,7 @@ from typing import Optional
 
 from abc import ABC
 
-from robotix.mind.action.composite.plan.plan import Plan
+from robotix.body.actuator.action.composite.plan.plan import Plan
 from robotix.mind.goal.composite.mission.mission import Mission
 from robotix.robot import Robot
 from physix.world.world import World

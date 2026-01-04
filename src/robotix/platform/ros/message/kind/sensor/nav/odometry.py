@@ -1,24 +1,21 @@
 from mathx.probability.covariance_matrix import CovarianceMatrix
-from physix.quantity.decorator.distributed import gaussianed
 from physix.quantity.kind.kinematic.kinematic import Kinematic
 from physix.quantity.decorator.distributed.gaussianed import Gaussianed
-from physix.quantity.kind.kinematic.pose.orientation.orientation import Orientation
 from physix.quantity.kind.kinematic.pose.pose import Pose
 from physix.quantity.kind.kinematic.pose.position.position import Position
 from physix.quantity.kind.kinematic.pose.orientation.quaternion import Quaternion
 from physix.quantity.kind.kinematic.twist.angular import Angular
 from physix.quantity.kind.kinematic.twist.linear import Linear
 from physix.quantity.kind.kinematic.twist.twist import Twist
-from robotix.mind.memory.trace.decorator.timed import Timed
-from robotix.mind.memory.trace.kind.gaussianed_quaternion_kinematic import GaussianedQuaternionKinematic
-from robotix.mind.memory.trace.trace import Trace
+from robotix.trace.decorator.timed import Timed
+from robotix.trace.kind.gaussianed_quaternion_kinematic.gaussianed_quaternion_kinematic import GaussianedQuaternionKinematic
+from robotix.trace.trace import Trace
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.kind.dic.dic import Dic
-from typing import List, Sequence
+from typing import List
 import numpy as np
-from utilix.oop.klass.klass import Klass
 from utilix.oop.klass.structure.kind.based_on_inheritence import BasedOnInheritence
 
 
