@@ -1,0 +1,2 @@
+class InteraAction:
+    pass

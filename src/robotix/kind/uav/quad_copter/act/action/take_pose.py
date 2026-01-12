@@ -1,8 +1,8 @@
-from robotix.body.actuator.action.action import Action
+from robotix.structure.kind.mind.goal.action.composite.component import Component
 from physix.kinematics.pose import Pose
 
 
-class TakePose(Action):
+class TakePose(Component):
     def __init__(self, pose: Pose) -> None:
         self._pos = pose
 

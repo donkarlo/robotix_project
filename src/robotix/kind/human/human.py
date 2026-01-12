@@ -1,5 +1,5 @@
-from robotix.mind.mind import Mind
-from robotix.body.body import Body
+from robotix.structure.kind.mind.mind import Mind
+from robotix.structure.kind.body.body import Body
 from robotix.robot import Robot
 
 

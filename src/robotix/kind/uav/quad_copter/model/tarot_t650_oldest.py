@@ -1,16 +1,16 @@
-from robotix.mind.goal.composite.mission.mission import Mission
+from robotix.structure.kind.mind.goal.composite.goal import Goal
 from robotix.kind.uav.quad_copter.act.actuator.rotor_set import RotorSet
 from robotix.kind.uav.quad_copter.quad_copter import QuadCopter
 from typing import Optional
-from robotix.body.actuator.type.rotor.rotor import Rotor
-from sensorx.collection.collection import Collection
-from sensorx.kind.lidar.rp_a2.sensor import Sensor as RpA2Lidar
-from sensorx.kind.gps.odom.sensor import Sensor as GpsOdomSensor
-from robotix.mind.mind import Mind
-from robotix.mind.cognition.process.kind.memory.working.working import Working
+from robotix.structure.kind.body.actuator.kind.rotor.rotor import Rotor
+from robotix.structure.kind.body.sensor.kind.group.group import Group
+from robotix.structure.kind.body.sensor.kind.lidar.rp_a2.sensor import Sensor as RpA2Lidar
+from robotix.structure.kind.body.sensor.kind.gps.odom.sensor import Sensor as GpsOdomSensor
+from robotix.structure.kind.mind.mind import Mind
+from robotix.mind.cognition.process.kind.memory.kind.working.working import Working
 from robotix.mind.cognition.process.kind.memory.memorizing.memorizing import Memorizing
 from robotix.mind.cognition.process.kind.memory.remembering.remembering import Remembering
-from robotix.mind.learning.learning import Learning
+from robotix.structure.kind.mind.learning.learning import Learning
 from robotix.mind.cognition.process.kind.memory.kind.long_term.explicit.episodic.experience.group.group import Group as ExperienceGroup
 
 
@@ -19,7 +19,7 @@ class TarotT650Oldest(QuadCopter):
     def __init__(self, experience_group:ExperienceGroup, name:Optional[str]=None):
         rotor = Rotor()
         rotor_set = RotorSet(rotor)
-        sensor_set = Collection([RpA2Lidar(), GpsOdomSensor()])
+        sensor_set = Group([RpA2Lidar(), GpsOdomSensor()])
         memory = Working(Memorizing(), Remembering(), experience_group)
         mind = Mind(memory, Learning())
         super().__init__(rotor_set, sensor_set, mind, name)
@@ -27,7 +27,7 @@ class TarotT650Oldest(QuadCopter):
     def build_from_urdf(self, urdf: str) -> None:
         super().build_from_urdf(urdf)
 
-    def achieve_mission(self, mission: Mission) -> bool:
+    def achieve_mission(self, mission: Goal) -> bool:
         return True
 
     def on_sensor_obs(self):

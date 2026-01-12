@@ -1,7 +1,7 @@
 from typing import Protocol, runtime_checkable
 
-from sensorx.collection.collection import Collection as SensorCollection
-from sensorx.observation.collection.collection import Collection as ObservationCollection
+from robotix.structure.kind.body.sensor.kind.group.group import Group as SensorCollection
+from robotix.structure.kind.body.sensor.observation.collection.collection import Collection as ObservationCollection
 
 
 @runtime_checkable

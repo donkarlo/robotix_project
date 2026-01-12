@@ -1,4 +1,4 @@
-from robotix.body.actuator.actuator import Actuator
+from robotix.structure.kind.body.actuator.actuator import Actuator
 
 
 class Hand(Actuator):

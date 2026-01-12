@@ -1,17 +1,14 @@
-from typing import Optional, Union
-from robotix.mind.cognition.process.kind.memory.kind.long_term.explicit.episodic.experience.experience import Experience
-from robotix.body.body import Body
-from robotix.mind.cognition.process.kind.memory.force import Force
-from robotix.mind.mind import Mind
+from typing import Optional
+from robotix.structure.kind.mind.goal.composite.composite import Composite as CompositeGoal
 from abc import ABC
-
+from robotix.structure.structure import Structure
 
 
 class Robot(ABC):
     """
     A robot is a sensor set
     """
-    def __init__(self, body:Body, mind:Mind, name:Optional[str]):
+    def __init__(self, structure: Structure, name:Optional[str]):
         """
 
         Args:
@@ -19,8 +16,7 @@ class Robot(ABC):
             mind: where activity potential fields are converted to meaningful values
             name:
         """
-        self._body = body
-        self._mind:Mind = mind
+        self._structure = structure
         self.__name = name
 
     def learn(self)->None:
@@ -37,27 +33,31 @@ class Robot(ABC):
         """
         self.__name = name
 
-    def get_mind(self)->Mind:
-        return self._mind
+    def get_structure(self)->Structure:
+        return self._structure
 
     def get_name(self)->Optional[str]:
         return self.__name
 
-    def remember_experience_by_name(self, name:str)->Experience:
-        return self._mind.get_memory().get_memory_tree().get_experience_by_name(name)
-
-    def remember(self, trigger:Optional[Force]=None)->Union[Experience]:
-        print("I am remebering")
-        return self._mind.get_memory().get_remembering().remember(trigger)
-
-    def wake_up(self)->None:
-        # loading memories
-        # if self._mind.get_memory().get
+    def get_goal_tree(self)-> CompositeGoal:
+        """
+        TODO: build it from memory tree
+        MUst be taken from memory which is a part of stracture composite
+        Returns:
+        """
         pass
 
 
+    def run(self)->None:
+        # loading memories
+        # if self._mind.get_memory().get
+        goal_tree = None
+        # TODO: Maybe this should be suprise rate
+        # TODO: Goal tree must be build from different locations in memory tree
 
-
+        goal_tree = self._get_goal_tree()
+        #rank according to priorities and mid states
+        self._rank_goals()
 
 
 

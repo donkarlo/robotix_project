@@ -1,4 +1,4 @@
-from physix.quantity.kind.time import Time
+from physix.quantity.kind.time.time import Time
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 

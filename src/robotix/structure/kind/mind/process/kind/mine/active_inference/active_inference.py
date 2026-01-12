@@ -1,0 +1,2 @@
+class ActiveInference:
+    pass

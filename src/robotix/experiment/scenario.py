@@ -2,8 +2,8 @@ from typing import Optional
 
 from abc import ABC
 
-from robotix.body.actuator.action.composite.plan.plan import Plan
-from robotix.mind.goal.composite.mission.mission import Mission
+from robotix.structure.kind.mind.goal.action.composite.composite import Composite
+from robotix.structure.kind.mind.goal.composite.goal import Goal
 from robotix.robot import Robot
 from physix.world.world import World
 
@@ -12,7 +12,7 @@ class Scenario(ABC):
     """
     Scenario is more than a robot and its missions
     """
-    def __init__(self, robot:Robot, initial_mission:Mission, initial_plan: Plan, world:World, name:Optional[str]=None):
+    def __init__(self, robot:Robot, initial_mission:Goal, initial_plan: Composite, world:World, name:Optional[str]=None):
         """
         
         Args:
@@ -40,13 +40,13 @@ class Scenario(ABC):
     def get_world(self)->World:
         return self._world
 
-    def get_mission(self)->Mission:
+    def get_mission(self)->Goal:
         return self._initial_mission
 
     def get_robot(self)->Robot:
         return self._robot
 
-    def get_plan(self)->Plan:
+    def get_plan(self)->Composite:
         return self._initial_plan
 
     def get_name(self)->Optional[str]:

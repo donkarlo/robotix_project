@@ -1,0 +1,8 @@
+lidar:
+  name: "lidar"
+gnss:
+  name: "gps"
+imu:
+  name: "imu"
+accelometer:
+  name: "accelometer"

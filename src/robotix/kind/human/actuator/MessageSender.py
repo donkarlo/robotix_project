@@ -1,4 +1,4 @@
-from robotix.body.actuator.group.collection import Collection as ActuatorCollection
+from robotix.structure.kind.body.actuator.group.collection import Collection as ActuatorCollection
 
 class MessageSender:
     def __init__(self, actuator_collection: ActuatorCollection):

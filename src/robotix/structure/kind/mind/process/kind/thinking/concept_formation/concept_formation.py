@@ -1,0 +1,2 @@
+class ConceptFormation:
+    pass

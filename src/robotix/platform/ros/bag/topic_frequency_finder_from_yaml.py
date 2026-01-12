@@ -54,7 +54,7 @@ class TopicFrequencyFinder:
         """
         Stream-parse YAML dump: detect 'topic:' lines and for each episodic emit a timestamp from header.stamp.
         Compute per-topic: count, span (t_max - t_min), avg frequency = (count-1)/span (using positive deltas implicitly).
-        Note: If header.stamp is missing for some messages, those won'time_value contribute timestamps.
+        Note: If header.stamp is missing for some messages, those won'value contribute timestamps.
         """
         stats: Dict[str, Dict[str, object]] = {}
         curr_topic: Optional[str] = None

@@ -1,7 +1,7 @@
-from robotix.body.actuator.action.action import Action
+from robotix.structure.kind.mind.goal.action.composite.component import Component
 
 
-class Land(Action):
+class Land(Component):
     """Land role: sit down where ever you are"""
     def __init__(self):
         pass

@@ -1,12 +1,12 @@
-from robotix.trace.decorator.timed import Timed
-from robotix.trace.kind.lidar_scan_ranges.lidar_scan_ranges import LidarScanRanges
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.decorator.timed import Timed
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.kind.lidar_scan_ranges.lidar_scan_ranges import LidarScanRanges
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
 from utilix.data.kind.dic.dic import Dic
-from sensorx.kind.lidar.observation.observation import Observation as LidarObservation
+from robotix.structure.kind.body.sensor.kind.lidar.observation.observation import Observation as LidarObservation
 from typing import List
-from robotix.trace.trace import Trace as Trace
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.trace import Trace as Trace
 
 
 class Scan(Message):

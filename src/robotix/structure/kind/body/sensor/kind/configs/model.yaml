@@ -1,0 +1,10 @@
+odom_gps:
+  type: "gnss"
+  name: "gps_odom"
+  dim: 13
+  frequencey: "98.95hz"
+rp_a2:
+  type: "lidar"
+  name: "rp_a2"
+  dim: 720
+  frequencey: "20hz"

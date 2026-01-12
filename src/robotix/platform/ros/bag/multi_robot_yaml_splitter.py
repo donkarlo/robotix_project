@@ -130,7 +130,7 @@ class UltraFastNamedSplitter:
             target = self._out_robot_tmp(self.cur_robot)
         elif self.emit_unknown:
             target = self._out_unknown()
-        # Write if we have a target (unknown disabled means drop stray docs)
+        # Write if we have a bottom (unknown disabled means drop stray docs)
         if target:
             target.write("---\n")
             if self.cur_header_lines:

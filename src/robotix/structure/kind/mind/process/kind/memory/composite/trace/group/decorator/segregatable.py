@@ -1,0 +1,2 @@
+class Segregatable(Decorator):
+    pass

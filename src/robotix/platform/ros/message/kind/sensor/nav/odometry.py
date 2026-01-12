@@ -1,15 +1,15 @@
 from mathx.probability.covariance_matrix import CovarianceMatrix
-from physix.quantity.kind.kinematic.kinematic import Kinematic
+from physix.quantity.kind.dynamic.kinematic.pose_twist_kinematic import PoseTwistKinematic
 from physix.quantity.decorator.distributed.gaussianed import Gaussianed
-from physix.quantity.kind.kinematic.pose.pose import Pose
-from physix.quantity.kind.kinematic.pose.position.position import Position
-from physix.quantity.kind.kinematic.pose.orientation.quaternion import Quaternion
-from physix.quantity.kind.kinematic.twist.angular import Angular
-from physix.quantity.kind.kinematic.twist.linear import Linear
-from physix.quantity.kind.kinematic.twist.twist import Twist
-from robotix.trace.decorator.timed import Timed
-from robotix.trace.kind.gaussianed_quaternion_kinematic.gaussianed_quaternion_kinematic import GaussianedQuaternionKinematic
-from robotix.trace.trace import Trace
+from physix.quantity.kind.dynamic.kinematic.pose.pose import Pose
+from physix.quantity.kind.dynamic.kinematic.pose.position.position import Position
+from physix.quantity.kind.dynamic.kinematic.pose.orientation.quaternion import Quaternion
+from physix.quantity.kind.dynamic.kinematic.twist.angular import Angular
+from physix.quantity.kind.dynamic.kinematic.twist.linear import Linear
+from physix.quantity.kind.dynamic.kinematic.twist.twist import Twist
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.decorator.timed import Timed
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.kind.gaussianed_quaternion_kinematic.gaussianed_quaternion_kinematic import GaussianedQuaternionKinematic
+from robotix.structure.kind.mind.process.kind.memory.composite.trace.trace import Trace
 from robotix.platform.ros.message.field.field import Field
 from robotix.platform.ros.message.message import Message
 from robotix.platform.ros.message.kind.header.time_stamp import TimeStamp
@@ -91,7 +91,7 @@ class Odometry(Message):
         distributed_twist = Gaussianed(Twist(linear_twist, angular_twist), cov_twist)
 
         # kinematic
-        trace = Trace.init_from_formatted_data_and_kind_and_name(Kinematic(distributed_pose, distributed_twist),
+        trace = Trace.init_from_formatted_data_and_kind_and_name(PoseTwistKinematic(distributed_pose, distributed_twist),
                                                                  GaussianedQuaternionKinematic(), None)
         timed_trace = Timed(trace, self._time)
 

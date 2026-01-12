@@ -1,5 +1,5 @@
-from robotix.body.actuator.group.collection import Collection
-from robotix.body.actuator.type.rotor.rotor import Rotor
+from robotix.structure.kind.body.actuator.group.collection import Collection
+from robotix.structure.kind.body.actuator.kind.rotor.rotor import Rotor
 from robotix.kind.uav.quad_copter.act.actuator.rotor_position import RotorPosition
 
 

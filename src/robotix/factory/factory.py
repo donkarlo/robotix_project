@@ -1,6 +1,5 @@
-from robotix.body.body import Body
-from robotix.mind.mind import Mind
-from utilix.os.file_system.path.directory import Directory
+from robotix.structure.kind.body.body import Body
+from robotix.structure.kind.mind.mind import Mind
 from abc import ABC, abstractmethod
 from typing import Optional
 
