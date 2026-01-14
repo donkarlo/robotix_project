@@ -17,7 +17,7 @@ from utilix.os.file_system.file.file import File as OsFile
 from utilix.os.file_system.path.file import File as FilePath
 
 
-class GaussianedQuaternionKinematic(TraceGroup, TraceGroupKind):
+class  GaussianedQuaternionKinematic(TraceGroup, TraceGroupKind):
     """
     """
 

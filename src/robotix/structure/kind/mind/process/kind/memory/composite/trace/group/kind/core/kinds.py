@@ -9,7 +9,7 @@ class Kinds:
     @cache
     def get_kind_list(self):
         kind_list = []
-        # add the Group kinds
+        # add the Finite kinds
         kind_list.append(LidarScanRangesTraceKind())
         kind_list.append(GaussianedQuaternionKinematic())
         kind_list.append(RosMultiModalYamlMessages())

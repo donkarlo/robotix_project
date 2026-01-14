@@ -13,7 +13,7 @@ class Force:
     """
     def __init__(self, evidence:List[Evidence]):
         """
-        Force is a ratio of evidence or how much an evidence is forceful. it ,us be a vector. So it must have both magnitude and direction
+        Force is a ratio_value of evidence or how much an evidence is forceful. it ,us be a vector. So it must have both magnitude and direction
         """
         self._evidence = evidence
 

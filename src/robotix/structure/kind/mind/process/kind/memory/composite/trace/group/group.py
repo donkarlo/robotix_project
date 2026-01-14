@@ -20,7 +20,7 @@ class Group(MemoryComponent, BaseGroup, GroupInterface):
         self._formatted_data_list = None
 
     @classmethod
-    def init_by_traces_and_kind_and_name(cls, traces: Optional[List[Trace]], kind:Optional[TraceGoupKind], name: Optional[str])-> "Group":
+    def init_by_traces_and_kind_and_name(cls, traces: Optional[List[Trace]], kind:Optional[TraceGoupKind], name: Optional[str])-> "Finite":
         obj = cls(traces, name)
         obj._kind = kind
         return obj

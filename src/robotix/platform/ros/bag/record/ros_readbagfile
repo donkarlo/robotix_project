@@ -161,7 +161,7 @@ def parseArgs():
 
 def printMsgsInBagFile(args):
     no_msgs_found = True
-    # Establish counters to keep track of the episodic number being received under each topic __name
+    # Establish counters to keep track of the episodic value being received under each topic __name
     msg_counters = {} # empty dict
     total_count = 0
     bag_in = rosbag.TopicFrequencyFinder(args.bag_file_in)

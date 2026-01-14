@@ -1,5 +1,5 @@
 # from robotix.structure.mind.process.kind.memory.composite.decorator.decorator import Decorator as CompositeMemoryDecorator
-# from robotix.structure.mind.process.kind.memory.composite.trace.group.group import Group as TraceGroup
+# from robotix.structure.mind.process.kind.memory.composite.trace.group.group import Finite as TraceGroup
 # from utilix.data.storage.decorator.multi_valued.slices_cashed_interface import \
 #     Interface as MultiValuedStorageInterface
 # from utilix.data.storage.interface import Interface as StorageInterface

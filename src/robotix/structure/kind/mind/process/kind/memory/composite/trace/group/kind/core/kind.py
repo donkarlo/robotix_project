@@ -17,7 +17,7 @@ class Kind(ABC):
     @classmethod
     def init_from_single_trace_kind(cls, single_trace_kind: SingleTraceKind):
         """
-        Used when all members of the Group are of the same trace kind
+        Used when all members of the Finite are of the same trace kind
         Args:
             single_trace_kind:
 

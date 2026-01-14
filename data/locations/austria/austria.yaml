@@ -1,0 +1,24 @@
+shops:
+  bike24:
+    contact_us:
+      ref: "https://www.bike24.com/contact/customer-service"
+iran:
+  emabassy:
+    address: "Jauresgasse 9   1030 Wien"
+    tel: ""
+    email: "vie.consulate@mfa.ir"
+graz:
+  food:
+    food_bank: null
+    liver_and_bone_broth: "https://www.gurkerl.at/35091-bio-weidebeef-rinder-suppenknochen-tiefgekuhlt?cjdata=MXxZfDB8WXww&storeId=9000&utm_source=CJ&utm_medium=affiliate&utm_campaign=100320212&utm_content=17094299&utm_term=7c6e036eee2f11f0821400a00a18b8f6&cjevent=7c6e036eee2f11f0821400a00a18b8f6"
+  "real estate":
+    "Engel & Völkers Graz":
+      email: "grazcity@news.engelvoelkers.com"
+      email2: "graz@engelvoelkers.com"
+      tell: "0316 813032400"
+  "driving license": null
+sport:
+  "the north face":
+    email: "us_customer_care@thenorthface.com"
+  "mountain climbing":
+    webpage: "https://www.berg-freunde.at/"

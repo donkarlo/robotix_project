@@ -1,0 +1,29 @@
+german_letrature:
+  litrature_magazines:
+    {
+      translation: "Literaturzeitschrift",
+      websites:
+        - "https://www.ogl.at/info/links/zeitschriften/"
+        - "https://literaturzeitschrift.de/"
+        - "https://www.poeten.de/": "ist sehr gut zu anfangan zu die geschichte mit andere mencschen teilen"
+
+    }
+  short_stories: null
+  poetry: null
+photography: null
+youtube:
+  "teaching programming":
+    "teaching OOP": null
+    "teaching design pattterns in python": null
+
+  "teaching robotics": null
+  "photography":
+    search_terms:
+      "in german":
+        - "Fotografieagenturen in Österreich"
+        - "Naturfotografie-Agenturen in Österreich"
+    agencies:
+      austria:
+        list:
+          - "https://www.sortlist.com/de/fotographie/oesterreich-at"
+    nature: null

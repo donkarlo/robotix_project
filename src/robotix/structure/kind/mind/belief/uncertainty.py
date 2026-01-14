@@ -1,4 +1,4 @@
-from mathx.numbers.kind.real.interval.closed_unit_interval import ClosedUnitInterval
+from mathx.numbers.kind.real.interval.unit.closed_unit_interval import ClosedUnitInterval
 
 
 class Uncetainty(ABC):
