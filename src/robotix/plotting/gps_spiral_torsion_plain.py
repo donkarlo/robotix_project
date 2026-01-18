@@ -58,10 +58,10 @@ rotor_positions = np.array([
 fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-# Plot the spiral curve
+# View the spiral curve
 ax.plot(x, y, z, label='Spiral Curve', color='blue')
 
-# Plot rectifying planes (torsion planes) along the curve
+# View rectifying planes (torsion planes) along the curve
 plane_size = 0.5  # Size of rectifying planes
 for idx in torsion_indices:
     # Create a 2D meshgrid for the plane
@@ -73,20 +73,20 @@ for idx in torsion_indices:
     plane_y_global = y[idx] + plane_u * B_unit[idx, 1] + plane_v * T_unit[idx, 1]
     plane_z_global = z[idx] + plane_u * B_unit[idx, 2] + plane_v * T_unit[idx, 2]
 
-    # Plot the rectifying plane
+    # View the rectifying plane
     ax.plot_surface(plane_x_global, plane_y_global, plane_z_global, color='green', alpha=0.3)
 
-# Plot quadcopter body (fully black, without transparency)
+# View quadcopter body (fully black, without transparency)
 ax.scatter(drone_x, drone_y, drone_z, color='black', marker='self__input_object', s=100, label='Quadcopter')
 
-# Plot quadcopter arms (fully black)
+# View quadcopter arms (fully black)
 for i in range(4):
     ax.plot([drone_x, rotor_positions[i, 0]],
             [drone_y, rotor_positions[i, 1]],
             [drone_z, rotor_positions[i, 2]],
             color='black', linewidth=2)
 
-# Plot quadcopter rotors (fully black)
+# View quadcopter rotors (fully black)
 ax.scatter(rotor_positions[:, 0], rotor_positions[:, 1], rotor_positions[:, 2],
            color='black', marker='self__input_object', s=80)
 

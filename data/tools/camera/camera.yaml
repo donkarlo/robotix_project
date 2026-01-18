@@ -1,7 +1,11 @@
 leica:
-  "m series": null
-  "sl series": null
-  "q series": null
+  models:
+    "m series": null
+    "sl series":
+      "explaination from gmail": "Leica SL-System"
+    "q series": null
+  financing:
+    url: "https://leica-camera.com/en-AT/service/financing"
 lense:
   null
 jargon:

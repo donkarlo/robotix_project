@@ -22,7 +22,7 @@ class Level4(Level):
     def test_self_concept_reporting(self) -> UnitInterval:
         """
         Reports stable internal properties (capabilities, roles, resource budgets)
-        and updates them coherently after evidence (self-model revision).
+        and updates them coherently after evidence (self-transformer_model revision).
         """
         return 0.0
 

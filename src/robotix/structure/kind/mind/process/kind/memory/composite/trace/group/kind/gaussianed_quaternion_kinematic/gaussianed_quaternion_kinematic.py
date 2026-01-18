@@ -50,10 +50,10 @@ class  GaussianedQuaternionKinematic(TraceGroup, TraceGroupKind):
         for trace in traces:
             position_component = trace.get_formatted_data().get_pose().get_position().get_vector_representation().get_components()
             time = [trace.get_time().get_value()]
-            time_position_seq.append([time]+position_component)
+            time_position_seq.append(time+position_component.tolist())
 
-
-        file_path = FilePath(parent_trace_dir_str_path+"time_position_sequence.npz")
+        time_position_seq = np.array(time_position_seq)
+        file_path = FilePath(parent_trace_dir_str_path+"time_position_sequence_sliced_from_1_to_300000.npz")
         os_file = OsFile(file_path, None, None)
         position_trace_group_storage = MultiValuedNumPi(os_file, True)
         position_trace_group_storage.set_ram(time_position_seq)

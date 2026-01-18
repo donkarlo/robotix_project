@@ -40,7 +40,7 @@ class DiracDistribution:
 
 class Belief(Generic[TState]):
     """
-    Wraps a deterministic state plus an uncertainty model.
+    Wraps a deterministic state plus an uncertainty transformer_model.
     Keeps 'estimate' (e.g., Vec) and its distribution coherent.
     """
 

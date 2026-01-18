@@ -1,0 +1,2 @@
+class Instrumental:
+    pass

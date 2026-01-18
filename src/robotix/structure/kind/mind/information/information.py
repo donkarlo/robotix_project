@@ -8,7 +8,7 @@ class information():
             coin is the information os_file
             episodic: is tails
             information: is 0 if head is 1
-    - information is data inside a model and context
+    - information is data_set inside a transformer_model and context
     - information is meaningful in a feedback, control system
     - information is a representation of a reality
     """

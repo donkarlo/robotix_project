@@ -5,7 +5,7 @@ class Cyclic:
     def __init__(self, modality:Modality, data:Any):
         """Data for one cycle of a modality in an experience"""
         self._modality = modality
-        #data for a single cycle
+        #data_set for a single cycle
         self._data = data
 
     def get_modality(self)->Modality:

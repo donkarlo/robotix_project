@@ -1,6 +1,7 @@
 from typing import Protocol, runtime_checkable, Any, Optional
 
-from robotix.structure.kind.body.nervous.neuron.collection.population_activity_field import PopulationActivityField
+from robotix.structure.kind.body.nervous.neuron.population_activity_field.population_activity_field import \
+    PopulationActivityField
 
 
 @runtime_checkable

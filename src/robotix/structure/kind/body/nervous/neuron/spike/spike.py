@@ -1,4 +1,4 @@
-from mathx.numbers.kind.real.interval.interval import Interval
+from mathx.number.kind.real.interval.interval import Interval
 from physix.dimension.unit.unit import Unit
 
 

@@ -13,7 +13,7 @@ class Mind(MeaningFormationPublisher):
     """
     Mental is the adverb for mind
     https: // en.wikipedia.org / wiki / Mental_model
-        - A mind model is an internal representation of external reality — that is, a way of representing reality within the mind.
+        - A mind transformer_model is an internal representation of external reality — that is, a way of representing reality within the mind.
 
     Is all about the concepts. Whenever there is something tangiable, it should go to body>brain
     - https://en.wikipedia.org/wiki/Mind
@@ -24,7 +24,7 @@ class Mind(MeaningFormationPublisher):
 
         Args:
             memory: it is the memory tree that is given to the mind
-            learning: learning strategy, updating model parametes
+            learning: learning strategy, updating transformer_model parametes
             reasoning: reasoning strategy, how to relate new observations using learning strategy (the parameters from learning)
             decision_making: selection of a belief among several possible alternative options
         """
@@ -60,8 +60,8 @@ class Mind(MeaningFormationPublisher):
         ways to reduce:
         - segregation
         - fusion
-        - building new model
-        - switching to apropriate model
+        - building new transformer_model
+        - switching to apropriate transformer_model
         Returns:
 
         """
