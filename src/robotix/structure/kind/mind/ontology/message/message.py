@@ -2,7 +2,7 @@ from robotix.structure.kind.mind.ontology.message.interface import Interface
 
 
 class Message(Interface):
-    """Message is a data_set strcture such as a directed graph or oop_based objects or a tree graph that can be contributed to
+    """Message is a pair_set strcture such as a directed graph or oop_based objects or a tree graph that can be contributed to
     describe an entity to an agent for descison making in now or future.
     - How to build:
         - from spike polulation sequence firings
@@ -20,9 +20,9 @@ class Message(Interface):
         pass
 
     def init_from_language(self):
-        """Such as describing a tree data_set structure"""
+        """Such as describing a tree pair_set structure"""
         pass
 
     def init_from_spike_populations_squence_to_language_to_message(self):
-        """Such as describing a tree data_set structure"""
+        """Such as describing a tree pair_set structure"""
         pass

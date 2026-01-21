@@ -1,3 +1,5 @@
 thermal: null
-ink: null
+ink:
+  cannon:
+    ts_6351: null
 laser: null

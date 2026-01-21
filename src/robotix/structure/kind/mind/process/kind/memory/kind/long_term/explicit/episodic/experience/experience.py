@@ -13,7 +13,7 @@ class Experience:
             mission:
             executed_plan:
             shared_stack: all modalities are in a trace_storage file
-            modality_group: for example current_level 0 is sensory data_set, current_level 1 is clusters
+            modality_group: for example current_level 0 is sensory pair_set, current_level 1 is clusters
         """
         # initial pre_plan
         self._shared_stack = shared_stack

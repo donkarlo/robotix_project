@@ -1,8 +1,8 @@
 # from robotix.structure.mind.process.kind.memory.composite.decorator.decorator import Decorator as CompositeMemoryDecorator
 # from robotix.structure.mind.process.kind.memory.composite.trace.group.group import Finite as TraceGroup
-# from utilix.data_set.storage.decorator.multi_valued.slices_cashed_interface import \
+# from utilix.pair_set.storage.decorator.multi_valued.slices_cashed_interface import \
 #     Interface as MultiValuedStorageInterface
-# from utilix.data_set.storage.interface import Interface as StorageInterface
+# from utilix.pair_set.storage.interface import Interface as StorageInterface
 #
 #
 # class Storaged(CompositeMemoryDecorator, StorageInterface):

@@ -7,7 +7,7 @@ class FullPose(State):
     def __init__(self, pos:ThreeDColVec, height:height, roll:float, pitch:float, yaw:float):
         '''
         Fill in with best estimation which is done out of here.
-        it is not a place for estimation. it is just to hold separated data_set.
+        it is not a place for estimation. it is just to hold separated pair_set.
         Args:
             pos:
             roll: radian

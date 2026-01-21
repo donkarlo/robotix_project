@@ -19,7 +19,7 @@ class Factory:
 
         Parameters:
             sample_action: An example Goal object (used to infer Goal and Vec types)
-            vecs_file_path: Path to the file containing vector data_set
+            vecs_file_path: Path to the file containing vector pair_set
             vec_sep: Separator between vectors (default newline)
             component_sep: Separator between components of each vector (default space)
 

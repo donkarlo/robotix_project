@@ -3,3 +3,6 @@ layout:
     pass
   german:
     "apastroph '": "The key over shift"
+    "{": "left alt 7"
+    "}": "left alt 0"
+    "double quotation": "shift 2"

@@ -11,7 +11,7 @@ class SensorSetObsVals:
         """
         self._sensor_set: Group = sensor_set
         # it will hold sensor id as key and a single_sensor_time_val_seq
-        # as the data_set for that in a heirarchical order
+        # as the pair_set for that in a heirarchical order
         self._all_nested_sensor_set_vals = {}
         self._time_seq = {}
         self._val_seq = {}

@@ -8,7 +8,7 @@ from mathx.linalg.vec.vec import Vec
 
 class SensorsetValsBetweenCommands(Episode):
     """
-    multiple sensor data_set between two consequent commands
+    multiple sensor pair_set between two consequent commands
     """
     def __init__(self, mission: Mission, action: Optional[Action]=None, command:Optional[Command]=None):
         self._mission = mission
