@@ -17,7 +17,7 @@ class Factory:
             -14.5 15 5
             -14 15 5
 
-        Parameters:
+        LearnedParameters:
             sample_action: An example Goal object (used to infer Goal and Vec types)
             vecs_file_path: Path to the file containing vector pair_set
             vec_sep: Separator between vectors (default newline)
