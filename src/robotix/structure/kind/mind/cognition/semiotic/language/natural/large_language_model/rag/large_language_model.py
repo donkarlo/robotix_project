@@ -13,26 +13,6 @@ os.environ.setdefault("LLAMA_LOG_LEVEL", "ERROR")
 os.environ.setdefault("GGML_LOG_LEVEL", "ERROR")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# -----------------------------
-# main (NO CLI)
-# -----------------------------
 def main() -> None:
     cfg = RuntimeConfig(
         root=Path("/home/donkarlo/Dropbox/repo/robotix_project/data/"),

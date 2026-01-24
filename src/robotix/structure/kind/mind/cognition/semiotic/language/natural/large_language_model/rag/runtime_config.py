@@ -10,7 +10,7 @@ class RuntimeConfig:
     embed_model_gguf: Path
     chat_model_gguf: Path
 
-    extensions: Tuple[str, ...] = (".yaml", ".yml", ".tex", ".md", ".txt")
+    extensions: Tuple[str, ...] = (".yaml", ".yml", ".tex", ".md", ".txt", ".pdf")
     max_files: int = 5000
     include_roots: Optional[List[Path]] = None
 
