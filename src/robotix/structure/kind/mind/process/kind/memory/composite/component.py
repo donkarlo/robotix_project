@@ -9,7 +9,7 @@ class Component(BaseComponent):
         """
 
         Args:
-            internal_trace_group: we use a group here because in memory meaningful things should be stored and meaning arises only from a population
+            internal_trace_group: we use a group here because in memory meaningful things should be stored and meaning arises only from a sample_population
             name:
         """
         BaseComponent.__init__(self, name)

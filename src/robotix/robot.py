@@ -24,7 +24,7 @@ class Robot(ABC):
 
     def set_name(self, name:str)->None:
         """
-        usualled called ina population of robots
+        usualled called ina sample_population of robots
         Args:
             name:
 

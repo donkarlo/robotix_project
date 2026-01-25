@@ -7,7 +7,7 @@ class Message(Interface):
     - How to build:
         - from spike polulation sequence firings
         - from corpus
-        - first from spike population sequences to corpus and then to episodic
+        - first from spike sample_population sequences to corpus and then to episodic
         - episodic is what ever that describes an entity, mind or body. This description might cause generation of a command or a new description or discarded
     """
     def __init__(self):
