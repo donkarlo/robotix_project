@@ -1,6 +1,6 @@
 class LearningFromExistingLanguage:
     """
-    The idea is to split the concepts described in a nested key value that already exists in the society or in brain by observation and into small meaning alphabets (hex values) and reconstruct them back inrto words
+    The idea is to split the concepts described in a nested key value that already exists in the society or in brain by observer and into small meaning alphabets (hex values) and reconstruct them back inrto words
     """
     def __init__(self, existing_dicts:List[Dict]):
         self._dicts = dicts

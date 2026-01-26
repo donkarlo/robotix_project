@@ -5,13 +5,13 @@ from robotix.structure.kind.body.sensor.kind.group.group import Group
 class SensorSetObsVals:
     def __init__(self, sensor_set: Group):
         """
-        Storing observation vectors for the same sensor set
+        Storing observer vectors for the same sensor set
         Args:
             sensor_set:
         """
         self._sensor_set: Group = sensor_set
         # it will hold sensor id as key and a single_sensor_time_val_seq
-        # as the pair_set for that in a heirarchical order
+        # as the group for that in a heirarchical order
         self._all_nested_sensor_set_vals = {}
         self._time_seq = {}
         self._val_seq = {}

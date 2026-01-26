@@ -1,5 +1,5 @@
-from robotix.structure.kind.mind.cognition.semiotic.meaning.observation.fomation_publisher import FormationPublisher as MeaningFormationPublisher
-from robotix.structure.kind.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
+from robotix.structure.kind.mind.cognition.semiotic.meaning.observer.fomation_publisher import FormationPublisher as MeaningFormationPublisher
+from robotix.structure.kind.mind.cognition.semiotic.meaning.observer.formation_subcriber import FormationSubscriber as MeaningFormationSubscriber
 from robotix.mind.cognition.process.kind.thinking.decision_making.decision_making import DecisionMaking
 from robotix.structure.kind.mind.learning.learning import Learning
 from typing import List
@@ -56,7 +56,7 @@ class Mind(MeaningFormationPublisher):
 
     def reduce_suprise(self):
         """
-        Somehow whenever  a new observation is noticed this must be activated to see how it is possible to reduce free energy.
+        Somehow whenever  a new observer is noticed this must be activated to see how it is possible to reduce free energy.
         ways to reduce:
         - segregation
         - fusion

@@ -7,7 +7,7 @@ from robotix.mind.cognition.process.kind.memory.stack.layer.layer import Layer
 class Horizental:
     """
     maps one layer (mostly of the same depth) of one modality to another
-        - for example maps lidar pair_set to gps
+        - for example maps lidar group to gps
     """
     def __init__(self, mapper, input_modality_layer:List[Modality, Layer], output_modality_layer:List[Modality, Layer]):
         self._mapper = mapper

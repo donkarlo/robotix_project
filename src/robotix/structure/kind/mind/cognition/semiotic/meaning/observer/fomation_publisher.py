@@ -1,7 +1,7 @@
 from typing import List
 
 from robotix.structure.kind.mind.cognition.semiotic.meaning.meaning import Meaning
-from robotix.structure.kind.mind.cognition.semiotic.meaning.observation.formation_subcriber import FormationSubscriber
+from robotix.structure.kind.mind.cognition.semiotic.meaning.observer.formation_subcriber import FormationSubscriber
 
 
 class FormationPublisher:

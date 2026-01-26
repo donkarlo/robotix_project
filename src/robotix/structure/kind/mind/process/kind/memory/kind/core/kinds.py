@@ -3,7 +3,7 @@ from enum import Enum, auto
 
 class Kinds(Enum):
     EXPERIENCE = auto()
-    #such as sensors pair_set
+    #such as sensors group
     MODALITY = auto()
     #partitioned by clustering for example
     CLASSIFIED = auto()

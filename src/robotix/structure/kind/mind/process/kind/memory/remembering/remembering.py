@@ -7,13 +7,13 @@ from robotix.mind.cognition.process.kind.memory.kind.long_term.explicit.episodic
 class Remembering:
     """
     This class abstracts a strategy for remebering
-    The role of remebering by an evidence, episodic or sequence of observation or just will
-    - remembering is the process of bringing (meaningful) pair_set from long-term memory
+    The role of remebering by an evidence, episodic or sequence of observer or just will
+    - remembering is the process of bringing (meaningful) group from long-term memory
     - remebering is always to reduce the suprise as much as possible. we remeber to make our prediction system better
     """
     def __init__(self, order):
         """
-        It is not necessary to set the pair_set os_file as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Working class
+        It is not necessary to set the group os_file as it is already introduced in Memorizing class and Remebering and Memorizing class are bounded in Working class
         """
         self._levels = None
 

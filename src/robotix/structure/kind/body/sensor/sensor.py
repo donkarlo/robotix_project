@@ -7,10 +7,10 @@ from mathx.linalg.tensor.vector.vector import Vector
 class Sensor(ABC):
     def __init__(self, type: str, unit:Unit, freq: Scalar):
         """
-        Observation is decoupled from sensor. sensor holds observation dimension and average frequency and the unit in which the observation is is read
+        Observation is decoupled from sensor. sensor holds observer dimension and average frequency and the unit in which the observer is is read
         Args:
             type: kind.yaml is ncessary because we might have two identical GPS sensors
-            unit: observation value unit unit
+            unit: observer value unit unit
             freq:
         """
         self._type = type

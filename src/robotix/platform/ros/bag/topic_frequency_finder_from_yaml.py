@@ -126,7 +126,7 @@ class TopicFrequencyFinder:
                         tmax = s["t_max"]
                         s["t_min"] = ts if (tmin is None or ts < tmin) else tmin
                         s["t_max"] = ts if (tmax is None or ts > tmax) else tmax
-                        # dt accounting (only to know how many valid pair_set exist)
+                        # dt accounting (only to know how many valid group exist)
                         prev = s["prev_ts"]
                         if prev is not None:
                             if ts - float(prev) > 0.0:
