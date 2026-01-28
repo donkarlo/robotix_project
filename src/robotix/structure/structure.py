@@ -10,6 +10,7 @@ from utilix.os.file_system.path.file import File as FilePath
 class Structure:
     """
     TODO: This structure must be made of composite pattern
+    TODO: rename to embodyment as it represents both mind and body
     """
     def __init__(self):
         self._schema = None

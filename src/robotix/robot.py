@@ -1,5 +1,5 @@
 from typing import Optional
-from robotix.structure.kind.mind.goal.composite.composite import Composite as CompositeGoal
+from robotix.structure.kind.mind.action.goal.composite.composite import Composite as CompositeGoal
 from abc import ABC
 from robotix.structure.structure import Structure
 

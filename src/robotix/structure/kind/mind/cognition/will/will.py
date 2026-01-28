@@ -1,6 +1,6 @@
 from typing import List
 
-from robotix.structure.kind.mind.goal.goal import Goal
+from robotix.structure.kind.mind.action.goal.goal import Goal
 from robotix.structure.kind.body.sensor.observation.observation import Observation
 
 

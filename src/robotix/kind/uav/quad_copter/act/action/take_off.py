@@ -1,4 +1,4 @@
-from robotix.structure.kind.mind.goal.action.composite.component import Component
+from robotix.structure.kind.mind.action.composite.component import Component
 
 
 class TakeOff(Component):

@@ -1,6 +1,6 @@
 
-from robotix.structure.kind.mind.goal.composite.goal import Goal
-from robotix.structure.kind.mind.goal.action.composite.composite import Composite
+from robotix.structure.kind.mind.action.goal.composite.goal import Goal
+from robotix.structure.kind.mind.action.composite.composite import Composite
 from typing import Optional
 
 

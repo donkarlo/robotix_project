@@ -2,8 +2,8 @@ from typing import Optional
 
 from abc import ABC
 
-from robotix.structure.kind.mind.goal.action.composite.composite import Composite
-from robotix.structure.kind.mind.goal.composite.goal import Goal
+from robotix.structure.kind.mind.action.composite.composite import Composite
+from robotix.structure.kind.mind.action.goal.composite.goal import Goal
 from robotix.robot import Robot
 from physix.world.world import World
 
