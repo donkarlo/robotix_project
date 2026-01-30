@@ -11,7 +11,7 @@ class DocumentLoader:
         raw = path.read_text(encoding="utf-8", errors="ignore")
         if len(raw) > self._max_chars_per_file:
             raw = raw[: self._max_chars_per_file]
-        if path.suffix.lower() in (".yaml", ".yml"):
+        if path.suffix.lower() in (".schema.yaml", ".yml"):
             return self._load_yaml_as_pretty_text(raw)
         return raw
 

@@ -19,7 +19,7 @@ class Structure:
         if self._schema is None:
             # it is in current folder
             current_dir_path = FilePath(__file__).get_containing_abolute_directory_path()
-            current_file_path = current_dir_path + "structure.yaml"
+            current_file_path = current_dir_path + "structure.schema.yaml"
             yaml_os_file = OsFile(FilePath(current_file_path), None, None)
             yaml = YamlStorage(yaml_os_file, None)
             self._schema = yaml.get_ram()

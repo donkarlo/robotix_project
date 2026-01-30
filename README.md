@@ -3,3 +3,4 @@
 # Goal
 This project proposes a cognitive framework for a single robot to continously achieve homeostasis
 goals by keeping an equilibrium between human given tasks, battery level, etc according to the forcasting models it builds and continousely update
+ 

@@ -1,4 +1,4 @@
-from robotix.structure.kind.mind.action.goal.composite.goal import Goal
+from robotix.action.goal.composite.goal import Goal
 from robotix.kind.uav.quad_copter.act.actuator.rotor_set import RotorSet
 from robotix.kind.uav.quad_copter.quad_copter import QuadCopter
 from typing import Optional

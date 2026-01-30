@@ -139,7 +139,7 @@ class MessageFrequency99CI:
 
 
 if __name__ == "__main__":
-    path = "/home/donkarlo/Dropbox/phd/data/experiements/oldest/robots/uav1/mind/memory/long_term/explicit/episodic/normal/all_modalities.yaml"
+    path = "/home/donkarlo/Dropbox/phd/data/experiements/oldest/robots/uav1/mind/memory/long_term/explicit/episodic/normal/all_modalities.schema.yaml"
     topics = [
         "/uav1/odometry/odom_gps",
         "/uav1/rplidar/scan",

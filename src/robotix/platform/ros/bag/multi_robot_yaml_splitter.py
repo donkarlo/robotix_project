@@ -42,8 +42,8 @@ class UltraFastNamedSplitter:
     We capture a 'pending header/topic' and attach it to the next started document.
 
     Output:
-      - One temporary file per robot during processing: <robot>.tmp.yaml
-      - At the end, rename to: <robot>_<type1>_<type2>_... .yaml
+      - One temporary file per robot during processing: <robot>.tmp.schema.yaml
+      - At the end, rename to: <robot>_<type1>_<type2>_... .schema.yaml
         where <describer*> are unique tokens (order of first appearance across the file).
     """
 
@@ -55,7 +55,7 @@ class UltraFastNamedSplitter:
         self.out_dir.mkdir(parents=True, exist_ok=True)
         self.emit_unknown = emit_unknown
 
-        # Handles to temp outputs: robot -> file handle (robot.tmp.yaml)
+        # Handles to temp outputs: robot -> file handle (robot.tmp.schema.yaml)
         self._handles: Dict[str, IO[str]] = {}
         # Unknown (optional)
         self._unknown: Optional[IO[str]] = None
@@ -78,7 +78,7 @@ class UltraFastNamedSplitter:
     # ---------- helpers ----------
     def _out_robot_tmp(self, robot: str) -> IO[str]:
         if robot not in self._handles:
-            p = self.out_dir / f"{robot}.tmp.yaml"
+            p = self.out_dir / f"{robot}.tmp.schema.yaml"
             self._handles[robot] = p.open("a", encoding="utf-8", buffering=1024 * 1024)
             self._robot_types_ordered.setdefault(robot, [])
             self._robot_types_seen.setdefault(robot, set())
@@ -86,7 +86,7 @@ class UltraFastNamedSplitter:
 
     def _out_unknown(self) -> IO[str]:
         if self._unknown is None:
-            p = self.out_dir / "unknown.yaml"
+            p = self.out_dir / "unknown.schema.yaml"
             self._unknown = p.open("a", encoding="utf-8", buffering=1024 * 1024)
         return self._unknown
 
@@ -188,7 +188,7 @@ class UltraFastNamedSplitter:
             h.close()
             types = self._robot_types_ordered.get(robot, [])
             suffix = "_" + "_".join(types) if types else ""
-            final_name = f"{robot}{suffix}.yaml"
+            final_name = f"{robot}{suffix}.schema.yaml"
             final_path = self.out_dir / final_name
             if final_path.exists():
                 final_path.unlink()
@@ -213,7 +213,7 @@ if __name__ == "__main__":
     default_out = str(Path(src).parent)
     out_dir = input(f"Output directory [default: {default_out}]: ").strip() or default_out
 
-    ans = input("Write docs without '# topic:' into unknown.yaml? [y/N]: ").strip().lower()
+    ans = input("Write docs without '# topic:' into unknown.schema.yaml? [y/N]: ").strip().lower()
     emit_unknown = ans == "y"
 
     splitter = UltraFastNamedSplitter(src, out_dir=out_dir, emit_unknown=emit_unknown)

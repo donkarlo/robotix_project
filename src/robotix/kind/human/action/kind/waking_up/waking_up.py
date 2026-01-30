@@ -1,0 +1,2 @@
+class WakingUp:
+    pass

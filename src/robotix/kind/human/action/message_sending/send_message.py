@@ -1,6 +1,6 @@
 from typing import Any
 
-from robotix.structure.kind.mind.action.composite.component import Component
+from robotix.action.composite.component import Component
 
 
 class SendMessage(Component):

@@ -13,7 +13,7 @@ class Storaged(TraceGroupDecorator, StorageInterface):
     """
     def __init__(self, inner:TraceGroup, storage: MultiValuedStorageInterface):
         """
-        The internal_storage in storaged is brain or physical part of the mind
+        The internal_storage in storaged is brain or body part of the mind
         """
         TraceGroupDecorator.__init__(self, inner)
         self._storage = storage

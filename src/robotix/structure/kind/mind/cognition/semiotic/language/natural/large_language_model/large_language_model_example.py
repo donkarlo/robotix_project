@@ -44,7 +44,7 @@ class RuntimeConfig:
     embed_model_gguf: Path
     chat_model_gguf: Path
 
-    extensions: Tuple[str, ...] = (".yaml", ".yml", ".tex", ".md", ".txt")
+    extensions: Tuple[str, ...] = (".schema.yaml", ".yml", ".tex", ".md", ".txt")
     max_files: int = 5000
     include_roots: Optional[List[Path]] = None
 
@@ -191,7 +191,7 @@ class DocumentLoader:
         raw = path.read_text(encoding="utf-8", errors="ignore")
         if len(raw) > self._max_chars_per_file:
             raw = raw[: self._max_chars_per_file]
-        if path.suffix.lower() in (".yaml", ".yml"):
+        if path.suffix.lower() in (".schema.yaml", ".yml"):
             return self._load_yaml_as_pretty_text(raw)
         return raw
 

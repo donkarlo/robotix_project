@@ -16,7 +16,7 @@ class TopicFrequencyFinder:
     """
     Read either:
       - a YAML(.gz) dump created from rosbag (stream-parse header.stamp), or
-      - a .bag file (query 'rosbag information --yaml' and compute avg freq as count/duration).
+      - a .bag file (query 'rosbag information --schema.yaml' and compute avg freq as count/duration).
     Reports, for each topic: episodic count and a frequency estimate.
     """
 
@@ -30,8 +30,8 @@ class TopicFrequencyFinder:
     # ---------- Public API ----------
 
     def stats(self) -> Dict[str, TopicStat]:
-        if self._path.endswith(".yaml") or self._path.endswith(".yml") or self._path.endswith(
-                ".yaml.gz") or self._path.endswith(".yml.gz"):
+        if self._path.endswith(".schema.yaml") or self._path.endswith(".yml") or self._path.endswith(
+                ".schema.yaml.gz") or self._path.endswith(".yml.gz"):
             return self._stats_from_yaml_stream()
         elif self._path.endswith(".bag"):
             return self._stats_from_bag_cli()
@@ -156,17 +156,17 @@ class TopicFrequencyFinder:
             out[t] = TopicStat(topic=t, count=count, t_min=t_min, t_max=t_max, freq_avg_hz=freq_avg)
         return out
 
-    # ---------- .bag str_path via 'rosbag information --yaml' ----------
+    # ---------- .bag str_path via 'rosbag information --schema.yaml' ----------
 
     def _stats_from_bag_cli(self) -> Dict[str, TopicStat]:
         """
-        Use `rosbag information --yaml <file.bag>` to get per-topic episodic counts and bag duration.
+        Use `rosbag information --schema.yaml <file.bag>` to get per-topic episodic counts and bag duration.
         Compute avg frequency per topic = count / duration (coarse but useful).
         Requires ROS Noetic 'rosbag' installed and on PATH.
         """
         try:
             res = subprocess.run(
-                ["rosbag", "information", "--yaml", self._path],
+                ["rosbag", "information", "--schema.yaml", self._path],
                 check=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
@@ -190,7 +190,7 @@ class TopicFrequencyFinder:
     @staticmethod
     def _parse_duration_seconds(info_yaml: str) -> Optional[float]:
         """
-        Very small YAML-ish parser for the 'duration:' field line in rosbag information --yaml.
+        Very small YAML-ish parser for the 'duration:' field line in rosbag information --schema.yaml.
         Accepts formats like 'duration: 123.456s' or 'duration: 123.456'.
         """
         for line in info_yaml.splitlines():
@@ -208,7 +208,7 @@ class TopicFrequencyFinder:
     @staticmethod
     def _parse_topics_counts(info_yaml: str) -> List[Tuple[str, int]]:
         """
-        Parse the 'topics:' section of rosbag information --yaml to get (topic_name, messages_count).
+        Parse the 'topics:' section of rosbag information --schema.yaml to get (topic_name, messages_count).
         """
         lines = info_yaml.splitlines()
         topics: List[Tuple[str, int]] = []
@@ -245,7 +245,7 @@ class TopicFrequencyFinder:
 # ---------- PublisherExample usage ----------
 if __name__ == "__main__":
     # PublisherExample 1: YAML dump (recommended for Python 3.13)
-    yaml_path = "/home/donkarlo/Dropbox/projs/research/data/self-aware-drones/ctumrs/two-drones/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml"
+    yaml_path = "/home/donkarlo/Dropbox/projs/research/data/self-aware-drones/ctumrs/two-drones/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.schema.yaml"
     bag1 = TopicFrequencyFinder(yaml_path)
     stats1 = bag1.stats()
     print(f"{'topic':30s} {'count':>10s} {'t_min':>14s} {'t_max':>14s} {'freq_avg(Hz)':>14s}")
@@ -257,7 +257,7 @@ if __name__ == "__main__":
         tmax = "n/a" if s.t_max is None else f"{s.t_max:.3f}"
         print(f"{t:30s} {s.count:10d} {tmin:14s} {tmax:14s} {f:14s}")
 
-    # PublisherExample 2: .bag (fallback via 'rosbag information --yaml', gives avg freq as count/duration)
+    # PublisherExample 2: .bag (fallback via 'rosbag information --schema.yaml', gives avg freq as count/duration)
     # bag_path = "/str_path/to/file.bag"
     # bag2 = TopicFrequencyFinder(bag_path)
     # stats2 = bag2.stats()

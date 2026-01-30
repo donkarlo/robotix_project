@@ -1,0 +1,27 @@
+"waking up":
+  { time_span:
+      {
+        start: "<-",
+        end: "5:40"
+      },
+    feedback:
+      {
+        sleep:
+          {
+            garmin:
+              {
+                record: "51",
+                duration: "5h15"
+              },
+            weight: "83kg"
+          }
+      },
+    details:
+      {
+
+      },
+    children:
+      {
+
+      }
+  }

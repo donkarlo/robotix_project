@@ -1,6 +1,6 @@
-from robotix.structure.kind.mind.action.composite.component import Component
+from robotix.action.composite.component import Component
 from physix.quantity.kind.dynamic.kinematic.pose.position.position import Position
-from robotix.structure.kind.mind.action.goal.goal import Goal
+from robotix.action.goal.goal import Goal
 
 
 class GoTo(Component):

@@ -7,7 +7,7 @@ from robotix.structure.kind.mind.process.kind.memory.composite.trace.trace impor
 class PopulationFilled(Trace):
     def __init__(self, formatted_data:Any, time:float, kind:int):
         """
-        time and role are already determined by a sample_population of activity field from example by ROS
+        time and role are already determined by a population of activity field from example by ROS
         Args:
             formatted_data: 
             time: 

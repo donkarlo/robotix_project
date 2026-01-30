@@ -58,7 +58,7 @@ class  GaussianedQuaternionKinematic(TraceGroup, TraceGroupKind):
         position_trace_group_storage = MultiValuedNumPi(os_file, True)
         position_trace_group_storage.set_ram(time_position_seq)
 
-        # TODO: must be removed and add a segrgated memory composite in all_modalities.yaml
+        # TODO: must be removed and add a segrgated memory composite in all_modalities.schema.yaml
         position_trace_group_storage.save()
 
 

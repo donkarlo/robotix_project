@@ -1,4 +1,4 @@
 class Physical:
     """
-    such as a physical action such as moving
+    such as a body action such as moving
     """

@@ -13,7 +13,7 @@
 #
 #     def __init__(self, inner: CompositeMemoryDecorator, internal_storage:StorageInterface):
 #         """
-#         The internal_storage in storaged is brain or physical part of the mind
+#         The internal_storage in storaged is brain or body part of the mind
 #         """
 #         CompositeMemoryDecorator.__init__(self, inner)
 #         self._internal_storage = internal_storage

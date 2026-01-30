@@ -9,7 +9,7 @@ class Sensor(ABC):
         """
         Observation is decoupled from sensor. sensor holds observer dimension and average frequency and the unit in which the observer is is read
         Args:
-            type: kind.yaml is ncessary because we might have two identical GPS sensors
+            type: kind.schema.yaml is ncessary because we might have two identical GPS sensors
             unit: observer value unit unit
             freq:
         """
